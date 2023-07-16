@@ -5,39 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alexander Sandholdt</title>
 
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/img/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/img/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/img/favicon/site.webmanifest" />
+    <link rel="shortcut icon" href="/img/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta
+      name="msapplication-config"
+      content="/img/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <!-- Links: instagram/alexandersandholdt, in/alexandersandholdt, mail@alexandersandholdt.dk -->
-    <div id="links">
-      <span
-        ><a href="https://instagram.com/alexandersandholdt" target="_blank"
-          >instagram/alexandersandholdt</a
-        >
-        |
-        <a
-          href="https://www.linkedin.com/in/alexandersandholdt/"
-          target="_blank"
-          >in/alexandersandholdt</a
-        >
-        |
-        <a href="mailto:mail@alexandersandholdt.dk"
-          >mail@alexandersandholdt.dk</a
-        ></span
-      >
-    </div>
+    <header>
+      <div id="topbar">
+        <a href="#"><img src="img/signature.png" alt="" class="signature" /></a>
 
-    <!-- Legal: Copyright © (&copy;) 2023 Alexander Sandholdt - Alle rettigheder forbeholdt. | CVR: 43768085 (https://datacvr.virk.dk/enhed/virksomhed/43768085) -->
-    <div id="legal">
-      <small>
-        Copyright &copy; 2023 Alexander Sandholdt - Alle rettigheder forbeholdt.
-        |
-        <a
-          href="https://datacvr.virk.dk/enhed/virksomhed/43768085"
-          target="_blank"
-          >CVR: 43768085</a
-        ></small
-      >
-    </div>
+        <nav id="main-nav">
+          <ul>
+            <li><a href="">Om & baggrund</a></li>
+            <li class="active"><a href="">Projekter</a></li>
+            <li><a href="">Vidnesbyrd</a></li>
+          </ul>
+        </nav>
+
+        <!-- Links: instagram/alexandersandholdt, in/alexandersandholdt, mail@alexandersandholdt.dk -->
+        <div id="some-links">
+          <span
+            ><a href="https://instagram.com/alexandersandholdt" target="_blank"
+              >instagram/alexandersandholdt</a
+            >
+            |
+            <a
+              href="https://www.linkedin.com/in/alexandersandholdt/"
+              target="_blank"
+              >in/alexandersandholdt</a
+            >
+            |
+            <a href="mailto:mail@alexandersandholdt.dk"
+              >mail@alexandersandholdt.dk</a
+            ></span
+          >
+        </div>
+      </div>
+      <div class="landing">
+        <h1>Alexander<br />Sandholdt</h1>
+      </div>
+    </header>
+
+    <section id="about"></section>
+    <section id="cases"></section>
+    <section id="testimonials"></section>
+
+    <footer>
+      <div class="bye-message"><p>Lorem ipsum dollar sit amet.</p></div>
+      <div class="legal-section">
+        <!-- Legal: Copyright © (&copy;) 2023 Alexander Sandholdt - Alle rettigheder forbeholdt. | CVR: 43768085 (https://datacvr.virk.dk/enhed/virksomhed/43768085) -->
+        <div id="legal">
+          <small>
+            Copyright &copy; 2023 Alexander Sandholdt - Alle rettigheder
+            forbeholdt. |
+            <a
+              class="cvr"
+              href="https://datacvr.virk.dk/enhed/virksomhed/43768085"
+              target="_blank"
+              >CVR: 43768085</a
+            ></small
+          >
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
