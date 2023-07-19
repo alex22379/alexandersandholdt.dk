@@ -35,37 +35,12 @@ header .landing h1 {
   flex-direction: column;
   align-items: center;
   padding: 0.5rem 0;
-  gap: 0.5rem;
-  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.4));
+  /*filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.4));*/
 }
 
 #topbar .signature {
   height: 2.5em;
   width: auto;
-}
-
-#main-nav ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-#main-nav ul li a {
-  text-transform: uppercase;
-  text-decoration: none;
-  color: black;
-  font-size: 1em;
-  padding: 0.35rem 0.75rem;
-}
-
-#main-nav ul li a:hover {
-  color: white;
-  background: rgba(0, 0, 0, 0.8);
-}
-
-#main-nav ul li.active a {
-  text-decoration: underline;
 }
 
 #some-links {
@@ -88,7 +63,7 @@ header .landing h1 {
   cursor: pointer;
 }
 
-section {
+main section {
   min-height: 100vh;
   max-width: 100vw;
   scroll-snap-align: start;
@@ -98,7 +73,7 @@ section {
   background-color: blue;
 }
 
-#cases {
+#portfolio {
   background-color: green;
 }
 
