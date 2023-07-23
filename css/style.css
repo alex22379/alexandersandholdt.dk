@@ -1,0 +1,239 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+}
+html body {
+  background: #fafafa;
+}
+
+#topbar {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 100;
+  padding: 0.5rem 0;
+  /*filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.4));*/
+}
+#topbar .site-identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.2rem 0.5rem;
+  transition: all 300ms ease;
+}
+#topbar .site-identity .signature img {
+  height: 2.5em;
+  width: auto;
+  transition: all ease-out 75ms;
+}
+#topbar .site-identity .signature img:hover {
+  transform: scale(105%);
+}
+#topbar .site-identity .links {
+  width: 100%;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#topbar .site-identity .links a {
+  text-decoration: none;
+  color: blue;
+  font-size: 1.1em;
+}
+#topbar .site-identity .links a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  background: rgb(247, 247, 247);
+  background: radial-gradient(circle, rgb(247, 247, 247) 0%, rgb(235, 235, 235) 35%, rgb(213, 213, 213) 100%);
+  scroll-snap-align: end;
+  min-height: 85vh;
+  position: relative;
+}
+
+footer .bye-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5rem 0;
+}
+
+footer .legal-section {
+  background: #000138;
+  height: 1.6em;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 50;
+}
+
+#legal {
+  position: fixed;
+  bottom: 0.3rem;
+  width: 100%;
+  color: silver;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+#legal .cvr {
+  color: inherit;
+  text-decoration: none;
+}
+#legal small:hover .cvr {
+  text-decoration: underline;
+  color: white;
+}
+
+.custom-shape-divider-top-1690113267 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1690113267 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 113px;
+}
+
+.custom-shape-divider-top-1690113267 .shape-fill {
+  fill: #fafafa;
+}
+
+.custom-shape-divider-bottom-1690115726 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1690115726 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 124px;
+}
+
+.custom-shape-divider-bottom-1690115726 .shape-fill {
+  fill: #fafafa;
+}
+
+.custom-shape-divider-bottom-1690115726 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1690115726 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 124px;
+}
+
+.custom-shape-divider-bottom-1690115726 .shape-fill {
+  fill: #fafafa;
+}
+
+.custom-shape-divider-bottom-1690112102 {
+  position: absolute;
+  bottom: 1.6em;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1690112102 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 28px;
+}
+
+.custom-shape-divider-bottom-1690112102 .shape-fill {
+  fill: #000138;
+}
+
+.custom-shape-divider-bottom-1690112544 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1690112544 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 81px;
+}
+
+.custom-shape-divider-bottom-1690112544 .shape-fill {
+  fill: #d5d5d5;
+}
+
+header {
+  max-width: 100vw;
+  scroll-snap-align: start;
+}
+
+header .landing {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .landing h1 {
+  font-size: 11em;
+  color: #000138;
+}
+
+main section {
+  min-height: 100vh;
+  max-width: 100vw;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+#about {
+  background-image: url("../img/christiansborg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}/*# sourceMappingURL=style.css.map */

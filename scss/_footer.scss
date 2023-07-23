@@ -1,0 +1,55 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  background: rgb(247, 247, 247);
+  background: radial-gradient(
+    circle,
+    rgba(247, 247, 247, 1) 0%,
+    rgba(235, 235, 235, 1) 35%,
+    rgba(213, 213, 213, 1) 100%
+  );
+
+  scroll-snap-align: end;
+  min-height: 85vh;
+  position: relative;
+}
+
+footer .bye-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5rem 0;
+}
+
+footer .legal-section {
+  background: #000138;
+  height: 1.6em;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 50;
+}
+
+#legal {
+  position: fixed;
+  bottom: 0.3rem;
+  width: 100%;
+
+  color: silver;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 99;
+
+  .cvr {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  small:hover .cvr {
+    text-decoration: underline;
+    color: white;
+  }
+}

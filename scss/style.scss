@@ -1,0 +1,40 @@
+@use '_main.scss';
+@use '_topbar.scss';
+@use '_footer.scss';
+@use '_curves.scss';
+
+header {
+  max-width: 100vw;
+  scroll-snap-align: start;
+}
+
+header .landing {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .landing h1 {
+  font-size: 11em;
+  color: #000138;
+}
+
+main section {
+  min-height: 100vh;
+  max-width: 100vw;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+#about {
+  background-image: url('../img/christiansborg.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#portfolio {
+}

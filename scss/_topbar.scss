@@ -1,0 +1,48 @@
+#topbar {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 100;
+  padding: 0.5rem 0;
+  /*filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.4));*/
+
+  .site-identity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.2rem 0.5rem;
+    transition: all 300ms ease;
+
+    .signature img {
+      height: 2.5em;
+      width: auto;
+
+      transition: all ease-out 75ms;
+      &:hover {
+        transform: scale(105%);
+      }
+    }
+
+    .links {
+      width: 100%;
+
+      cursor: default;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      a {
+        text-decoration: none;
+        color: blue;
+        font-size: 1.1em;
+
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
