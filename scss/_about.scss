@@ -1,0 +1,41 @@
+#about {
+  scroll-snap-align: start;
+  background: rgb(75, 108, 183);
+  background: linear-gradient(
+    90deg,
+    rgba(75, 108, 183, 1) 0%,
+    rgba(24, 40, 72, 1) 100%
+  );
+  background-attachment: fixed;
+
+  min-height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+
+    div {
+      margin: 1rem;
+    }
+
+    .photo img {
+      max-height: 25em;
+      width: auto;
+      border-radius: 10rem 2rem 2rem 2rem;
+    }
+  }
+
+  color: white;
+
+  h3 {
+    font-size: 3.5em;
+  }
+
+  p {
+    font-size: 1.2em;
+  }
+}

@@ -9,26 +9,26 @@
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="/img/favicon/apple-touch-icon.png"
+      href="/assets/favicon/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/img/favicon/favicon-32x32.png"
+      href="/assets/favicon/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="/img/favicon/favicon-16x16.png"
+      href="/assets/favicon/favicon-16x16.png"
     />
-    <link rel="manifest" href="/img/favicon/site.webmanifest" />
-    <link rel="shortcut icon" href="/img/favicon/favicon.ico" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta
       name="msapplication-config"
-      content="/img/favicon/browserconfig.xml"
+      content="/assets/favicon/browserconfig.xml"
     />
     <meta name="theme-color" content="#ffffff" />
 
@@ -38,49 +38,51 @@
     <!-- Scripts -->
 
     <!-- Font Awesome -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <nav id="side-nav" style="display: none">
-      <ul>
-        <li><a href="#about"></a></li>
-        <li><a href="#portfolio" data-sectionTitle="Portefølje"></a></li>
-        <li><a href="#testimonials" data-sectionTitle="Udtalelser"></a></li>
-      </ul>
-    </nav>
+    <menu id="topbar">
+      <div class="site-identity">
+        <a class="signature" href="#"
+          ><img src="/assets/img/signature.png" alt=""
+        /></a>
 
-    <header>
-      <div id="topbar">
-        <div class="site-identity">
-          <a class="signature" href="#"
-            ><img src="img/signature.png" alt=""
-          /></a>
-
-          <!-- Links: instagram/alexandersandholdt, in/alexandersandholdt, mail@alexandersandholdt.dk -->
-          <div class="links">
-            <span
-              ><a
-                href="https://instagram.com/alexandersandholdt"
-                target="_blank"
-                >instagram/alexandersandholdt</a
-              >
-              &#x2022;
-              <a
-                href="https://www.linkedin.com/in/alexandersandholdt/"
-                target="_blank"
-                >in/alexandersandholdt</a
-              >
-              &#x2022;
-              <a href="mailto:mail@alexandersandholdt.dk"
-                >mail@alexandersandholdt.dk</a
-              ></span
+        <!-- Links: instagram/alexandersandholdt, in/alexandersandholdt, mail@alexandersandholdt.dk -->
+        <div class="links">
+          <address>
+            <a href="https://instagram.com/alexandersandholdt" target="_blank"
+              >instagram/alexandersandholdt</a
             >
-          </div>
+            &#x2022;
+            <a
+              href="https://www.linkedin.com/in/alexandersandholdt/"
+              target="_blank"
+              >in/alexandersandholdt</a
+            >
+            &#x2022;
+            <a href="mailto:mail@alexandersandholdt.dk"
+              >mail@alexandersandholdt.dk</a
+            >
+          </address>
         </div>
       </div>
+    </menu>
 
-      <div class="landing">
-        <h1>Alexander<br />Sandholdt</h1>
-      </div>
+    <header>
+      <h1>Alexander<br />Sandholdt</h1>
+      <a class="jump-to-section" href="#about"
+        ><img
+          class="jump-to-section__arrow"
+          src="/assets/icons/down-arrow.svg"
+          alt="downwards arrow"
+      /></a>
     </header>
 
     <main>
@@ -107,6 +109,29 @@
               class="shape-fill"
             ></path>
           </svg>
+        </div>
+
+        <div class="container">
+          <div class="photo"><img src="/assets/img/portrait.jpg" alt="" /></div>
+          <div class="">
+            <h3>Hej, velkommen til</h3>
+            <p>
+              Mit navn er Alexander - på siden her fremvises nogle af mine
+              projekter
+              <br /><br />
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+              alias tenetur nostrum excepturi perferendis officia accusantium
+              explicabo nemo voluptatem minima voluptatibus minus error, libero
+              earum nulla molestias. Nihil, esse ipsam. Lorem ipsum dolor, sit
+              amet consectetur adipisicing elit. Vel ea consectetur sunt
+              excepturi eligendi. Commodi corrupti atque officia, eos nemo, odio
+              repudiandae temporibus corporis fuga autem iste cum, dolor
+              veritatis.
+              <br /><br />
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
+              culpa nisi nesciunt.
+            </p>
+          </div>
         </div>
 
         <div class="custom-shape-divider-bottom-1690115726">
@@ -137,25 +162,8 @@
       <section id="portfolio"></section>
     </main>
 
-    <div class="pre-footer" style="position: relative">
-      <div class="custom-shape-divider-bottom-1690112544">
-        <svg
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-            class="shape-fill"
-          ></path>
-        </svg>
-      </div>
-    </div>
     <footer>
-      <div class="bye-message"><p>Lorem ipsum dollar sit amet.</p></div>
-
-      <div class="custom-shape-divider-bottom-1690112102">
+      <div class="custom-shape-divider-top-1690152900">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -163,27 +171,52 @@
           preserveAspectRatio="none"
         >
           <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            d="M1200 120L0 16.48 0 0 1200 0 1200 120z"
             class="shape-fill"
           ></path>
         </svg>
       </div>
 
-      <div class="legal-section">
-        <!-- Legal: Copyright © (&copy;) 2023 Alexander Sandholdt - Alle rettigheder forbeholdt. | CVR: 43768085 (https://datacvr.virk.dk/enhed/virksomhed/43768085) -->
-        <div id="legal">
-          <small>
-            Copyright &copy; 2023 Alexander Sandholdt - Alle rettigheder
-            forbeholdt. |
-            <a
-              class="cvr"
-              href="https://datacvr.virk.dk/enhed/virksomhed/43768085"
-              target="_blank"
-              >CVR: 43768085</a
-            ></small
-          >
+      <section class="call-to-action">
+        <h3>Henvendelser?</h3>
+        <p>Tøv ikke med at sende mig en mail :)</p>
+        <div class="copy-mail">
+          <input type="mail" value="alexanderhis2201@gmail.com" />
+          <button>
+            <img src="/assets/icons/copy.svg" alt="Copy to clipboard" />
+          </button>
         </div>
-      </div>
+      </section>
+
+      <section class="legal-notice">
+        <div class="custom-shape-divider-bottom-1690112102">
+          <svg
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+              class="shape-fill"
+            ></path>
+          </svg>
+        </div>
+      </section>
     </footer>
+
+    <!-- Legal: Copyright © (&copy;) 2023 Alexander Sandholdt - Alle rettigheder forbeholdt. | CVR: 43768085 (https://datacvr.virk.dk/enhed/virksomhed/43768085) -->
+    <div id="legal">
+      <small>
+        Copyright &copy; 2023 Alexander Sandholdt - Alle rettigheder forbeholdt.
+        |
+        <a
+          class="cvr"
+          href="https://datacvr.virk.dk/enhed/virksomhed/43768085"
+          target="_blank"
+          >CVR: 43768085</a
+        ></small
+      >
+    </div>
   </body>
 </html>

@@ -1,3 +1,5 @@
+@use 'utils' as *;
+
 footer {
   display: flex;
   flex-direction: column;
@@ -12,27 +14,56 @@ footer {
   scroll-snap-align: end;
   min-height: 85vh;
   position: relative;
-}
 
-footer .bye-message {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 5rem 0;
-}
+  .call-to-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10rem 0 0 0;
 
-footer .legal-section {
-  background: #000138;
-  height: 1.6em;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  z-index: 50;
+    .copy-mail {
+      background-color: white;
+      border-radius: 2rem;
+      overflow: hidden;
+      input,
+      button {
+        border: none;
+        margin: 0;
+        padding: 1rem 0.2rem;
+        font-size: 1.25em;
+      }
+
+      img {
+        max-height: 1.25em;
+        width: auto;
+      }
+
+      input {
+        padding-left: 0.75rem;
+      }
+
+      button {
+        padding-right: 0.75rem;
+        background-color: $c1;
+        color: green;
+        display: inline-block;
+      }
+    }
+  }
+
+  .legal-notice {
+    background: $c1;
+    height: 1.4em;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 50;
+  }
 }
 
 #legal {
   position: fixed;
-  bottom: 0.3rem;
+  bottom: 0.3em;
   width: 100%;
 
   color: silver;
@@ -40,16 +71,19 @@ footer .legal-section {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 99999999999999999;
 
-  z-index: 99;
+  font-family: 'merriweather sans';
+  font-size: 0.8em;
 
-  .cvr {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  small:hover .cvr {
-    text-decoration: underline;
-    color: white;
+  small {
+    .cvr {
+      color: inherit;
+      text-decoration: none;
+    }
+    &:hover .cvr {
+      text-decoration: underline;
+      color: white;
+    }
   }
 }

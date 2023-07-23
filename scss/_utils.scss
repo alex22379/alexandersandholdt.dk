@@ -1,0 +1,26 @@
+// Vars
+$default-background-color: #fafafa;
+$c1: #000138;
+
+// Mixins
+
+@mixin zoom($zoom: 10%) {
+  transition: all ease-out 75ms;
+  &:hover {
+    transform: scale(calc(100% + $zoom));
+  }
+}
+
+// Keyframes
+
+@keyframes float {
+  0% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatey(0.75rem);
+  }
+  100% {
+    transform: translatey(0);
+  }
+}
