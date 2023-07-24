@@ -1,3 +1,5 @@
+@use 'utils' as *;
+
 .custom-shape-divider-top-1690113267 {
   position: absolute;
   top: 0;
@@ -15,7 +17,7 @@
 }
 
 .custom-shape-divider-top-1690113267 .shape-fill {
-  fill: #fafafa;
+  fill: $default-background-color;
 }
 
 .custom-shape-divider-bottom-1690115726 {
@@ -36,7 +38,7 @@
 }
 
 .custom-shape-divider-bottom-1690115726 .shape-fill {
-  fill: #fafafa;
+  fill: $default-background-color;
 }
 
 .custom-shape-divider-bottom-1690115726 {
@@ -57,7 +59,7 @@
 }
 
 .custom-shape-divider-bottom-1690115726 .shape-fill {
-  fill: #fafafa;
+  fill: $default-background-color;
 }
 
 .custom-shape-divider-bottom-1690112102 {
@@ -78,7 +80,7 @@
 }
 
 .custom-shape-divider-bottom-1690112102 .shape-fill {
-  fill: #000138;
+  fill: $c1;
 }
 
 .custom-shape-divider-top-1690152900 {
@@ -99,5 +101,5 @@
 }
 
 .custom-shape-divider-top-1690152900 .shape-fill {
-  fill: #fafafa;
+  fill: $default-background-color;
 }

@@ -3,13 +3,8 @@
 footer {
   display: flex;
   flex-direction: column;
-  background: rgb(247, 247, 247);
-  background: radial-gradient(
-    circle,
-    rgba(247, 247, 247, 1) 0%,
-    rgba(235, 235, 235, 1) 35%,
-    rgba(213, 213, 213, 1) 100%
-  );
+  $footer-background-color: #efefef;
+  background: $footer-background-color;
 
   scroll-snap-align: end;
   min-height: 85vh;
@@ -21,32 +16,86 @@ footer {
     align-items: center;
     margin: 10rem 0 0 0;
 
+    .text,
+    .call-to-action {
+      margin: 1rem 0;
+    }
+
+    .text {
+      text-align: center;
+
+      h3 {
+        font-size: 3em;
+      }
+
+      p {
+        font-size: 1.2em;
+      }
+    }
+
     .copy-mail {
+      $g: &;
+
       background-color: white;
-      border-radius: 2rem;
-      overflow: hidden;
+      border-radius: 1rem;
+      position: relative;
+      display: flex;
+
       input,
       button {
         border: none;
+        outline: none;
         margin: 0;
-        padding: 1rem 0.2rem;
-        font-size: 1.25em;
-      }
-
-      img {
-        max-height: 1.25em;
-        width: auto;
+        padding: 1rem;
+        font-size: 1.5em;
       }
 
       input {
-        padding-left: 0.75rem;
+        border-radius: inherit;
       }
 
       button {
-        padding-right: 0.75rem;
+        border-radius: 0 1rem 1rem 0;
         background-color: $c1;
         color: green;
         display: inline-block;
+        color: white;
+        cursor: pointer;
+
+        &:focus,
+        &:hover {
+          background-color: lighten($c1, 5%);
+        }
+
+        &:active {
+          i {
+            transform: scale(90%);
+          }
+        }
+      }
+
+      &:focus-within {
+        outline-style: solid;
+        outline-color: darken($footer-background-color, 4%);
+      }
+
+      &:before {
+        transition: all 250ms ease-in-out;
+        content: 'Mail kopieret';
+        position: absolute;
+        color: red;
+        font-size: 0.8em;
+        bottom: -1.4em;
+        width: 6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: calc(50% - 3rem);
+        opacity: 0%;
+      }
+
+      &.copied:before {
+        opacity: 100%;
       }
     }
   }
@@ -83,7 +132,6 @@ footer {
     }
     &:hover .cvr {
       text-decoration: underline;
-      color: white;
     }
   }
 }

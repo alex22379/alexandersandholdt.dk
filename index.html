@@ -35,9 +35,11 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css" />
 
-    <!-- Scripts -->
-
     <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/c5902196a7.js"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -76,13 +78,12 @@
     </menu>
 
     <header>
-      <h1>Alexander<br />Sandholdt</h1>
-      <a class="jump-to-section" href="#about"
-        ><img
-          class="jump-to-section__arrow"
-          src="/assets/icons/down-arrow.svg"
-          alt="downwards arrow"
-      /></a>
+      <div class="container">
+        <h1>Alexander<br />Sandholdt</h1>
+        <a class="jump-to-section" href="#about">
+          <i class="fa-solid fa-chevron-down"></i
+        ></a>
+      </div>
     </header>
 
     <main>
@@ -178,12 +179,20 @@
       </div>
 
       <section class="call-to-action">
-        <h3>Henvendelser?</h3>
-        <p>Tøv ikke med at sende mig en mail :)</p>
+        <div class="text">
+          <h3>Henvendelser?</h3>
+          <p>Tøv ikke med at sende mig en mail :)</p>
+        </div>
+
         <div class="copy-mail">
-          <input type="mail" value="alexanderhis2201@gmail.com" />
+          <input
+            type="mail"
+            value="mail@alexandersandholdt.dk"
+            readonly
+            onClick="this.select()"
+          />
           <button>
-            <img src="/assets/icons/copy.svg" alt="Copy to clipboard" />
+            <i class="fa-solid fa-copy"></i>
           </button>
         </div>
       </section>
@@ -218,5 +227,8 @@
         ></small
       >
     </div>
+
+    <!-- Scripts -->
+    <script src="/scripts/copy-mail.js"></script>
   </body>
 </html>
