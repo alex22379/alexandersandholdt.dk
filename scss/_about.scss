@@ -19,7 +19,8 @@
     img {
       max-height: inherit;
       width: auto;
-      transition: all 500ms ease-out;
+      transition: all 700ms ease-out;
+      transform: scale(103%);
     }
 
     &:hover {

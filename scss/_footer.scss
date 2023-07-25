@@ -117,7 +117,7 @@ footer {
             transition: all 250ms ease-in-out;
             content: 'Mail kopieret';
             position: absolute;
-            color: green;
+            color: red;
             font-size: 0.8em;
             bottom: -1.4em;
             width: 6rem;
@@ -135,26 +135,29 @@ footer {
       }
 
       .logo-references {
-        justify-content: space-evenly;
         width: 100%;
+        .logos {
+          justify-content: space-evenly;
+          width: 100%;
 
-        .logo-wrapper {
-          img {
-            width: auto;
+          .logo-wrapper {
+            img {
+              width: auto;
 
-            &.to-be-digital {
-              height: 3rem;
+              &.to-be-digital {
+                height: 3rem;
+              }
+
+              &.as-estate {
+                height: 12rem;
+              }
+
+              &.logo-ipsum {
+                height: 10rem;
+              }
             }
-
-            &.as-estate {
-              height: 12rem;
-            }
-
-            &.logo-ipsum {
-              height: 10rem;
-            }
+            @include zoom(5%);
           }
-          @include zoom(2%);
         }
       }
     }

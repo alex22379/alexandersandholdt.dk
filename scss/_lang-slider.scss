@@ -10,11 +10,13 @@
   height: $lang-slider-height;
   width: $lang-slider-width;
   position: relative;
-  background: #cacaca;
+  background: #efefef;
   cursor: pointer;
   border-radius: $lang-slider-height;
   overflow: hidden;
   box-shadow: inset 0 0 0.2rem rgba(0, 0, 0, 0.2);
+  margin: 0.5rem;
+  user-select: none;
 
   .option1,
   .option2,
@@ -26,7 +28,7 @@
     line-height: $lang-slider-height;
     font-size: 0.8em;
     text-transform: uppercase;
-    color: white;
+    color: $c1;
   }
 
   .option1 {
@@ -47,7 +49,7 @@
     top: calc(100% * 0.04);
     left: calc(100% * 0.04);
     transition: transform cubic-bezier(1, 0.11, 1, 1.04) 400ms,
-      background-image linear 400ms;
+      background-image 200ms ease 200ms;
 
     background-image: url('/assets/img/da_flag.png');
     background-position: center;
@@ -56,7 +58,7 @@
 
     &.switch {
       transform: translateX(100%);
-      background-image: url('/assets/img/en_flag.png');
+      background-image: url('/assets/img/eu_flag.png');
     }
   }
 }

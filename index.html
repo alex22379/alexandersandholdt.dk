@@ -48,36 +48,44 @@
       href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@200;300;400;700;800&family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Scripts -->
+    <script src="/scripts/lang-slider.js"></script>
+    <script src="/scripts/copy-mail.js"></script>
   </head>
   <body>
     <menu id="topbar">
-      <div class="flex column">
-        <a class="signature" href="#"
-          ><img src="/assets/img/signature.png" alt=""
-        /></a>
+      <div class="grid-wrapper">
+        <div class="identity flex column">
+          <a class="signature" href="#"
+            ><img src="/assets/img/signature.png" alt=""
+          /></a>
 
-        <!-- Links: instagram/alexandersandholdt, in/alexandersandholdt, mail@alexandersandholdt.dk -->
-        <address class="flex links">
-          <a href="https://instagram.com/alexandersandholdt" target="_blank"
-            >instagram/alexandersandholdt</a
-          >
-          <span> &#x2022; </span>
-          <a
-            href="https://www.linkedin.com/in/alexandersandholdt/"
-            target="_blank"
-            >in/alexandersandholdt</a
-          >
-          <span> &#x2022; </span>
-          <a href="mailto:mail@alexandersandholdt.dk"
-            >mail@alexandersandholdt.dk</a
-          >
-        </address>
-      </div>
+          <!-- Links: instagram/alexandersandholdt, in/alexandersandholdt, mail@alexandersandholdt.dk -->
+          <address class="links">
+            <a href="https://instagram.com/alexandersandholdt" target="_blank"
+              >instagram/alexandersandholdt</a
+            >
+            <span> &#x2022; </span>
+            <a
+              href="https://www.linkedin.com/in/alexandersandholdt/"
+              target="_blank"
+              >in/alexandersandholdt</a
+            >
+            <span> &#x2022; </span>
+            <a href="mailto:mail@alexandersandholdt.dk"
+              >mail@alexandersandholdt.dk</a
+            >
+          </address>
+        </div>
 
-      <div id="lang-slider">
-        <div class="option1">da</div>
-        <div class="option2">en</div>
-        <div class="slider"></div>
+        <div class="lang">
+          <div id="lang-slider">
+            <div class="option1">da</div>
+            <div class="option2">en</div>
+            <div class="slider"></div>
+          </div>
+        </div>
       </div>
     </menu>
 
@@ -96,7 +104,7 @@
 
     <main>
       <section id="about">
-        <div class="custom-shape-divider-top-1690113267">
+        <div class="custom-shape-divider-top-1690259895">
           <svg
             data-name="Layer 1"
             xmlns="http://www.w3.org/2000/svg"
@@ -194,8 +202,10 @@
         <div class="wrapper v-padding flex column">
           <section class="container flex column gap__1 call-to-action">
             <div class="text">
-              <h3>Henvendelser?</h3>
-              <p>Tøv ikke med at sende mig en mail :)</p>
+              <h3 data-lang-path="inquiries.title">Henvendelser?</h3>
+              <p data-lang-path="inquiries.text">
+                Tøv ikke med at sende mig en mail :)
+              </p>
             </div>
 
             <div class="copy-mail">
@@ -205,37 +215,43 @@
                 readonly
                 onClick="this.select()"
               />
-              <button>
+              <button title="Kopier til udklipsholder">
                 <i class="fa-solid fa-copy"></i>
               </button>
             </div>
           </section>
 
-          <section class="container flex logo-references">
-            <div class="logo-wrapper">
-              <a href=""
-                ><img
-                  class="to-be-digital"
-                  src="/assets/img/To Be Digital Logo.svg"
-                  alt=""
-              /></a>
+          <section class="container flex column logo-references">
+            <hr />
+
+            <div class="container flex logos">
+              <div class="logo-wrapper">
+                <a href=""
+                  ><img
+                    class="to-be-digital"
+                    src="/assets/img/To Be Digital Logo.svg"
+                    alt=""
+                /></a>
+              </div>
+              <div class="logo-wrapper">
+                <a href=""
+                  ><img
+                    class="logo-ipsum"
+                    src="https://dstal.com.au/wp-content/uploads/2021/09/logoipsum.png"
+                    alt=""
+                /></a>
+              </div>
+              <div class="logo-wrapper">
+                <a href=""
+                  ><img
+                    class="as-estate"
+                    src="/assets/img/AS ESTATE logo.svg"
+                    alt=""
+                /></a>
+              </div>
             </div>
-            <div class="logo-wrapper">
-              <a href=""
-                ><img
-                  class="logo-ipsum"
-                  src="https://dstal.com.au/wp-content/uploads/2021/09/logoipsum.png"
-                  alt=""
-              /></a>
-            </div>
-            <div class="logo-wrapper">
-              <a href=""
-                ><img
-                  class="as-estate"
-                  src="/assets/img/AS ESTATE logo.svg"
-                  alt=""
-              /></a>
-            </div>
+
+            <hr />
           </section>
         </div>
       </div>
@@ -270,9 +286,5 @@
         ></small
       >
     </div>
-
-    <!-- Scripts -->
-    <script src="/scripts/copy-mail.js"></script>
-    <script src="/scripts/lang-slider.js"></script>
   </body>
 </html>

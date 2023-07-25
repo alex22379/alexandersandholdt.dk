@@ -3,33 +3,49 @@
 #topbar {
   position: fixed;
   top: 0;
-
   z-index: 100;
-  padding: 0.5rem 0;
   width: 100%;
 
-  .signature {
-    img {
-      max-height: 2.5em;
-      width: auto;
+  .grid-wrapper {
+    display: grid;
+    grid-template-columns: calc(100% * (1 / 3)) calc(100% * (1 / 3)) calc(
+        100% * (1 / 3)
+      );
 
-      @include zoom(5%);
-    }
-  }
+    .identity {
+      grid-column: 2;
+      padding: 0.5rem 0;
 
-  .links {
-    cursor: default;
-    font-size: 0.8em;
-    font-family: 'Merriweather Sans';
+      .signature {
+        img {
+          max-height: 2.5em;
+          width: auto;
 
-    a {
-      text-decoration: none;
-      color: blue;
-
-      &:hover {
-        text-decoration: underline;
-        cursor: pointer;
+          @include zoom(5%);
+        }
       }
+      .links {
+        cursor: default;
+        font-size: 0.8em;
+        font-family: 'Merriweather Sans';
+
+        a {
+          text-decoration: none;
+          color: blue;
+
+          &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .lang {
+      grid-column: 3;
+      display: flex;
+      justify-content: end;
+      align-items: start;
     }
   }
 }
