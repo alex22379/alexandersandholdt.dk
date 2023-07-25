@@ -1,5 +1,7 @@
 #about {
   scroll-snap-align: start;
+  min-height: 95vh;
+
   background: rgb(75, 108, 183);
   background: linear-gradient(
     90deg,
@@ -8,43 +10,35 @@
   );
   background-attachment: fixed;
 
-  min-height: 95vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .portrait-wrapper {
+    overflow: hidden;
+    border-radius: 8rem 2rem 2rem 2rem;
+    transition: all 500ms ease-out;
+    max-height: 25rem;
 
-  overflow: hidden;
-
-  .container {
-    display: flex;
-    flex-direction: center;
-    align-items: center;
-
-    div {
-      margin: 1rem;
+    img {
+      max-height: inherit;
+      width: auto;
+      transition: all 500ms ease-out;
     }
-    .photo {
-      img {
-        max-height: 25em;
-        width: auto;
-        border-radius: 10rem 2rem 2rem 2rem;
-        transition: all 350ms ease-out;
 
-        &:hover {
-          filter: grayscale(100%);
-          border-radius: 8rem 2rem 2rem 2rem;
-        }
+    &:hover {
+      border-radius: 6rem 2rem 2rem 2rem;
+
+      img {
+        filter: grayscale(100%);
+        transform: scale(101%);
       }
     }
   }
 
-  color: white;
+  .text-container {
+    h3 {
+      font-size: 3.5em;
+    }
 
-  h3 {
-    font-size: 3.5em;
-  }
-
-  p {
-    font-size: 1.2em;
+    p {
+      font-size: 1.2em;
+    }
   }
 }

@@ -1,0 +1,62 @@
+@use 'utils' as *;
+
+#lang-slider {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  $lang-slider-height: 2rem;
+  $lang-slider-width: 4rem;
+  height: $lang-slider-height;
+  width: $lang-slider-width;
+  position: relative;
+  background: #cacaca;
+  cursor: pointer;
+  border-radius: $lang-slider-height;
+  overflow: hidden;
+  box-shadow: inset 0 0 0.2rem rgba(0, 0, 0, 0.2);
+
+  .option1,
+  .option2,
+  .slider {
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    text-align: center;
+    line-height: $lang-slider-height;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    color: white;
+  }
+
+  .option1 {
+    left: 0;
+  }
+
+  .option2 {
+    right: 0;
+  }
+
+  .slider {
+    position: absolute;
+    right: 0;
+    height: calc(100% * 0.92);
+    width: calc(50% * 0.92);
+    border-radius: $lang-slider-height;
+    background-color: $c1;
+    top: calc(100% * 0.04);
+    left: calc(100% * 0.04);
+    transition: transform cubic-bezier(1, 0.11, 1, 1.04) 400ms,
+      background-image linear 400ms;
+
+    background-image: url('/assets/img/da_flag.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &.switch {
+      transform: translateX(100%);
+      background-image: url('/assets/img/en_flag.png');
+    }
+  }
+}

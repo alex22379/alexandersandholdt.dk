@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,44 +45,52 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@200;300;400;700;800&family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
     <menu id="topbar">
-      <div class="site-identity">
+      <div class="flex column">
         <a class="signature" href="#"
           ><img src="/assets/img/signature.png" alt=""
         /></a>
 
         <!-- Links: instagram/alexandersandholdt, in/alexandersandholdt, mail@alexandersandholdt.dk -->
-        <div class="links">
-          <address>
-            <a href="https://instagram.com/alexandersandholdt" target="_blank"
-              >instagram/alexandersandholdt</a
-            >
-            &#x2022;
-            <a
-              href="https://www.linkedin.com/in/alexandersandholdt/"
-              target="_blank"
-              >in/alexandersandholdt</a
-            >
-            &#x2022;
-            <a href="mailto:mail@alexandersandholdt.dk"
-              >mail@alexandersandholdt.dk</a
-            >
-          </address>
-        </div>
+        <address class="flex links">
+          <a href="https://instagram.com/alexandersandholdt" target="_blank"
+            >instagram/alexandersandholdt</a
+          >
+          <span> &#x2022; </span>
+          <a
+            href="https://www.linkedin.com/in/alexandersandholdt/"
+            target="_blank"
+            >in/alexandersandholdt</a
+          >
+          <span> &#x2022; </span>
+          <a href="mailto:mail@alexandersandholdt.dk"
+            >mail@alexandersandholdt.dk</a
+          >
+        </address>
+      </div>
+
+      <div id="lang-slider">
+        <div class="option1">da</div>
+        <div class="option2">en</div>
+        <div class="slider"></div>
       </div>
     </menu>
 
     <header>
-      <div class="container">
-        <h1>Alexander<br />Sandholdt</h1>
-        <a class="jump-to-section" href="#about">
-          <i class="fa-solid fa-chevron-down"></i
-        ></a>
+      <div class="wrapper v-padding flex column">
+        <div class="container flex title-container">
+          <h1>Alexander<br />Sandholdt</h1>
+        </div>
+        <div class="container flex scroll-container">
+          <a class="flex" href="#about">
+            <i class="fa-solid fa-chevron-down"></i
+          ></a>
+        </div>
       </div>
     </header>
 
@@ -112,9 +120,13 @@
           </svg>
         </div>
 
-        <div class="container">
-          <div class="photo"><img src="/assets/img/portrait.jpg" alt="" /></div>
-          <div class="">
+        <div class="wrapper v-padding flex gap__3">
+          <div class="container">
+            <div class="portrait-wrapper">
+              <img src="/assets/img/portrait.jpg" alt="" />
+            </div>
+          </div>
+          <div class="container text-container text-white">
             <h3>Hej, velkommen til</h3>
             <p>
               Mit navn er Alexander - på siden her fremvises nogle af mine
@@ -178,26 +190,57 @@
         </svg>
       </div>
 
-      <section class="call-to-action">
-        <div class="text">
-          <h3>Henvendelser?</h3>
-          <p>Tøv ikke med at sende mig en mail :)</p>
-        </div>
+      <div class="footer">
+        <div class="wrapper v-padding flex column">
+          <section class="container flex column gap__1 call-to-action">
+            <div class="text">
+              <h3>Henvendelser?</h3>
+              <p>Tøv ikke med at sende mig en mail :)</p>
+            </div>
 
-        <div class="copy-mail">
-          <input
-            type="mail"
-            value="mail@alexandersandholdt.dk"
-            readonly
-            onClick="this.select()"
-          />
-          <button>
-            <i class="fa-solid fa-copy"></i>
-          </button>
-        </div>
-      </section>
+            <div class="copy-mail">
+              <input
+                type="mail"
+                value="mail@alexandersandholdt.dk"
+                readonly
+                onClick="this.select()"
+              />
+              <button>
+                <i class="fa-solid fa-copy"></i>
+              </button>
+            </div>
+          </section>
 
-      <section class="legal-notice">
+          <section class="container flex logo-references">
+            <div class="logo-wrapper">
+              <a href=""
+                ><img
+                  class="to-be-digital"
+                  src="/assets/img/To Be Digital Logo.svg"
+                  alt=""
+              /></a>
+            </div>
+            <div class="logo-wrapper">
+              <a href=""
+                ><img
+                  class="logo-ipsum"
+                  src="https://dstal.com.au/wp-content/uploads/2021/09/logoipsum.png"
+                  alt=""
+              /></a>
+            </div>
+            <div class="logo-wrapper">
+              <a href=""
+                ><img
+                  class="as-estate"
+                  src="/assets/img/AS ESTATE logo.svg"
+                  alt=""
+              /></a>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div class="legal-slot">
         <div class="custom-shape-divider-bottom-1690112102">
           <svg
             data-name="Layer 1"
@@ -211,7 +254,7 @@
             ></path>
           </svg>
         </div>
-      </section>
+      </div>
     </footer>
 
     <!-- Legal: Copyright © (&copy;) 2023 Alexander Sandholdt - Alle rettigheder forbeholdt. | CVR: 43768085 (https://datacvr.virk.dk/enhed/virksomhed/43768085) -->
@@ -230,5 +273,6 @@
 
     <!-- Scripts -->
     <script src="/scripts/copy-mail.js"></script>
+    <script src="/scripts/lang-slider.js"></script>
   </body>
 </html>

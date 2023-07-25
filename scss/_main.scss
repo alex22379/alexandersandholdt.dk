@@ -18,9 +18,37 @@ html {
   }
 }
 
-.container {
+.wrapper {
   width: 65%;
   margin: 0 auto;
+  min-height: inherit;
+}
+
+.v-padding {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.column {
+    flex-direction: column;
+  }
+
+  &.gap {
+    @for $i from 1 through 10 {
+      &__#{$i} {
+        gap: calc(1rem * #{$i});
+      }
+    }
+  }
+}
+
+.text-white {
+  color: white;
 }
 
 h1,

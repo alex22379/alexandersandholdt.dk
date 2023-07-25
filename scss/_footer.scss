@@ -1,115 +1,5 @@
 @use 'utils' as *;
 
-footer {
-  display: flex;
-  flex-direction: column;
-  $footer-background-color: #efefef;
-  background: $footer-background-color;
-
-  scroll-snap-align: end;
-  min-height: 85vh;
-  position: relative;
-
-  .call-to-action {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10rem 0 0 0;
-
-    .text,
-    .call-to-action {
-      margin: 1rem 0;
-    }
-
-    .text {
-      text-align: center;
-
-      h3 {
-        font-size: 3em;
-      }
-
-      p {
-        font-size: 1.2em;
-      }
-    }
-
-    .copy-mail {
-      $g: &;
-
-      background-color: white;
-      border-radius: 1rem;
-      position: relative;
-      display: flex;
-
-      input,
-      button {
-        border: none;
-        outline: none;
-        margin: 0;
-        padding: 1rem;
-        font-size: 1.5em;
-      }
-
-      input {
-        border-radius: inherit;
-      }
-
-      button {
-        border-radius: 0 1rem 1rem 0;
-        background-color: $c1;
-        color: green;
-        display: inline-block;
-        color: white;
-        cursor: pointer;
-
-        &:focus,
-        &:hover {
-          background-color: lighten($c1, 5%);
-        }
-
-        &:active {
-          i {
-            transform: scale(90%);
-          }
-        }
-      }
-
-      &:focus-within {
-        outline-style: solid;
-        outline-color: darken($footer-background-color, 4%);
-      }
-
-      &:before {
-        transition: all 250ms ease-in-out;
-        content: 'Mail kopieret';
-        position: absolute;
-        color: red;
-        font-size: 0.8em;
-        bottom: -1.4em;
-        width: 6rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        left: calc(50% - 3rem);
-        opacity: 0%;
-      }
-
-      &.copied:before {
-        opacity: 100%;
-      }
-    }
-  }
-
-  .legal-notice {
-    background: $c1;
-    height: 1.4em;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    z-index: 50;
-  }
-}
-
 #legal {
   position: fixed;
   bottom: 0.3em;
@@ -132,6 +22,141 @@ footer {
     }
     &:hover .cvr {
       text-decoration: underline;
+    }
+  }
+}
+
+footer {
+  scroll-snap-align: end;
+  min-height: 85vh;
+  $footer-background-color: #efefef;
+  background: $footer-background-color;
+
+  position: relative;
+
+  $legal-slot-height: 1.4em;
+  .legal-slot {
+    background-color: $c1;
+
+    height: $legal-slot-height;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 50;
+  }
+
+  .footer {
+    min-height: calc(85vh - #{$legal-slot-height});
+
+    .wrapper {
+      justify-content: space-around;
+
+      .call-to-action {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .text {
+          text-align: center;
+
+          h3 {
+            font-size: 3em;
+          }
+
+          p {
+            font-size: 1.2em;
+          }
+        }
+
+        .copy-mail {
+          $g: &;
+
+          background-color: white;
+          border-radius: 1rem;
+          position: relative;
+          display: flex;
+
+          input,
+          button {
+            border: none;
+            outline: none;
+            margin: 0;
+            padding: 1rem;
+            font-size: 1.5em;
+          }
+
+          input {
+            border-radius: inherit;
+          }
+
+          button {
+            border-radius: 0 1rem 1rem 0;
+            background-color: $c1;
+            display: inline-block;
+            color: white;
+            cursor: pointer;
+
+            &:focus,
+            &:hover {
+              background-color: lighten($c1, 5%);
+            }
+
+            &:active {
+              i {
+                transform: scale(90%);
+              }
+            }
+          }
+
+          &:focus-within {
+            outline-style: solid;
+            outline-color: darken($footer-background-color, 4%);
+          }
+
+          &:before {
+            transition: all 250ms ease-in-out;
+            content: 'Mail kopieret';
+            position: absolute;
+            color: green;
+            font-size: 0.8em;
+            bottom: -1.4em;
+            width: 6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            left: calc(50% - 3rem);
+            opacity: 0%;
+          }
+
+          &.copied:before {
+            opacity: 100%;
+          }
+        }
+      }
+
+      .logo-references {
+        justify-content: space-evenly;
+        width: 100%;
+
+        .logo-wrapper {
+          img {
+            width: auto;
+
+            &.to-be-digital {
+              height: 3rem;
+            }
+
+            &.as-estate {
+              height: 12rem;
+            }
+
+            &.logo-ipsum {
+              height: 10rem;
+            }
+          }
+          @include zoom(2%);
+        }
+      }
     }
   }
 }
