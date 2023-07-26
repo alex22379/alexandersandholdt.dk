@@ -1,9 +1,9 @@
-@use 'utils' as *;
+@use 'alex22379/utils' as a;
+@use 'vars' as *;
 
 header {
   max-width: 100vw;
   scroll-snap-align: end;
-  min-height: 70vh;
 
   position: relative;
 

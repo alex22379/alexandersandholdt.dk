@@ -1,4 +1,5 @@
-@use 'utils' as *;
+@use 'alex22379/styles' as a;
+
 @use 'main';
 @use 'lang-slider';
 @use 'topbar';
@@ -6,14 +7,3 @@
 @use 'about';
 @use 'footer';
 @use 'curves';
-
-main section {
-  min-height: 100vh;
-  max-width: 100vw;
-  position: relative;
-  background-color: $default-background-color;
-}
-
-#portfolio {
-  scroll-snap-align: end;
-}

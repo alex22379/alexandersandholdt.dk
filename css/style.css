@@ -9,23 +9,6 @@
     transform: translatey(0);
   }
 }
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-}
-html body {
-  background: #fafafa;
-  font-family: "ubuntu";
-}
-
 .wrapper {
   width: 65%;
   margin: 0 auto;
@@ -97,6 +80,30 @@ hr {
   width: 100%;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+html body {
+  background: #fafafa;
+  font-family: "ubuntu";
+}
+html body main section {
+  min-height: 100vh;
+  max-width: 100vw;
+  position: relative;
+  background-color: #fafafa;
+  scroll-snap-align: start;
+}
+
 #lang-slider {
   position: absolute;
   top: 0;
@@ -158,7 +165,7 @@ hr {
 }
 #topbar .grid-wrapper {
   display: grid;
-  grid-template-columns: 33.3333333333% 33.3333333333% 33.3333333333%;
+  grid-template-columns: 10% 80% 10%;
 }
 #topbar .grid-wrapper .identity {
   grid-column: 2;
@@ -195,7 +202,6 @@ hr {
 header {
   max-width: 100vw;
   scroll-snap-align: end;
-  min-height: 70vh;
   position: relative;
 }
 header .title-container h1 {
@@ -227,8 +233,6 @@ header .scroll-container a:hover i {
 }
 
 #about {
-  scroll-snap-align: start;
-  min-height: 95vh;
   background: rgb(75, 108, 183);
   background: linear-gradient(90deg, rgb(75, 108, 183) 0%, rgb(24, 40, 72) 100%);
   background-attachment: fixed;
@@ -282,7 +286,6 @@ header .scroll-container a:hover i {
 
 footer {
   scroll-snap-align: end;
-  min-height: 85vh;
   background: #efefef;
   position: relative;
 }
@@ -376,16 +379,8 @@ footer .footer .wrapper .logo-references .logos .logo-wrapper {
   transition: all ease-out 75ms;
 }
 footer .footer .wrapper .logo-references .logos .logo-wrapper img {
-  width: auto;
-}
-footer .footer .wrapper .logo-references .logos .logo-wrapper img.to-be-digital {
-  height: 3rem;
-}
-footer .footer .wrapper .logo-references .logos .logo-wrapper img.as-estate {
-  height: 12rem;
-}
-footer .footer .wrapper .logo-references .logos .logo-wrapper img.logo-ipsum {
-  height: 10rem;
+  width: 15rem;
+  height: auto;
 }
 footer .footer .wrapper .logo-references .logos .logo-wrapper:hover {
   transform: scale(105%);
@@ -493,15 +488,4 @@ footer .footer .wrapper .logo-references .logos .logo-wrapper:hover {
 
 .custom-shape-divider-top-1690152900 .shape-fill {
   fill: #fafafa;
-}
-
-main section {
-  min-height: 100vh;
-  max-width: 100vw;
-  position: relative;
-  background-color: #fafafa;
-}
-
-#portfolio {
-  scroll-snap-align: end;
 }/*# sourceMappingURL=style.css.map */

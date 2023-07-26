@@ -1,4 +1,4 @@
-window.onload = () => {
+document.addEventListener('DOMContentLoaded', (e) => {
   //updateLang(getLanguage());
 
   const langSlider = document.querySelector('#lang-slider');
@@ -10,9 +10,9 @@ window.onload = () => {
     if (slider.classList.contains('switch')) setLanguage('en');
     else setLanguage('da');
 
-    updateLang(getLanguage());
+    //updateLang(getLanguage());
   });
-};
+});
 
 /*function getJsonValueFromPath(jsonObject, path) {
   try {
@@ -28,10 +28,10 @@ window.onload = () => {
     console.error('Error parsing JSON or traversing the path:', error);
     return undefined;
   }
-}*/
+}
 
 async function updateLang(lang) {
-  /*const res = await fetch(`./lang/${lang}.json`);
+  const res = await fetch(`./lang/${lang}.json`);
   const json = await res.json();
 
   const elements = document.querySelectorAll('[data-lang-path]');
@@ -39,8 +39,8 @@ async function updateLang(lang) {
     const path = element.dataset.langPath;
     let value = getJsonValueFromPath(json, path);
     element.textContent = value;
-  });*/
-}
+  });
+}*/
 
 function getLanguage() {
   let lang = localStorage.getItem('lang');

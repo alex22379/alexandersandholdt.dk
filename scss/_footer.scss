@@ -1,4 +1,5 @@
-@use 'utils' as *;
+@use 'alex22379/utils' as a;
+@use 'vars' as *;
 
 #legal {
   position: fixed;
@@ -28,7 +29,6 @@
 
 footer {
   scroll-snap-align: end;
-  min-height: 85vh;
   $footer-background-color: #efefef;
   background: $footer-background-color;
 
@@ -142,21 +142,10 @@ footer {
 
           .logo-wrapper {
             img {
-              width: auto;
-
-              &.to-be-digital {
-                height: 3rem;
-              }
-
-              &.as-estate {
-                height: 12rem;
-              }
-
-              &.logo-ipsum {
-                height: 10rem;
-              }
+              width: 15rem;
+              height: auto;
             }
-            @include zoom(5%);
+            @include a.zoom(5%);
           }
         }
       }

@@ -1,4 +1,5 @@
-@use 'utils' as *;
+@use 'alex22379/utils' as a;
+@use 'vars' as *;
 
 *,
 *::before,
@@ -15,55 +16,13 @@ html {
   body {
     background: $default-background-color;
     font-family: 'ubuntu';
-  }
-}
 
-.wrapper {
-  width: 65%;
-  margin: 0 auto;
-  min-height: inherit;
-}
-
-.v-padding {
-  padding-top: 8rem;
-  padding-bottom: 8rem;
-}
-
-.flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &.column {
-    flex-direction: column;
-  }
-
-  &.gap {
-    @for $i from 1 through 10 {
-      &__#{$i} {
-        gap: calc(1rem * #{$i});
-      }
+    main section {
+      min-height: 100vh;
+      max-width: 100vw;
+      position: relative;
+      background-color: $default-background-color;
+      scroll-snap-align: start;
     }
   }
-}
-
-.text-white {
-  color: white;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 800;
-}
-
-p {
-  line-height: 150%;
-}
-
-hr {
-  width: 100%;
 }

@@ -1,4 +1,5 @@
-@use 'utils' as *;
+@use 'alex22379/utils' as a;
+@use 'vars' as *;
 
 #topbar {
   position: fixed;
@@ -8,9 +9,7 @@
 
   .grid-wrapper {
     display: grid;
-    grid-template-columns: calc(100% * (1 / 3)) calc(100% * (1 / 3)) calc(
-        100% * (1 / 3)
-      );
+    grid-template-columns: 10% 80% 10%;
 
     .identity {
       grid-column: 2;
@@ -21,7 +20,7 @@
           max-height: 2.5em;
           width: auto;
 
-          @include zoom(5%);
+          @include a.zoom(5%);
         }
       }
       .links {
