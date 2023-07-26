@@ -54,48 +54,44 @@
     <script src="/scripts/copy-mail.js"></script>
   </head>
   <body>
-    <menu id="topbar">
-      <div class="grid-wrapper">
-        <div class="identity flex column">
-          <a class="signature" href="#"
-            ><img src="/assets/img/signature.png" alt=""
-          /></a>
+    <div id="site-identity" class="flex center column py-1">
+      <a class="signature" href="#"
+        ><img src="/assets/img/signature.png" alt=""
+      /></a>
 
-          <!-- Links: instagram/alexandersandholdt, in/alexandersandholdt, mail@alexandersandholdt.dk -->
-          <address class="links">
-            <a href="https://instagram.com/alexandersandholdt" target="_blank"
-              >instagram/alexandersandholdt</a
-            >
-            <span> &#x2022; </span>
-            <a
-              href="https://www.linkedin.com/in/alexandersandholdt/"
-              target="_blank"
-              >in/alexandersandholdt</a
-            >
-            <span> &#x2022; </span>
-            <a href="mailto:mail@alexandersandholdt.dk"
-              >mail@alexandersandholdt.dk</a
-            >
-          </address>
-        </div>
-
-        <div class="lang">
-          <div id="lang-slider">
-            <div class="option1">da</div>
-            <div class="option2">en</div>
-            <div class="slider"></div>
-          </div>
-        </div>
+      <!-- Links: instagram/alexandersandholdt, in/alexandersandholdt, mail@alexandersandholdt.dk -->
+      <div class="links flex gap-1">
+        <a href="https://instagram.com/alexandersandholdt" target="_blank"
+          >instagram/alexandersandholdt</a
+        >
+        <span> &#x2022; </span>
+        <a
+          href="https://www.linkedin.com/in/alexandersandholdt/"
+          target="_blank"
+          >in/alexandersandholdt</a
+        >
+        <span> &#x2022; </span>
+        <a href="mailto:mail@alexandersandholdt.dk"
+          >mail@alexandersandholdt.dk</a
+        >
       </div>
-    </menu>
+    </div>
 
-    <header>
-      <div class="wrapper v-padding flex column">
-        <div class="container flex title-container">
+    <div class="lang m-1">
+      <div id="lang-slider">
+        <div class="option1">da</div>
+        <div class="option2">en</div>
+        <div class="slider"></div>
+      </div>
+    </div>
+
+    <header class="container-wrapper full-height">
+      <div class="container px-3 py-32 flex center column">
+        <div class="title-container">
           <h1>Alexander<br />Sandholdt</h1>
         </div>
-        <div class="container flex scroll-container">
-          <a class="flex" href="#about">
+        <div class="scroll-container">
+          <a class="flex center" href="#profile">
             <i class="fa-solid fa-chevron-down"></i
           ></a>
         </div>
@@ -103,7 +99,7 @@
     </header>
 
     <main>
-      <section id="about">
+      <div class="curves-container pre-profile">
         <div class="custom-shape-divider-top-1690259895">
           <svg
             data-name="Layer 1"
@@ -128,32 +124,34 @@
           </svg>
         </div>
 
-        <div class="wrapper v-padding flex gap__3">
-          <div class="container">
-            <div class="portrait-wrapper">
-              <img src="/assets/img/portrait.jpg" alt="" />
+        <section id="profile" class="container-wrapper">
+          <div class="container center px-3 py-32 flex center">
+            <div class="flex center gap-8">
+              <div class="portrait-container">
+                <div class="portrait-wrapper">
+                  <img src="/assets/img/portrait.jpg" alt="" />
+                </div>
+              </div>
+              <div class="text-container text-white">
+                <h2>Hej, velkommen til</h2>
+                <p>
+                  Som sagt, velkommen til, mit navn er Alexander, <br /><br />
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Impedit alias tenetur nostrum excepturi perferendis officia
+                  accusantium explicabo nemo voluptatem minima voluptatibus
+                  minus error, libero earum nulla molestias. Nihil, esse ipsam.
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel
+                  ea consectetur sunt excepturi eligendi. Commodi corrupti atque
+                  officia, eos nemo, odio repudiandae temporibus corporis fuga
+                  autem iste cum, dolor veritatis.
+                  <br /><br />
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Maiores culpa nisi nesciunt.
+                </p>
+              </div>
             </div>
           </div>
-          <div class="container text-container text-white">
-            <h3>Hej, velkommen til</h3>
-            <p>
-              Mit navn er Alexander - på siden her fremvises nogle af mine
-              projekter
-              <br /><br />
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-              alias tenetur nostrum excepturi perferendis officia accusantium
-              explicabo nemo voluptatem minima voluptatibus minus error, libero
-              earum nulla molestias. Nihil, esse ipsam. Lorem ipsum dolor, sit
-              amet consectetur adipisicing elit. Vel ea consectetur sunt
-              excepturi eligendi. Commodi corrupti atque officia, eos nemo, odio
-              repudiandae temporibus corporis fuga autem iste cum, dolor
-              veritatis.
-              <br /><br />
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
-              culpa nisi nesciunt.
-            </p>
-          </div>
-        </div>
+        </section>
 
         <div class="custom-shape-divider-bottom-1690115726">
           <svg
@@ -178,16 +176,14 @@
             ></path>
           </svg>
         </div>
-      </section>
+      </div>
 
-      <section id="portfolio">
-        <div class="wrapper v-padding flex column">
-          <p>Hmm, her er tomt...</p>
-        </div>
+      <section id="portfolio" class="container px-3 py-32 flex center">
+        <p>Hmm, her er tomt...</p>
       </section>
     </main>
 
-    <footer>
+    <div class="curves-container pre-footer">
       <div class="custom-shape-divider-top-1690152900">
         <svg
           data-name="Layer 1"
@@ -202,16 +198,18 @@
         </svg>
       </div>
 
-      <div class="footer">
-        <div class="wrapper v-padding flex column">
-          <section class="container flex column gap__1 call-to-action">
-            <div class="text">
-              <h3 data-lang-path="inquiries.title">Henvendelser?</h3>
-              <p data-lang-path="inquiries.text">
-                Tøv ikke med at sende mig en mail :)
-              </p>
-            </div>
+      <footer class="container px-3 py-32 flex column center gap-24">
+        <section
+          class="container-fluid flex column center gap-4 call-to-action"
+        >
+          <div class="text text-center">
+            <h2 data-lang-path="inquiries.title">Henvendelser?</h2>
+            <p data-lang-path="inquiries.text">
+              Tøv ikke med at sende mig en mail :)
+            </p>
+          </div>
 
+          <div class="mx-4">
             <div class="copy-mail">
               <input
                 type="mail"
@@ -223,34 +221,34 @@
                 <i class="fa-solid fa-copy"></i>
               </button>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <section class="container flex column logo-references">
-            <hr />
+        <section class="container flex column center logo-references">
+          <hr />
 
-            <div class="container flex logos">
-              <div class="logo-wrapper">
-                <a href="https://www.to-be-digital.dk/" target="_blank"
-                  ><img
-                    class="to-be-digital"
-                    src="/assets/img/To Be Digital Logo.svg"
-                    alt=""
-                /></a>
-              </div>
-              <div class="logo-wrapper">
-                <a href="https://estate.alexandersandholdt.dk/" target="_blank"
-                  ><img
-                    class="as-estate"
-                    src="/assets/img/AS ESTATE logo.svg"
-                    alt=""
-                /></a>
-              </div>
+          <div class="container py-8 px-3 flex center space-evenly">
+            <div class="logo-wrapper flex center">
+              <a href="https://www.to-be-digital.dk/" target="_blank"
+                ><img
+                  class="to-be-digital"
+                  src="/assets/img/logos/to-be-digital.png"
+                  alt=""
+              /></a>
             </div>
+            <div class="logo-wrapper flex center">
+              <a href="https://estate.alexandersandholdt.dk/" target="_blank"
+                ><img
+                  class="as-estate"
+                  src="/assets/img/logos/as-estate.png"
+                  alt=""
+              /></a>
+            </div>
+          </div>
 
-            <hr />
-          </section>
-        </div>
-      </div>
+          <hr />
+        </section>
+      </footer>
 
       <div class="legal-slot">
         <div class="custom-shape-divider-bottom-1690112102">
@@ -267,13 +265,12 @@
           </svg>
         </div>
       </div>
-    </footer>
+    </div>
 
-    <!-- Legal: Copyright © (&copy;) 2023 Alexander Sandholdt - Alle rettigheder forbeholdt. | CVR: 43768085 (https://datacvr.virk.dk/enhed/virksomhed/43768085) -->
+    <!-- Legal: Copyright © (&copy;) 2023 Alexander Sandholdt  | CVR: 43768085 (https://datacvr.virk.dk/enhed/virksomhed/43768085) -->
     <div id="legal">
       <small>
-        Copyright &copy; 2023 Alexander Sandholdt - Alle rettigheder forbeholdt.
-        |
+        Copyright &copy; 2023 Alexander Sandholdt |
         <a
           class="cvr"
           href="https://datacvr.virk.dk/enhed/virksomhed/43768085"

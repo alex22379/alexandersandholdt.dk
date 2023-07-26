@@ -1,9 +1,9 @@
-@use 'alex22379/styles' as a;
+@use 'alex22379' as *;
 
 @use 'main';
 @use 'lang-slider';
-@use 'topbar';
+@use 'site-identity';
 @use 'header';
-@use 'about';
+@use 'profile';
 @use 'footer';
 @use 'curves';

@@ -1,0 +1,244 @@
+@use 'sass:map';
+
+// HELPERS
+
+/// Replace `$search` with `$replace` in `$string`
+/// @author Kitty Giraudel
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
+  }
+
+  @return $string;
+}
+
+// VARIABLES
+
+$device-breakpoints: (
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+  'xxl': 1536px,
+);
+
+// MIXINS
+
+@mixin zoom($zoom: 10%) {
+  transition: all ease-out 75ms;
+  &:hover {
+    transform: scale(calc(100% + $zoom));
+  }
+}
+
+// KEYFRAMES
+
+@keyframes float {
+  0% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatey(0.75rem);
+  }
+  100% {
+    transform: translatey(0);
+  }
+}
+
+// STYLES
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container-wrapper {
+  display: flex;
+
+  &.full-height .container {
+    min-height: 100%;
+  }
+}
+
+.container {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+
+  &-fluid {
+    max-width: 100%;
+  }
+
+  @each $key, $val in $device-breakpoints {
+    @media screen and (min-width: #{$val}) {
+      max-width: #{$val};
+    }
+  }
+}
+
+// Spacers: padding & margin
+
+$spacers: (
+  'p': 'padding',
+  'm': 'margin',
+);
+
+$spacing-direction-properties: (
+  '': (
+    '',
+  ),
+  'x': (
+    '-left',
+    '-right',
+  ),
+  'y': (
+    '-top',
+    '-bottom',
+  ),
+  't': (
+    '-top',
+  ),
+  'r': (
+    '-right',
+  ),
+  'b': (
+    '-bottom',
+  ),
+  'l': (
+    '-left',
+  ),
+);
+
+@for $i from 0 through (96 * 2) {
+  $size: $i * 0.5;
+  $spacing: 0.25rem * $size;
+
+  $sizeSelector: str-replace(#{$size}, '.', '\\.');
+
+  @each $spaceSelector, $spaceProp in $spacers {
+    @each $directionSelector, $directionProps in $spacing-direction-properties {
+      .#{$spaceSelector}#{$directionSelector}-#{$sizeSelector} {
+        @each $directionProp in $directionProps {
+          #{$spaceProp}#{$directionProp}: $spacing;
+        }
+      }
+    }
+  }
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+
+  &:not(.column) {
+    @media screen and (min-width: map.get($device-breakpoints, 'lg')) {
+      flex-direction: row;
+    }
+  }
+
+  &.row {
+    flex-direction: row;
+  }
+
+  &.center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.space-between {
+    justify-content: space-between;
+  }
+  &.space-around {
+    justify-content: space-around;
+  }
+  &.space-evenly {
+    justify-content: space-evenly;
+  }
+
+  &.gap {
+    @for $i from 0 through (96 * 2) {
+      $size: $i * 0.5;
+      $spacing: 0.25rem * $size;
+      $sizeSelector: str-replace(#{$size}, '.', '\\.');
+
+      &-#{$sizeSelector} {
+        gap: $spacing;
+      }
+    }
+  }
+}
+
+.text-white {
+  color: white;
+}
+.text-white {
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+h1,
+.text-h1,
+h2,
+.text-h2,
+h3,
+.text-h3,
+h4,
+.text-h4,
+h5,
+.text-h5,
+h6,
+.text-h6,
+p.text-xl,
+.text-lg,
+.text-base,
+.text-sm,
+.text-xs {
+  /* Font minimum, preferred and maximum value */
+  font-size: clamp(var(--min), var(--val), var(--max));
+  line-height: var(--lineHeight);
+}
+
+h1 {
+  --min: 2em;
+  --val: 20vw;
+  --max: 10em;
+  --line-height: 1;
+  font-weight: 800;
+}
+
+.text-xl {
+  font-size: 1.2em;
+  line-height: 1.5rem;
+}
+
+.text-lg {
+  font-size: 1.2em;
+  line-height: 1.5rem;
+}
+
+p,
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+hr {
+  width: 100%;
+}

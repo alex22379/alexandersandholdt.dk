@@ -1,13 +1,5 @@
-@use 'alex22379/utils' as a;
+@use 'alex22379' as a;
 @use 'vars' as *;
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
 html {
   scroll-snap-type: y mandatory;
@@ -17,12 +9,14 @@ html {
     background: $default-background-color;
     font-family: 'ubuntu';
 
-    main section {
-      min-height: 100vh;
-      max-width: 100vw;
-      position: relative;
-      background-color: $default-background-color;
+    header,
+    footer {
       scroll-snap-align: start;
+    }
+
+    main section {
+      scroll-snap-align: start;
+      min-height: 100vh;
     }
   }
 }
