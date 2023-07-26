@@ -11650,6 +11650,24 @@
 .flex.row {
   flex-direction: row;
 }
+.flex.justify-center {
+  justify-content: center;
+}
+.flex.justify-flex-start {
+  justify-content: flex-start;
+}
+.flex.justify-flex-end {
+  justify-content: flex-end;
+}
+.flex.align-center {
+  align-items: center;
+}
+.flex.align-flex-start {
+  align-items: flex-start;
+}
+.flex.align-flex-end {
+  align-items: flex-end;
+}
 .flex.center {
   justify-content: center;
   align-items: center;
@@ -12247,8 +12265,8 @@
   color: white;
 }
 
-.text-white {
-  color: white;
+.text-initial {
+  color: initial;
 }
 
 .text-center {
@@ -12279,10 +12297,16 @@ p.text-xl,
 
 h1 {
   --min: 2em;
-  --val: 20vw;
+  --val: 100%;
   --max: 10em;
   --line-height: 1;
+  font-size: 5em;
   font-weight: 800;
+}
+
+h2 {
+  font-size: 3em;
+  font-weight: 600;
 }
 
 .text-xl {
@@ -12297,8 +12321,8 @@ h1 {
 
 p,
 .text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 1.2em;
+  line-height: 1.5em;
 }
 
 hr {
@@ -12431,6 +12455,7 @@ header .scroll-container a i {
   position: absolute;
 }
 header .scroll-container a:hover {
+  animation-play-state: paused;
   background-color: rgba(0, 0, 0, 0.035);
 }
 header .scroll-container a:hover i {

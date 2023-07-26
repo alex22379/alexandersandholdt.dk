@@ -30,6 +30,7 @@ header {
         position: absolute;
       }
       &:hover {
+        animation-play-state: paused;
         background-color: rgba(0, 0, 0, 0.035);
 
         i {

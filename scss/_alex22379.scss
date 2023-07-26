@@ -154,6 +154,29 @@ $spacing-direction-properties: (
     flex-direction: row;
   }
 
+  &.justify {
+    &-center {
+      justify-content: center;
+    }
+    &-flex-start {
+      justify-content: flex-start;
+    }
+    &-flex-end {
+      justify-content: flex-end;
+    }
+  }
+  &.align {
+    &-center {
+      align-items: center;
+    }
+    &-flex-start {
+      align-items: flex-start;
+    }
+    &-flex-end {
+      align-items: flex-end;
+    }
+  }
+
   &.center {
     justify-content: center;
     align-items: center;
@@ -185,8 +208,8 @@ $spacing-direction-properties: (
 .text-white {
   color: white;
 }
-.text-white {
-  color: white;
+.text-initial {
+  color: initial;
 }
 
 .text-center {
@@ -217,10 +240,16 @@ p.text-xl,
 
 h1 {
   --min: 2em;
-  --val: 20vw;
+  --val: 100%;
   --max: 10em;
   --line-height: 1;
+  font-size: 5em;
   font-weight: 800;
+}
+
+h2 {
+  font-size: 3em;
+  font-weight: 600;
 }
 
 .text-xl {
@@ -235,8 +264,8 @@ h1 {
 
 p,
 .text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 1.2em;
+  line-height: 1.5em;
 }
 
 hr {
