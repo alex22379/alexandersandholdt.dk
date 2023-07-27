@@ -12330,7 +12330,7 @@ hr {
 }
 
 html {
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y none;
   scroll-behavior: smooth;
 }
 html body {
@@ -12476,14 +12476,15 @@ header .scroll-container a:hover i {
 .pre-profile .portrait-wrapper img {
   max-height: inherit;
   width: auto;
-  transition: filter 500ms ease-out, transform 600ms ease-out;
+  transition: filter 400ms ease-out, transform 600ms ease-out;
   transform: scale(103%);
+  filter: grayscale(100%);
 }
 .pre-profile .portrait-wrapper:hover {
   border-radius: 7rem 2rem 2rem 2rem;
 }
 .pre-profile .portrait-wrapper:hover img {
-  filter: grayscale(100%);
+  filter: grayscale(0%);
   transform: scale(101%);
 }
 .pre-profile .text-container h3 {
@@ -12491,6 +12492,46 @@ header .scroll-container a:hover i {
 }
 .pre-profile .text-container p {
   font-size: 1.2em;
+}
+.pre-profile #profile-tabs {
+  width: 60rem;
+}
+.pre-profile #profile-tabs .tabs-nav {
+  margin-bottom: 0.5rem;
+}
+.pre-profile #profile-tabs .tabs-nav ul {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+  overflow: hidden;
+}
+.pre-profile #profile-tabs .tabs-nav ul li button {
+  font-size: 0.5em;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.175em;
+  font-weight: 400;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.25);
+}
+.pre-profile #profile-tabs .tabs-nav ul li button:hover {
+  background: rgba(0, 0, 0, 0.35);
+  color: rgba(255, 255, 255, 0.85);
+}
+.pre-profile #profile-tabs .tabs-nav ul li button.active {
+  color: rgb(255, 255, 255);
+  background: rgba(0, 0, 0, 0.45);
+}
+.pre-profile #profile-tabs .tabs-nav ul li button:active {
+  transform: scale(97%);
+}
+.pre-profile #profile-tabs .tabs-content .tab-window {
+  display: none;
 }
 
 #legal {

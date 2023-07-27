@@ -16,15 +16,16 @@
     img {
       max-height: inherit;
       width: auto;
-      transition: filter 500ms ease-out, transform 600ms ease-out;
+      transition: filter 400ms ease-out, transform 600ms ease-out;
       transform: scale(103%);
+      filter: grayscale(100%);
     }
 
     &:hover {
       border-radius: 7rem 2rem 2rem 2rem;
 
       img {
-        filter: grayscale(100%);
+        filter: grayscale(0%);
         transform: scale(101%);
       }
     }
@@ -37,6 +38,58 @@
 
     p {
       font-size: 1.2em;
+    }
+  }
+
+  #profile-tabs {
+    width: 60rem;
+
+    .tabs-nav {
+      margin-bottom: 0.5rem;
+
+      ul {
+        display: flex;
+        gap: 0.25rem;
+        list-style: none;
+        overflow: hidden;
+
+        li {
+          button {
+            font-size: 0.5em;
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 0.175em;
+            font-weight: 400;
+            padding: 0.3rem 0.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            outline: none;
+            cursor: pointer;
+
+            color: rgba(255, 255, 255, 0.4);
+            background: rgba(0, 0, 0, 0.25);
+            &:hover {
+              background: rgba(0, 0, 0, 0.35);
+              color: rgba(255, 255, 255, 0.85);
+            }
+
+            &.active {
+              color: rgba(255, 255, 255, 1);
+              background: rgba(0, 0, 0, 0.45);
+            }
+
+            &:active {
+              transform: scale(97%);
+            }
+          }
+        }
+      }
+    }
+
+    .tabs-content {
+      .tab-window {
+        display: none;
+      }
     }
   }
 }
