@@ -1,0 +1,11 @@
+// to retrieve breakpoint use: breakpoint($bp)
+
+$breakpoints: (
+  'small': 640px,
+  'medium': 768px,
+  'large': 1024px,
+);
+
+@function breakpoints($bp) {
+  @return map.get($breakpoints, $bp);
+}

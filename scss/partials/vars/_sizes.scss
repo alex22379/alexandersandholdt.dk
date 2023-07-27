@@ -1,0 +1,30 @@
+@use 'sass:map';
+@use 'sass:meta';
+
+@use '../abstracts';
+
+// for creating utility-classes: @each $size-step,$size-value in vars.$sizes {}
+// Retrieve specific size for code-use: size($step)
+
+$sizes: ();
+
+$step-in-rem: calc(1rem / 4); // 1 step should be fourth of a rem
+$total-steps: 24 * 4; // We want 24 rems of spacing with 4 steps being 1 rem
+$step-base: 0.5; // We want the ability of half steps aswell
+@for $i from 0 through calc($total-steps / $step-base) {
+  $loop-step: $step-base * $i;
+  $map: map.merge(
+    $sizes,
+    (
+      $loop-step: $loop-step * $step-in-rem,
+    )
+  );
+  $sizes: $map !global;
+}
+
+@function size($step) {
+  @if (type-of($step) == string) {
+    $step: abstracts.stringAsNum($step);
+  }
+  @return map.get($sizes, $step);
+}

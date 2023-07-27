@@ -1,61 +1,5 @@
-@keyframes float {
-  0% {
-    transform: translatey(0);
-  }
-  50% {
-    transform: translatey(0.75rem);
-  }
-  100% {
-    transform: translatey(0);
-  }
-}
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.container-wrapper {
-  display: flex;
-}
-.container-wrapper.full-height .container {
-  min-height: 100%;
-}
-
-.container {
-  display: block;
-  width: 100%;
-  margin: 0 auto;
-}
-.container-fluid {
-  max-width: 100%;
-}
-@media screen and (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-}
-@media screen and (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
-  }
+.mx-auto {
+  margin-inline: auto;
 }
 
 .p-0 {
@@ -11638,6 +11582,66 @@
   margin-left: 24rem;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatey(0.75rem);
+  }
+  100% {
+    transform: translatey(0);
+  }
+}
+.container-wrapper {
+  display: flex;
+}
+.container-wrapper.full-height .container {
+  min-height: 100%;
+}
+
+.container {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+.container-fluid {
+  max-width: 100%;
+}
+@media screen and (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+@media screen and (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
 .flex {
   display: flex;
   flex-direction: column;
@@ -12261,6 +12265,95 @@
   gap: 24rem;
 }
 
+.text-xs {
+  font-size: clamp(0.69rem, -0.03vw + 0.7rem, 0.68rem);
+  line-height: 1;
+}
+
+.text-sm {
+  font-size: clamp(0.83rem, 0.09vw + 0.81rem, 0.9rem);
+  line-height: 125%;
+}
+
+.text-base {
+  font-size: clamp(1rem, 0.26vw + 0.93rem, 1.19rem);
+  line-height: 150%;
+}
+
+.text-md {
+  font-size: clamp(1.2rem, 0.53vw + 1.07rem, 1.57rem);
+  line-height: 150%;
+}
+
+.text-lg {
+  font-size: clamp(1.44rem, 0.91vw + 1.21rem, 2.08rem);
+  line-height: 120%;
+}
+
+.text-xl {
+  font-size: clamp(1.73rem, 1.46vw + 1.36rem, 2.76rem);
+  line-height: 1;
+}
+
+.text-2xl {
+  font-size: clamp(2.07rem, 2.23vw + 1.51rem, 3.66rem);
+  line-height: 1;
+}
+
+.text-3xl {
+  font-size: clamp(2.49rem, 3.33vw + 1.66rem, 4.85rem);
+  line-height: 1;
+}
+
+.text-4xl {
+  font-size: clamp(2.99rem, 4.84vw + 1.77rem, 6.43rem);
+  line-height: 1;
+}
+
+.text-5xl {
+  font-size: clamp(3.58rem, 6.95vw + 1.85rem, 8.51rem);
+  line-height: 1;
+}
+
+.text-6xl {
+  font-size: clamp(4.3rem, 9.83vw + 1.84rem, 11.28rem);
+}
+
+p {
+  font-size: clamp(1rem, 0.26vw + 0.93rem, 1.19rem);
+  line-height: 150%;
+}
+
+h1 {
+  font-size: clamp(2.49rem, 3.33vw + 1.66rem, 4.85rem);
+  line-height: 1;
+}
+
+h2 {
+  font-size: clamp(2.07rem, 2.23vw + 1.51rem, 3.66rem);
+  line-height: 1;
+}
+
+h3 {
+  font-size: clamp(1.73rem, 1.46vw + 1.36rem, 2.76rem);
+  line-height: 1;
+}
+
+h4 {
+  font-size: clamp(1.44rem, 0.91vw + 1.21rem, 2.08rem);
+  line-height: 120%;
+}
+
+h5 {
+  font-size: clamp(1.2rem, 0.53vw + 1.07rem, 1.57rem);
+  line-height: 150%;
+}
+
+h6 {
+  font-size: clamp(1rem, 0.26vw + 0.93rem, 1.19rem);
+  line-height: 150%;
+}
+
 .text-white {
   color: white;
 }
@@ -12273,56 +12366,12 @@
   text-align: center;
 }
 
-h1,
-.text-h1,
-h2,
-.text-h2,
-h3,
-.text-h3,
-h4,
-.text-h4,
-h5,
-.text-h5,
-h6,
-.text-h6,
-p.text-xl,
-.text-lg,
-.text-base,
-.text-sm,
-.text-xs {
-  /* Font minimum, preferred and maximum value */
-  font-size: clamp(var(--min), var(--val), var(--max));
-  line-height: var(--lineHeight);
-}
-
 h1 {
-  --min: 2em;
-  --val: 100%;
-  --max: 10em;
-  --line-height: 1;
-  font-size: 5em;
   font-weight: 800;
 }
 
 h2 {
-  font-size: 3em;
   font-weight: 600;
-}
-
-.text-xl {
-  font-size: 1.2em;
-  line-height: 1.5rem;
-}
-
-.text-lg {
-  font-size: 1.2em;
-  line-height: 1.5rem;
-}
-
-p,
-.text-base {
-  font-size: 1.2em;
-  line-height: 1.5em;
 }
 
 hr {
@@ -12408,7 +12457,7 @@ html body main section {
   z-index: 100;
   width: 100vw;
   /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(5.1px);
   -webkit-backdrop-filter: blur(5.1px);
 }
@@ -12467,9 +12516,13 @@ header .scroll-container a:hover i {
 }
 
 .pre-profile {
+  /*background-image: url('/assets/img/backgrounds/Joomla.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;*/
   background: rgb(75, 108, 183);
   background: linear-gradient(180deg, rgb(75, 108, 183) 0%, rgb(24, 40, 72) 100%);
-  background-attachment: fixed;
 }
 @media screen and (min-width: 1024px) {
   .pre-profile {
@@ -12500,12 +12553,6 @@ header .scroll-container a:hover i {
   .pre-profile .portrait-wrapper:hover {
     border-radius: 7rem 2rem 2rem 2rem;
   }
-}
-.pre-profile .text-container h3 {
-  font-size: 3.5em;
-}
-.pre-profile .text-container p {
-  font-size: 1.2em;
 }
 .pre-profile #profile-tabs .tabs-nav {
   margin-bottom: 0.5rem;
@@ -12544,6 +12591,54 @@ header .scroll-container a:hover i {
 .pre-profile #profile-tabs .tabs-content .tab-window {
   display: none;
 }
+.pre-profile #profile-tabs .tabs-content .tab-window[data-tab-id=education] .timeline {
+  padding: 0 0 0 1rem;
+  margin: 0 0 0 0.5rem;
+  border-left: solid 3px white;
+}
+.pre-profile #profile-tabs .tabs-content .tab-window[data-tab-id=education] .timeline div {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  padding: 0.5rem 0.75rem;
+  width: min(100%, 40rem);
+  position: relative;
+}
+.pre-profile #profile-tabs .tabs-content .tab-window[data-tab-id=education] .timeline div::before {
+  content: "";
+  height: 0.65rem;
+  width: 0.65rem;
+  border-radius: 0.7rem;
+  background-color: white;
+  position: absolute;
+  top: 0.7625rem;
+  left: -1.4rem;
+}
+.pre-profile #profile-tabs .tabs-content .tab-window[data-tab-id=education] .timeline div::after {
+  content: "";
+  background: rgba(0, 0, 0, 0.25);
+  width: 0.65rem;
+  height: 0.65rem;
+  position: absolute;
+  transform: rotate(45deg);
+  top: 0.825rem;
+  left: -0.3rem;
+}
+.pre-profile #profile-tabs .tabs-content .tab-window[data-tab-id=education] .timeline div h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.pre-profile #profile-tabs .tabs-content .tab-window[data-tab-id=education] .timeline div h3 span {
+  text-transform: initial;
+  font-weight: 500;
+}
+.pre-profile #profile-tabs .tabs-content .tab-window[data-tab-id=education] .timeline div p {
+  margin-block: 0.25rem 0.5rem;
+}
+.pre-profile #profile-tabs .tabs-content .tab-window[data-tab-id=education] .timeline div h4 {
+  font-style: italic;
+  font-weight: 400;
+}
 
 #legal {
   position: fixed;
@@ -12576,12 +12671,6 @@ header .scroll-container a:hover i {
   height: 1.4em;
   width: 100%;
   z-index: 50;
-}
-.pre-footer footer .call-to-action .text h3 {
-  font-size: 3em;
-}
-.pre-footer footer .call-to-action .text p {
-  font-size: 1.2em;
 }
 .pre-footer footer .call-to-action .copy-mail {
   background-color: white;

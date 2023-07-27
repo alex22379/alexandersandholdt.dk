@@ -1,0 +1,44 @@
+@use 'sass:meta';
+
+// retrieve a number between -999 to 999 as a string
+@function stringAsNum($str-num) {
+  @for $i from -999 through 999 {
+    @if (#{$i} == $str-num) {
+      @return $i;
+    }
+  }
+}
+
+/// Replace `$search` with `$replace` in `$string`
+/// @author Kitty Giraudel
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
+  }
+
+  @return $string;
+}
+
+@function make-selector($selector) {
+  @if (type-of($selector) != string) {
+    $selector: #{$selector};
+  }
+
+  $special-chars: ('.');
+  @each $char in $special-chars {
+    $selector: str-replace($selector, $char, '\\#{$char}');
+  }
+
+  @return $selector;
+}
