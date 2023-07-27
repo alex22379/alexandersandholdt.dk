@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
       tabWindows.forEach((w) => {
         let display = 'none';
-        if (w.dataset.tabId === tabTarget) display = 'initial';
+        if (w.dataset.tabId === tabTarget) display = 'block';
         w.style.display = display;
       });
     });
