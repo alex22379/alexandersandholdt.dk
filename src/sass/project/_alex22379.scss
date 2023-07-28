@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '../partials' as *;
+@use '../abstracts';
 
 // VARIABLES
 
@@ -144,7 +144,7 @@ $device-breakpoints: (
     @for $i from 0 through (96 * 2) {
       $size: $i * 0.5;
       $spacing: 0.25rem * $size;
-      $sizeSelector: abstracts-make-selector($size);
+      $sizeSelector: abstracts.make-selector($size);
 
       &-#{$sizeSelector} {
         gap: $spacing;

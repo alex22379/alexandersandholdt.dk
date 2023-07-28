@@ -1,0 +1,21 @@
+{
+  "name": "alexandersandholdt-dk",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource-variable/merriweather-sans": "^5.0.6",
+    "@fontsource/ubuntu": "^5.0.5",
+    "@fontsource/ubuntu-mono": "^5.0.5",
+    "astro": "^2.9.4"
+  },
+  "devDependencies": {
+    "sass": "^1.64.1"
+  }
+}

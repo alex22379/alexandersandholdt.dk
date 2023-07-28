@@ -1,0 +1,85 @@
+---
+// Supports weights 300-800
+// font-family: 'Merriweather Sans Variable', sans-serif;
+import '@fontsource-variable/merriweather-sans/wght-italic.css';
+
+// font-family: 'Ubuntu', sans-serif;
+import '@fontsource/ubuntu/300-italic.css';
+import '@fontsource/ubuntu/400-italic.css';
+import '@fontsource/ubuntu/500-italic.css';
+import '@fontsource/ubuntu/700-italic.css';
+
+//font-family: 'Ubuntu Mono', sans-serif;
+import '@fontsource/ubuntu-mono/400-italic.css';
+import '@fontsource/ubuntu-mono/700-italic.css';
+
+import '../sass/style.scss';
+
+import Header from '../components/universal/Header.astro';
+import Footer from '../components/universal/Footer.astro';
+import LangSlider from '../components/universal/LangSlider.astro';
+
+interface Props {
+  title: string;
+  lang: string;
+}
+
+const { title = 'Alexander Sandholdt', lang = 'da' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/c5902196a7.js"
+      crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+
+    <div class="lang-slider">
+      <LangSlider />
+    </div>
+  </body>
+</html>
+
+<style lang="scss">
+  .langSlider {
+  }
+</style>
+
+<style is:global></style>

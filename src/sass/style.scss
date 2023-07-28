@@ -1,4 +1,7 @@
-@use 'partials' as *;
+@use 'abstracts';
+@use 'base';
+@use 'tokens';
+@use 'utils';
 
 @use 'project/main';
 @use 'project/lang-slider';
@@ -7,5 +10,4 @@
 @use 'project/profile';
 @use 'project/footer';
 @use 'project/curves';
-
 @use 'project/alex22379';
