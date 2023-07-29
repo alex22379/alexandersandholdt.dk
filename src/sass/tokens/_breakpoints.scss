@@ -1,11 +1,19 @@
+@use 'sass:map';
 // to retrieve breakpoint use: breakpoint($bp)
 
 $breakpoints: (
-  'small': 640px,
-  'medium': 768px,
-  'large': 1024px,
+  sm: 30em,
+  md: 45em,
+  lg: 65em,
 );
 
-@function breakpoints($bp) {
-  @return map.get($breakpoints, $bp);
+// get token functions
+// TODO add error messages for invalid args
+
+@function breakpoint($bp) {
+  @if map.has-key($breakpoints, $bp) {
+    @return map.get($breakpoints, $bp);
+  } @else {
+    @error '$breakpoints does not have that bp!';
+  }
 }

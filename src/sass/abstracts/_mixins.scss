@@ -1,0 +1,31 @@
+@use 'sass:math';
+@use 'sass:map';
+@use 'sass:meta';
+@use '../tokens' as *;
+
+// media queries
+@mixin mq($bp) {
+  @if map.has-key($breakpoints, $bp) {
+    $bp-value: map-get($breakpoints, $bp);
+    @media screen and (min-width: $bp-value) {
+      @content;
+    }
+  } @else if meta.type-of($bp) == number {
+    @if math.is-unitless($bp) {
+      @error 'when using a number with @mq() make sure to include a unit';
+    } @else {
+      @media screen and (min-width: $bp) {
+        @content;
+      }
+    }
+  } @else {
+    @error 'the keyword #{$bp} is not in the $breakpoints map';
+  }
+}
+
+@mixin zoom($zoom: 5%) {
+  transition: transform ease-out 75ms;
+  &:hover {
+    transform: scale(calc(100% + $zoom));
+  }
+}

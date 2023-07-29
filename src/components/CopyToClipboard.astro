@@ -1,0 +1,101 @@
+---
+const { type = 'text', value, size = undefined } = Astro.props;
+---
+
+<div class="copy-to-clipboard">
+  <input
+    type={type}
+    value={value}
+    readonly
+    onclick="this.select()"
+    size={size || value.length.toString()}
+    .toString
+  />
+  <button type="button" title="Kopier til udklipsholder">
+    <i class="fa-solid fa-copy"></i>
+  </button>
+</div>
+
+<style lang="scss">
+  .copy-to-clipboard {
+    background-color: lightgray;
+    border-radius: 1rem;
+    position: relative;
+    display: inline-flex;
+
+    input,
+    button {
+      border: none;
+      outline: none;
+      padding: 0.8rem;
+      font-size: 1.2em;
+      line-height: 1;
+    }
+
+    input {
+      border-radius: inherit;
+      background-color: transparent;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    button {
+      border-radius: 0 1rem 1rem 0;
+      background-color: black;
+      color: white;
+      cursor: pointer;
+
+      &:focus,
+      &:hover {
+        background-color: lighten(black, 5%);
+      }
+
+      &:active {
+        i {
+          transform: scale(90%);
+        }
+      }
+    }
+
+    &:focus-within {
+      outline-style: solid;
+      outline-color: darken(lightgray, 4%);
+    }
+
+    &:before {
+      transition: all 250ms ease-in-out;
+      content: 'kopieret';
+      position: absolute;
+      color: red;
+      font-size: 0.8em;
+      bottom: -1.4em;
+      width: 6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      left: calc(50% - 3rem);
+      opacity: 0%;
+    }
+
+    &.copied:before {
+      opacity: 100%;
+    }
+  }
+</style>
+
+<script is:inline>
+  const ctc = document.querySelector('.copy-to-clipboard');
+  const input = ctc.querySelector('input');
+  const button = ctc.querySelector('button');
+
+  button.addEventListener('click', (e) => {
+    input.select();
+    document.execCommand('copy');
+    ctc.classList.add('copied');
+    window.getSelection().removeAllRanges();
+    setTimeout(() => {
+      ctc.classList.remove('copied');
+    }, 2500);
+  });
+</script>

@@ -1,13 +1,5 @@
-@use 'abstracts';
+//@use 'abstracts';
 @use 'base';
-@use 'tokens';
+@use 'composition';
+//@use 'tokens';
 @use 'utils';
-
-@use 'project/main';
-@use 'project/lang-slider';
-@use 'project/site-identity';
-@use 'project/header';
-@use 'project/profile';
-@use 'project/footer';
-@use 'project/curves';
-@use 'project/alex22379';

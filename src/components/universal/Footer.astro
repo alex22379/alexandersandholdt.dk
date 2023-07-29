@@ -1,1 +1,125 @@
-<footer>footer</footer>
+---
+import CopyToClipboard from '../CopyToClipboard.astro';
+---
+
+<footer class="flow-root" style="background-color: bisque;">
+  <div class="my-24">
+    <section class="container mx-auto flow text-center | py-6">
+      <h3>Henvendelser?</h3>
+      <p>Tøv ikke med at sende mig en mail :)</p>
+      <CopyToClipboard
+        type="email"
+        value="mail@alexandersandholdt.dk"
+        size="24"
+      />
+    </section>
+
+    <section id="logo-references" class="container mx-auto | py-6">
+      <hr />
+
+      <div
+        id="logos"
+        class="container flex | my-16"
+        data-type="fluid"
+        data-align-items="center"
+        data-flex-wrap="wrap"
+        data-gap="20"
+        data-justify-content="space-evenly"
+      >
+        <div class="logo-wrapper">
+          <a href="https://www.to-be-digital.dk/" target="_blank"
+            ><img src="img/logos/to-be-digital.png" alt="" /></a
+          >
+        </div>
+        <div class="logo-wrapper">
+          <a href="https://estate.alexandersandholdt.dk/" target="_blank"
+            ><img src="img/logos/as-estate.png" alt="" /></a
+          >
+        </div>
+      </div>
+
+      <hr />
+    </section>
+  </div>
+
+  <div id="legal-box">
+    <small>height-strecth</small>
+  </div>
+
+  <div id="legal-statement">
+    <!-- Legal: Copyright © (&copy;) 2023 Alexander Sandholdt  | CVR: 43768085 (https://datacvr.virk.dk/enhed/virksomhed/43768085) -->
+    <small>
+      Copyright &copy;
+      <span class="copyright-year"></span>
+      Alexander Sandholdt |
+      <a
+        class="cvr"
+        href="https://datacvr.virk.dk/enhed/virksomhed/43768085"
+        target="_blank">CVR: 43768085</a
+      ></small
+    >
+  </div>
+
+  <style lang="scss">
+    @use '../../sass/abstracts';
+
+    #logo-references {
+      #logos {
+        $img-width: 15em;
+        .logo-wrapper {
+          max-width: 15em;
+
+          a {
+            max-width: inherit;
+            height: auto;
+
+            img {
+              @include abstracts.zoom;
+            }
+          }
+        }
+      }
+    }
+
+    $legal-spacing: 0.2rem;
+    #legal-box,
+    #legal-statement {
+      font-size: 0.8em;
+    }
+
+    #legal-box {
+      small {
+        opacity: 0;
+      }
+
+      background-color: yellow;
+      padding-block: $legal-spacing;
+    }
+
+    #legal-statement {
+      position: fixed;
+      bottom: $legal-spacing;
+      left: 0;
+      right: 0;
+      z-index: 99;
+
+      text-align: center;
+      cursor: default;
+
+      * {
+        color: silver;
+        text-decoration: none;
+      }
+
+      &:hover .cvr {
+        text-decoration: underline;
+      }
+    }
+  </style>
+
+  <script is:inline>
+    document
+      .querySelector('.copyright-year')
+      .appendChild(document.createTextNode(new Date().getFullYear()));
+  </script>
+</footer>

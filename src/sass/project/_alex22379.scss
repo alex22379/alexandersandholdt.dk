@@ -30,62 +30,7 @@ $line-heights: (
   '5xl': 1,
 );
 
-$device-breakpoints: (
-  'sm': 640px,
-  'md': 768px,
-  'lg': 1024px,
-  'xl': 1280px,
-  'xxl': 1536px,
-);
-
-// MIXINS
-
-@mixin zoom($zoom: 10%) {
-  transition: all ease-out 75ms;
-  &:hover {
-    transform: scale(calc(100% + $zoom));
-  }
-}
-
-// KEYFRAMES
-
-@keyframes float {
-  0% {
-    transform: translatey(0);
-  }
-  50% {
-    transform: translatey(0.75rem);
-  }
-  100% {
-    transform: translatey(0);
-  }
-}
-
 // STYLES
-
-.container-wrapper {
-  display: flex;
-
-  &.full-height .container {
-    min-height: 100%;
-  }
-}
-
-.container {
-  display: block;
-  width: 100%;
-  margin: 0 auto;
-
-  &-fluid {
-    max-width: 100%;
-  }
-
-  @each $key, $val in $device-breakpoints {
-    @media screen and (min-width: #{$val}) {
-      max-width: #{$val};
-    }
-  }
-}
 
 .flex {
   display: flex;
@@ -175,27 +120,4 @@ $textTags-apply-sizes: (
     font-size: map.get($font-sizes, $size);
     line-height: map.get($line-heights, $size);
   }
-}
-
-.text-white {
-  color: white;
-}
-.text-initial {
-  color: initial;
-}
-
-.text-center {
-  text-align: center;
-}
-
-h1 {
-  font-weight: 800;
-}
-
-h2 {
-  font-weight: 600;
-}
-
-hr {
-  width: 100%;
 }

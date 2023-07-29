@@ -17,7 +17,6 @@ import '../sass/style.scss';
 
 import Header from '../components/universal/Header.astro';
 import Footer from '../components/universal/Footer.astro';
-import LangSlider from '../components/universal/LangSlider.astro';
 
 interface Props {
   title: string;
@@ -70,16 +69,5 @@ const { title = 'Alexander Sandholdt', lang = 'da' } = Astro.props;
     <Header />
     <slot />
     <Footer />
-
-    <div class="lang-slider">
-      <LangSlider />
-    </div>
   </body>
 </html>
-
-<style lang="scss">
-  .langSlider {
-  }
-</style>
-
-<style is:global></style>

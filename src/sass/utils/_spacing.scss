@@ -1,4 +1,4 @@
-@use '../tokens';
+@use '../tokens' as *;
 @use '../abstracts';
 
 .mx-auto {
@@ -34,7 +34,7 @@ $spacing-direction-properties: (
   ),
 );
 
-@each $size-step, $size-value in tokens.$sizes {
+@each $size-step, $size-value in $sizes {
   @each $spacer-prefix, $spacer-type in $spacers {
     @each $direction-prefix, $direction-props in $spacing-direction-properties {
       $size-selector: abstracts.make-selector($size-step);

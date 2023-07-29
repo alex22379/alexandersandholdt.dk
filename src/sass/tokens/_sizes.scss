@@ -1,8 +1,6 @@
 @use 'sass:map';
 @use 'sass:meta';
 
-@use '../abstracts';
-
 // for creating utility-classes: @each $size-step,$size-value in vars.$sizes {}
 // Retrieve specific size for code-use: size($step)
 
@@ -23,8 +21,9 @@ $step-base: 0.5; // We want the ability of half steps aswell
 }
 
 @function size($step) {
-  @if (type-of($step) == string) {
-    $step: abstracts.stringAsNum($step);
+  @if map.has-key($sizes, $step) {
+    @return map.get($sizes, $step);
+  } @else {
+    @error '$sizes does not have that step!';
   }
-  @return map.get($sizes, $step);
 }

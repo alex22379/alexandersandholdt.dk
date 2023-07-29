@@ -1,0 +1,48 @@
+@use 'sass:map';
+@use '../tokens' as *;
+
+.flex {
+  display: flex;
+
+  $properties: (
+    flex-start,
+    center,
+    flex-end,
+    space-between,
+    space-around,
+    space-evenly
+  );
+  @each $prop in $properties {
+    &[data-justify-content='#{$prop}'] {
+      justify-content: $prop;
+    }
+    &[data-align-items='#{$prop}'] {
+      align-items: $prop;
+    }
+  }
+
+  $directions: (row, column);
+  @each $direction in $directions {
+    &[data-flex-direction='#{$direction}'] {
+      flex-direction: $direction;
+    }
+  }
+
+  $wraps: (nowrap, wrap, wrap-reverse);
+  @each $wrap in $wraps {
+    &[data-flex-wrap='#{$wrap}'] {
+      flex-wrap: $wrap;
+    }
+  }
+
+  @each $size-step, $size-value in $sizes {
+    &[data-gap='#{$size-step}'] {
+      gap: $size-value;
+    }
+  }
+
+  &[data-flex='center'] {
+    justify-content: center;
+    align-items: center;
+  }
+}
