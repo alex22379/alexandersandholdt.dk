@@ -1,0 +1,39 @@
+$-ff-merriweather-sans: 'Merriweather Sans Variable', sans-serif;
+$-ff-ubuntu: 'Ubuntu', sans-serif;
+$-ff-ubuntu-mono: 'Ubuntu Mono', sans-serif;
+$-ff-sans: system-ui, sans-serif;
+$-ff-serif: 'Times New Roman', Times, serif;
+
+$font-family-base: $-ff-ubuntu;
+$font-family-accent: $-ff-merriweather-sans;
+
+$font-sizes: (
+  'sm': (
+    '900': 3.75rem,
+    '800': 2.25rem,
+    '700': 1.75rem,
+    '600': 1.125rem,
+    '500': 1.125rem,
+    '400': 1rem,
+    '300': 0.925rem,
+    '200': 0.875rem,
+  ),
+  'lg': (
+    '900': 3.75rem,
+    '800': 3rem,
+    '700': 1.75rem,
+    '600': 1.3125rem,
+    '500': 1.125rem,
+    '400': 1rem,
+    '300': 0.925rem,
+    '200': 0.875rem,
+  ),
+);
+
+@function font-size($size) {
+  @return var(--fs-#{$size});
+}
+
+$font-weight-default: 400;
+$font-weight-semi-bold: 500;
+$font-weight-bold: 700;

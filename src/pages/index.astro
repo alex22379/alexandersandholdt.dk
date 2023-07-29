@@ -1,9 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+import Hero from '../components/Hero.astro';
 ---
 
 <Layout title="Alexander Sandholdt" lang="">
-  <div class="lang m-2">
+  <div class="lang m-2" style="display:none">
     <div id="lang-slider">
       <div class="option1">da</div>
       <div class="option2">en</div>
@@ -11,18 +13,7 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </div>
 
-  <header class="container-wrapper full-height">
-    <div class="container px-3 py-32 flex center column">
-      <div class="title-container">
-        <h1 class="text-6xl">Alexander<br />Sandholdt</h1>
-      </div>
-      <div class="scroll-container">
-        <a class="flex center" href="#profile">
-          <i class="fa-solid fa-chevron-down"></i></a
-        >
-      </div>
-    </div>
-  </header>
+  <Hero />
 
   <main>
     <div class="curves-container pre-profile">
@@ -30,7 +21,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="container px-3 my-32 py-32 flex gap-8">
           <div class="portrait-container">
             <div class="portrait-wrapper">
-              <img src="/assets/img/portrait.jpg" alt="" />
+              <img src="img/portrait.jpg" alt="" />
             </div>
           </div>
           <div id="profile-tabs" class="mt-3.5">

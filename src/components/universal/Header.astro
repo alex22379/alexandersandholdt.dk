@@ -1,18 +1,74 @@
-<header>
+<header class="flex">
   <div id="topbar">
-    <a class="signature" href="#"><img src="img/signature.png" alt="" /></a>
+    <div
+      class="container flex | my-1"
+      data-type="fluid"
+      data-flex="center"
+      data-flex-direction="column"
+    >
+      <a class="signature" href="#"><img src="img/signature.png" alt="" /></a>
 
-    <!-- Links: instagram/alexandersandholdt, in/alexandersandholdt, mail@alexandersandholdt.dk -->
-    <div class="links flex row gap-1">
-      <a href="https://instagram.com/alexandersandholdt" target="_blank"
-        >instagram/alexandersandholdt</a
-      >
-      <span> &#x2022;</span>
-      <a href="https://www.linkedin.com/in/alexandersandholdt/" target="_blank"
-        >in/alexandersandholdt</a
-      >
-      <span> &#x2022;</span>
-      <a href="mailto:mail@alexandersandholdt.dk">mail@alexandersandholdt.dk</a>
+      <!-- Links: instagram/alexandersandholdt, in/alexandersandholdt, mail@alexandersandholdt.dk -->
+      <div class="links">
+        <a href="https://instagram.com/alexandersandholdt" target="_blank"
+          >instagram/alexandersandholdt</a
+        ><a
+          href="https://www.linkedin.com/in/alexandersandholdt/"
+          target="_blank">in/alexandersandholdt</a
+        ><a href="mailto:mail@alexandersandholdt.dk"
+          >mail@alexandersandholdt.dk</a
+        >
+      </div>
     </div>
   </div>
 </header>
+
+<style lang="scss">
+  @use '../../sass/abstracts' as *;
+
+  #topbar {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100vw;
+
+    /* From https://css.glass */
+    background: hsla(0, 0%, 95%, 0.4);
+    backdrop-filter: blur(5.1px);
+    -webkit-backdrop-filter: blur(5.1px);
+
+    .signature {
+      img {
+        max-height: 2.5em;
+        width: auto;
+
+        @include zoom();
+      }
+    }
+    .links {
+      --grid-gap: 0;
+      cursor: default;
+      font-size: 0.8em;
+      font-family: 'Merriweather Sans';
+
+      a {
+        text-decoration: none;
+        color: blue;
+
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+
+      & > * + * {
+        &::before {
+          content: '\2022';
+          margin: 0 0.25em;
+          color: black;
+          display: inline-block;
+        }
+      }
+    }
+  }
+</style>

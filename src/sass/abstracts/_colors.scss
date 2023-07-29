@@ -1,6 +1,9 @@
+@use 'sass:map';
+
 // global color tokens
 $-clr-white: hsl(0 0% 100%);
 $-clr-gray-100: hsl(0, 0%, 95%);
+$-clr-gray-150: hsl(0, 0%, 92%);
 $-clr-gray-200: hsl(0 0% 82.5%);
 $-clr-gray-300: hsl(0 0% 70%);
 $-clr-gray-400: hsl(0 0% 60%);
@@ -137,21 +140,34 @@ $-clr-red-700: hsl(0 75% 30%);
 $-clr-red-800: hsl(0 75% 17.5%);
 $-clr-red-900: hsl(0 75% 7.5%);
 
-$light: (
-  'neutral': (
-    '000': $-clr-white,
-    '100': $-clr-gray-100,
-    '200': $-clr-gray-200,
-    '300': $-clr-gray-300,
-    '400': $-clr-gray-400,
-    '500': $-clr-gray-500,
-    '600': $-clr-gray-600,
-    '700': $-clr-gray-700,
-    '800': $-clr-gray-800,
-    '900': $-clr-gray-900,
-    '1000': $-clr-black,
+$default: (
+  neutral: (
+    000: $-clr-white,
+    100: $-clr-gray-100,
+    150: $-clr-gray-150,
+    200: $-clr-gray-200,
+    300: $-clr-gray-300,
+    400: $-clr-gray-400,
+    500: $-clr-gray-500,
+    600: $-clr-gray-600,
+    700: $-clr-gray-700,
+    800: $-clr-gray-800,
+    900: $-clr-gray-900,
+    1000: $-clr-black,
   ),
-  'accent': (
+  brand: (
+    100: #5167b0,
+    200: #3c54a6,
+    300: #26419c,
+    350: #223b8c,
+    400: #1e347d,
+    500: #1b2e6d,
+    600: #17275e,
+    700: #13214e,
+    800: #0f1a3e,
+    900: #0b132f,
+  ),
+  accent: (
     '100': $-clr-blue-100,
     '200': $-clr-blue-200,
     '300': $-clr-blue-300,
@@ -162,7 +178,7 @@ $light: (
     '800': $-clr-blue-800,
     '900': $-clr-blue-900,
   ),
-  'primary': (
+  primary: (
     '100': $-clr-skyblue-100,
     '200': $-clr-skyblue-200,
     '300': $-clr-skyblue-300,
@@ -172,76 +188,10 @@ $light: (
     '700': $-clr-skyblue-700,
     '800': $-clr-skyblue-800,
     '900': $-clr-skyblue-900,
-  ),
-);
-
-$dark: (
-  'neutral': (
-    '1000': $-clr-white,
-    '900': $-clr-gray-100,
-    '800': $-clr-gray-200,
-    '700': $-clr-gray-300,
-    '600': $-clr-gray-400,
-    '500': $-clr-gray-500,
-    '400': $-clr-gray-600,
-    '300': $-clr-gray-700,
-    '200': $-clr-gray-800,
-    '100': $-clr-gray-900,
-    '000': $-clr-black,
-  ),
-  'accent': (
-    '900': $-clr-blue-900,
-    '800': $-clr-blue-800,
-    '700': $-clr-blue-700,
-    '600': $-clr-blue-600,
-    '500': $-clr-blue-500,
-    '400': $-clr-blue-400,
-    '300': $-clr-blue-300,
-    '200': $-clr-blue-200,
-    '100': $-clr-blue-100,
-  ),
-  'primary': (
-    '900': $-clr-skyblue-900,
-    '800': $-clr-skyblue-800,
-    '700': $-clr-skyblue-700,
-    '600': $-clr-skyblue-600,
-    '500': $-clr-skyblue-500,
-    '400': $-clr-skyblue-400,
-    '300': $-clr-skyblue-300,
-    '200': $-clr-skyblue-200,
-    '100': $-clr-skyblue-100,
   ),
 );
 
 // contextual color tokens
-$color-neutral-000: var(--neutral-000);
-$color-neutral-100: var(--neutral-100);
-$color-neutral-200: var(--neutral-200);
-$color-neutral-300: var(--neutral-300);
-$color-neutral-400: var(--neutral-400);
-$color-neutral-500: var(--neutral-500);
-$color-neutral-600: var(--neutral-600);
-$color-neutral-700: var(--neutral-700);
-$color-neutral-800: var(--neutral-800);
-$color-neutral-900: var(--neutral-900);
-$color-neutral-1000: var(--neutral-1000);
-
-$color-primary-100: var(--primary-100);
-$color-primary-200: var(--primary-200);
-$color-primary-300: var(--primary-300);
-$color-primary-400: var(--primary-400);
-$color-primary-500: var(--primary-500);
-$color-primary-600: var(--primary-600);
-$color-primary-700: var(--primary-700);
-$color-primary-800: var(--primary-800);
-$color-primary-900: var(--primary-900);
-
-$color-accent-100: var(--accent-100);
-$color-accent-200: var(--accent-200);
-$color-accent-300: var(--accent-300);
-$color-accent-400: var(--accent-400);
-$color-accent-500: var(--accent-500);
-$color-accent-600: var(--accent-600);
-$color-accent-700: var(--accent-700);
-$color-accent-800: var(--accent-800);
-$color-accent-900: var(--accent-900);
+@function color($color, $shade: 400) {
+  @return var(--clr-#{$color}-#{$shade});
+}

@@ -17,8 +17,10 @@ const { type = 'text', value, size = undefined } = Astro.props;
 </div>
 
 <style lang="scss">
+  @use '../sass/abstracts' as *;
+
   .copy-to-clipboard {
-    background-color: lightgray;
+    background-color: color(neutral, 000);
     border-radius: 1rem;
     position: relative;
     display: inline-flex;
@@ -42,13 +44,13 @@ const { type = 'text', value, size = undefined } = Astro.props;
 
     button {
       border-radius: 0 1rem 1rem 0;
-      background-color: black;
-      color: white;
+      background-color: color(brand, 400);
+      color: color(neutral, 100);
       cursor: pointer;
 
       &:focus,
       &:hover {
-        background-color: lighten(black, 5%);
+        background-color: color(brand, 500);
       }
 
       &:active {
@@ -60,16 +62,16 @@ const { type = 'text', value, size = undefined } = Astro.props;
 
     &:focus-within {
       outline-style: solid;
-      outline-color: darken(lightgray, 4%);
+      outline-color: color(neutral, 200);
     }
 
     &:before {
       transition: all 250ms ease-in-out;
-      content: 'kopieret';
+      content: 'Kopieret';
       position: absolute;
       color: red;
       font-size: 0.8em;
-      bottom: -1.4em;
+      bottom: -1.6em;
       width: 6rem;
       display: flex;
       justify-content: center;

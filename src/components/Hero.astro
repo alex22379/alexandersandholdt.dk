@@ -1,0 +1,75 @@
+<section id="hero" class="flex bg-neutral-100">
+  <div
+    class="container flex | clr-brand-400"
+    data-flex="center"
+    data-flex-direction="column"
+  >
+    <h1 class="title">
+      <span class="firstname">Alexander</span><br /><span class="lastname"
+        >Sandholdt</span
+      >
+    </h1>
+    <a class="scroll round flex | m-2 p-2" data-flex="center" href="#profile">
+      <i class="fa-solid fa-chevron-down"></i></a
+    >
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../sass/abstracts' as *;
+
+  #hero {
+    min-height: 100vh;
+
+    .title {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: clamp(4.3rem, 9.83vw + 1.84rem, 11.28rem);
+      line-height: 0.85;
+
+      .firstname,
+      .lastname {
+        display: inline-block;
+      }
+
+      .firstname {
+        transform: translateX(-2.5%);
+        transition: transform 700ms cubic-bezier(0, 0.93, 0.46, 0.94);
+      }
+
+      .lastname {
+        transform: translateX(2.5%);
+        transition: transform 700ms cubic-bezier(0, 0.93, 0.46, 0.94) 40ms;
+      }
+
+      &:hover {
+        .firstname {
+          transform: translateX(-4%);
+        }
+        .lastname {
+          transform: translateX(4%);
+        }
+      }
+    }
+
+    .scroll {
+      animation: float 4s ease-in-out infinite;
+      height: 3em;
+      width: 3em;
+      transition: all 100ms ease-out;
+
+      i {
+        font-size: 1.5em;
+        transition: all 200ms ease-out;
+        position: absolute;
+      }
+      &:hover {
+        animation-play-state: paused;
+        background-color: rgba(0, 0, 0, 0.035);
+
+        i {
+          transform: scale(110%);
+        }
+      }
+    }
+  }
+</style>

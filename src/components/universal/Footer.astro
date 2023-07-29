@@ -2,9 +2,9 @@
 import CopyToClipboard from '../CopyToClipboard.astro';
 ---
 
-<footer class="flow-root" style="background-color: bisque;">
-  <div class="my-24">
-    <section class="container mx-auto flow text-center | py-6">
+<footer class="flow-root | bg-neutral-150">
+  <div class="clr-brand-400 my-24">
+    <section class="container flow text-center | py-6">
       <h3>Henvendelser?</h3>
       <p>Tøv ikke med at sende mig en mail :)</p>
       <CopyToClipboard
@@ -19,19 +19,15 @@ import CopyToClipboard from '../CopyToClipboard.astro';
 
       <div
         id="logos"
-        class="container flex | my-16"
-        data-type="fluid"
-        data-align-items="center"
-        data-flex-wrap="wrap"
-        data-gap="20"
-        data-justify-content="space-evenly"
+        class="container even-columns | my-16"
+        style="--grid-gap: 4em"
       >
-        <div class="logo-wrapper">
+        <div class="logo-wrapper | flex" data-flex="center">
           <a href="https://www.to-be-digital.dk/" target="_blank"
             ><img src="img/logos/to-be-digital.png" alt="" /></a
           >
         </div>
-        <div class="logo-wrapper">
+        <div class="logo-wrapper | flex" data-flex="center">
           <a href="https://estate.alexandersandholdt.dk/" target="_blank"
             ><img src="img/logos/as-estate.png" alt="" /></a
           >
@@ -42,12 +38,12 @@ import CopyToClipboard from '../CopyToClipboard.astro';
     </section>
   </div>
 
-  <div id="legal-box">
-    <small>height-strecth</small>
+  <div id="legal-box" class="bg-brand-400">
+    <small>Copyright &copy; 2023 Alexander Sandholdt | CVR: 43768085</small>
   </div>
 
   <div id="legal-statement">
-    <!-- Legal: Copyright © (&copy;) 2023 Alexander Sandholdt  | CVR: 43768085 (https://datacvr.virk.dk/enhed/virksomhed/43768085) -->
+    <!-- Legal: Copyright © (&copy;) 2023 Alexander Sandholdt | CVR: 43768085 (https://datacvr.virk.dk/enhed/virksomhed/43768085) -->
     <small>
       Copyright &copy;
       <span class="copyright-year"></span>
@@ -67,10 +63,8 @@ import CopyToClipboard from '../CopyToClipboard.astro';
       #logos {
         $img-width: 15em;
         .logo-wrapper {
-          max-width: 15em;
-
           a {
-            max-width: inherit;
+            max-width: 15em;
             height: auto;
 
             img {
@@ -92,7 +86,6 @@ import CopyToClipboard from '../CopyToClipboard.astro';
         opacity: 0;
       }
 
-      background-color: yellow;
       padding-block: $legal-spacing;
     }
 

@@ -1,5 +1,4 @@
-@use '../tokens' as *;
-@use '../abstracts';
+@use '../abstracts' as *;
 
 .mx-auto {
   margin-inline: auto;
@@ -37,7 +36,7 @@ $spacing-direction-properties: (
 @each $size-step, $size-value in $sizes {
   @each $spacer-prefix, $spacer-type in $spacers {
     @each $direction-prefix, $direction-props in $spacing-direction-properties {
-      $size-selector: abstracts.make-selector($size-step);
+      $size-selector: make-selector($size-step);
       .#{$spacer-prefix}#{$direction-prefix}-#{$size-selector} {
         @each $direction-prop in $direction-props {
           #{$spacer-type}#{$direction-prop}: $size-value;

@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '../tokens' as *;
+@use '../abstracts' as *;
 
 .flex {
   display: flex;

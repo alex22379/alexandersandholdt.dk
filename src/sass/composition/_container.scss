@@ -1,4 +1,4 @@
-@use '../tokens' as *;
+@use '../abstracts' as *;
 
 .container {
   --padding: #{$container-min-margin-inline} * 2;
