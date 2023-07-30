@@ -3,10 +3,10 @@
 @each $color, $shade-map in $active-theme {
   @each $shade, $value in $shade-map {
     .clr-#{$color}-#{$shade} {
-      color: color($color, $shade) !important;
+      color: color($color, $shade);
     }
     .bg-#{$color}-#{$shade} {
-      background-color: color($color, $shade) !important;
+      background-color: color($color, $shade);
     }
   }
 }

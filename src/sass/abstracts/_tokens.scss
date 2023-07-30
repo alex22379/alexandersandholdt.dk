@@ -33,19 +33,19 @@ $box-shadow-5: 0px 6px 5px rgb(0, 0, 0, 0.04), 0px 22px 18px rgb(0, 0, 0, 0.06),
   0px 100px 80px rgb(0, 0, 0, 0.1);
 
 // body
-$body-font-family: $font-family-base;
-$body-font-size: font-size(400);
+$body-font-family: font-family(base);
+$body-font-size: font-size(500);
 $body-line-height: 1.5;
-$body-font-weight: $font-weight-default;
+$body-font-weight: font-weight(default);
 $body-text-color: $color-text-default;
 $body-background-color: $color-background-default;
 
 $link-color: $color-text-interactive-default;
 $link-color-hover: $color-text-interactive-hover;
 
-$heading-font-family: $font-family-accent;
+$heading-font-family: font-family(accent);
 $heading-color-default: color(neutral, 900);
-$heading-font-weight: $font-weight-bold;
+$heading-font-weight: font-weight(bold);
 $heading-letter-spacing: $letter-spacing-loose;
 $heading-line-height: 1.1;
 $heading-text-transform: uppercase;
@@ -92,13 +92,13 @@ $footer-background-color: color(primary, 300);
 $footer-text-color: color(primary, 900);
 $footer-link-color: color(neutral, 100);
 $footer-link-color-hover: color(primary, 200);
-$footer-link-font-family: $font-family-accent;
+$footer-link-font-family: font-family(accent);
 $footer-link-text-decoration: none;
 
 // buttons
 $button-font-family: $body-font-family;
 $button-font-size: font-size(400);
-$button-font-weight: $font-weight-bold;
+$button-font-weight: font-weight(bold);
 $button-text-transform: uppercase;
 $button-padding: 0.75em 2em;
 $button-border: 0;
@@ -128,12 +128,12 @@ $card-heading-font-size: font-size(600);
 // forms
 $form-label-color: $body-text-color;
 $form-label-font-family: $body-font-family;
-$form-label-font-weight: $font-weight-bold;
+$form-label-font-weight: font-weight(bold);
 $form-label-font-size: $body-font-size;
 
 $form-input-color: $body-text-color;
 $form-input-font-family: $body-font-family;
-$form-input-font-weight: $font-weight-semi-bold;
+$form-input-font-weight: font-weight(semi-bold);
 $form-input-font-size: $body-font-size;
 $form-input-background-color: color(neutral, 100);
 $form-input-border-default: 3px solid color(primary, 200);

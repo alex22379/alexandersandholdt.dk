@@ -3,10 +3,12 @@ import CopyToClipboard from '../CopyToClipboard.astro';
 ---
 
 <footer class="flow-root | bg-neutral-150">
-  <div class="clr-brand-400 my-24">
+  <div class="my-24">
     <section class="container flow text-center | py-6">
-      <h3>Henvendelser?</h3>
-      <p>Tøv ikke med at sende mig en mail :)</p>
+      <div>
+        <h3 class="fs-700 fw-bold">Henvendelser?</h3>
+        <p class="">Tøv ikke med at sende mig en mail :)</p>
+      </div>
       <CopyToClipboard
         type="email"
         value="mail@alexandersandholdt.dk"
@@ -75,10 +77,12 @@ import CopyToClipboard from '../CopyToClipboard.astro';
       }
     }
 
-    $legal-spacing: 0.2rem;
+    $legal-spacing: 0.5rem;
     #legal-box,
     #legal-statement {
+      font-family: font-family(merriweather-sans);
       font-size: 0.8em;
+      line-height: 1;
     }
 
     #legal-box {
