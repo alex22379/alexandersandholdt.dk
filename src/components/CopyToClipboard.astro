@@ -86,18 +86,20 @@ const { type = 'text', value, size = undefined } = Astro.props;
   }
 </style>
 
-<script is:inline>
-  const ctc = document.querySelector('.copy-to-clipboard');
-  const input = ctc.querySelector('input');
-  const button = ctc.querySelector('button');
+<script>
+  const ctcList = document.querySelectorAll('.copy-to-clipboard');
+  ctcList.forEach((ctc) => {
+    const button = ctc.querySelector('button');
+    button.addEventListener('click', (e) => {
+      const input = ctc.querySelector('input');
 
-  button.addEventListener('click', (e) => {
-    input.select();
-    document.execCommand('copy');
-    ctc.classList.add('copied');
-    window.getSelection().removeAllRanges();
-    setTimeout(() => {
-      ctc.classList.remove('copied');
-    }, 2500);
+      input.select();
+      document.execCommand('copy');
+      ctc.classList.add('copied');
+      window.getSelection().removeAllRanges();
+      setTimeout(() => {
+        ctc.classList.remove('copied');
+      }, 2500);
+    });
   });
 </script>

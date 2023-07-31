@@ -4,7 +4,7 @@
 .flex {
   display: flex;
 
-  $properties: (
+  $positions: (
     flex-start,
     center,
     flex-end,
@@ -12,12 +12,12 @@
     space-around,
     space-evenly
   );
-  @each $prop in $properties {
-    &[data-justify-content='#{$prop}'] {
-      justify-content: $prop;
+  @each $pos in $positions {
+    &[data-justify-content='#{$pos}'] {
+      justify-content: $pos;
     }
-    &[data-align-items='#{$prop}'] {
-      align-items: $prop;
+    &[data-align-items='#{$pos}'] {
+      align-items: $pos;
     }
   }
 

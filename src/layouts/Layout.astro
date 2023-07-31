@@ -17,18 +17,18 @@ import '../sass/style.scss';
 
 import Header from '../components/universal/Header.astro';
 import Footer from '../components/universal/Footer.astro';
-import LangSwitch from '../components/universal/LangSwitch.astro';
+import LangSwitch from '../components/universal/LangSlider.astro';
 
 interface Props {
   title: string;
-  lang: string;
+  language: string;
 }
 
-const { title = 'Alexander Sandholdt', lang = 'da' } = Astro.props;
+const { title = 'Alexander Sandholdt', language } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang={lang}>
+<html lang={language}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />

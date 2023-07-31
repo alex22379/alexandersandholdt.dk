@@ -1,5 +1,5 @@
 <section id="profile" class="flow-root">
-  <div class="container even-columns | clr-neutral-000 my-24">
+  <div class="profile-container | container | clr-neutral-000 my-24">
     <div class="portrait">
       <div class="portrait-wrapper">
         <img
@@ -29,74 +29,70 @@
 
       <div class="tab-windows">
         <div class="tab-window" data-tab-id="about">
-          <div>
-            <h2>Hej, velkommen til</h2>
-            <p>
-              Som sagt, velkommen til, mit navn er Alexander,
-              <br /><br />
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit alias
-              tenetur nostrum excepturi perferendis officia accusantium explicabo
-              nemo voluptatem minima voluptatibus minus error, libero earum nulla
-              molestias. Nihil, esse ipsam. Lorem ipsum dolor, sit amet consectetur
-              adipisicing elit. Vel ea consectetur sunt excepturi eligendi. Commodi
-              corrupti atque officia, eos nemo, odio repudiandae temporibus corporis
-              fuga autem iste cum, dolor veritatis.
-              <br /><br />
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores culpa
-              nisi nesciunt.
-            </p>
-          </div>
+          <h2>Hej, velkommen til</h2>
+          <p>
+            Som sagt, velkommen til, mit navn er Alexander,
+            <br /><br />
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit alias
+            tenetur nostrum excepturi perferendis officia accusantium explicabo nemo
+            voluptatem minima voluptatibus minus error, libero earum nulla molestias.
+            Nihil, esse ipsam. Lorem ipsum dolor, sit amet consectetur adipisicing
+            elit. Vel ea consectetur sunt excepturi eligendi. Commodi corrupti atque
+            officia, eos nemo, odio repudiandae temporibus corporis fuga autem iste
+            cum, dolor veritatis.
+            <br /><br />
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores culpa
+            nisi nesciunt.
+          </p>
         </div>
         <div class="tab-window" data-tab-id="education">
-          <div>
-            <h2>Min uddannelse</h2>
+          <h2>Min uddannelse</h2>
 
-            <div class="timeline">
-              <div>
-                <h3 class="text-sm">Folkeskolen</h3>
-                <p class="text-sm">
-                  Færdiggører folkeskolens 9. klasse på VGE i Varde, efter at
-                  have gået på Favrdalskolen i Haderslev t.o.m 8. klasse
-                </p>
-                <h4 class="text-xs">2010 - 2020</h4>
-              </div>
+          <div class="timeline | flow">
+            <div>
+              <h3 class="">Folkeskolen</h3>
+              <p class="">
+                Færdiggører folkeskolens 9. klasse på VGE i Varde, efter at have
+                gået på Favrdalskolen i Haderslev t.o.m 8. klasse
+              </p>
+              <span class="">2010 - 2020</span>
+            </div>
 
-              <div>
-                <h3 class="text-sm">Gymnasiet</h3>
-                <p class="text-sm">
-                  Færdiggører en højere handelseksamen (HHX), og dimitterer fra
-                  Det Blå Gymnasium på Haderslev Handelsskole
-                </p>
-                <h4 class="text-xs">2020 - 2023</h4>
-              </div>
+            <div>
+              <h3 class="">Gymnasiet</h3>
+              <p class="">
+                Færdiggører en højere handelseksamen (HHX), og dimitterer fra
+                Det Blå Gymnasium på Haderslev Handelsskole
+              </p>
+              <span class="">2020 - 2023</span>
+            </div>
 
-              <div>
-                <h3 class="text-sm">Værnepligt</h3>
-                <p class="text-sm">
-                  Aftjener som værnepligtig i hæren på Varde Kaserne v.
-                  Forsvarets Efterretningsregiment, og gennemfører HBU
-                </p>
-                <h4 class="text-xs">August 2023 - November 2023</h4>
-              </div>
+            <div>
+              <h3 class="">Værnepligt</h3>
+              <p class="">
+                Aftjener som værnepligtig i hæren på Varde Kaserne v. Forsvarets
+                Efterretningsregiment, og gennemfører HBU
+              </p>
+              <span class="">August 2023 - November 2023</span>
+            </div>
 
-              <div>
-                <h3 class="text-sm">Opkvalificering</h3>
-                <p class="text-sm">
-                  Påbegynder opkvalificering i Fysik og Kemi i Aarhus med
-                  henblik på senere at læse til civilingeniør
-                </p>
-                <h4 class="text-xs">Februar 2024</h4>
-              </div>
+            <div>
+              <h3 class="">Opkvalificering</h3>
+              <p class="">
+                Påbegynder opkvalificering i Fysik og Kemi i Aarhus med henblik
+                på senere at læse til civilingeniør
+              </p>
+              <span class="text-xs">Februar 2024</span>
+            </div>
 
-              <div>
-                <h3 class="text-sm">
-                  Civilingeniør <span class="text-xs">(Bachelor)</span>
-                </h3>
-                <p class="text-sm">
-                  Påbegynder en B.Sc i Matematik & Teknologi på DTU i København
-                </p>
-                <h4 class="text-xs">Sommerstart 2025</h4>
-              </div>
+            <div>
+              <h3 class="">
+                Civilingeniør <span class="text-xs">(Bachelor)</span>
+              </h3>
+              <p class="">
+                Påbegynder en B.Sc i Matematik & Teknologi på DTU i København
+              </p>
+              <span class="">Sommerstart 2025</span>
             </div>
           </div>
         </div>
@@ -117,24 +113,41 @@
   #profile {
     min-height: 100vh;
     background: rgb(75, 108, 183);
-    background: linear-gradient(
-      180deg,
-      rgba(75, 108, 183, 1) 0%,
-      rgba(24, 40, 72, 1) 100%
-    );
+    background: linear-gradient(180deg, #0044c3 0%, #01266b 100%);
 
-    @include mq(lg) {
-      background: linear-gradient(
-        90deg,
-        rgba(75, 108, 183, 1) 0%,
-        rgba(24, 40, 72, 1) 100%
-      );
+    @include mq(md) {
+      background: linear-gradient(90deg, #0044c3 0%, #01266b 100%);
+    }
+
+    .profile-container {
+      display: grid;
+      --cols: 4;
+      grid-template-columns: repeat(var(--cols), 1fr);
+      grid-gap: 1rem;
+      justify-content: center;
+
+      @include mq(md) {
+        --cols: 8;
+      }
+
+      @include mq(lg) {
+        --cols: 12;
+      }
     }
 
     .portrait {
+      --span: 4;
+      grid-column-end: span var(--span);
+
+      @include mq(md) {
+        grid-column-start: 3;
+      }
+
+      @include mq(lg) {
+        grid-column-start: initial;
+      }
+
       .portrait-wrapper {
-        border: solid 0.5rem white;
-        border-radius: 7rem 2rem 2rem 2rem;
         overflow: hidden;
         transition: all 650ms ease;
 
@@ -143,24 +156,41 @@
           transition: filter 300ms linear, transform 700ms ease-in-out;
         }
 
-        &:hover {
-          border-radius: 6rem 2rem 2rem 2rem;
+        &:hover img {
+          filter: grayscale(100%);
+          transform: scale(102%);
+        }
 
-          img {
-            filter: grayscale(100%);
-            transform: scale(102%);
+        border-radius: 1.5rem 1.5rem 1.5rem 1.5rem;
+        @include mq(lg) {
+          border-radius: 6rem 1.5rem 1.5rem 1.5rem;
+
+          &:hover {
+            border-radius: 5rem 1.5rem 1.5rem 1.5rem;
           }
         }
       }
     }
 
     .profile-tabs {
+      --span: 4;
+      grid-column: span var(--span);
+
+      @include mq(md) {
+        --span: 8;
+      }
       .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25em;
+        margin-bottom: 0.25rem;
+
         .tab {
           font-family: font-family(ubuntu-mono);
           text-transform: uppercase;
           letter-spacing: 0.1em;
           font-size: font-size(200);
+          line-height: font-size(200);
           color: rgba(255, 255, 255, 0.6);
           background-color: rgba(0, 0, 0, 0.3);
           border: none;
@@ -168,7 +198,6 @@
           border-radius: 50vw;
           padding: 0.3em 0.6em;
           margin: 0;
-          line-height: 1;
           cursor: pointer;
 
           &:focus,
@@ -193,11 +222,33 @@
           display: none;
         }
       }
+
+      .timeline {
+        margin-top: 0.5rem;
+        & > * {
+          padding: 0.5rem 0.8rem;
+          background-color: rgba(0, 0, 0, 0.425);
+          border-radius: 0.75rem;
+
+          font-size: font-size(400);
+
+          h3 {
+            font-size: font-size(400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+          }
+
+          span {
+            font-size: font-size(100);
+            font-style: italic;
+          }
+        }
+      }
     }
   }
 </style>
 
-<script is:inline>
+<script>
   const tabs = document.querySelectorAll('.tab'),
     tabWindows = document.querySelectorAll('.tab-window');
 

@@ -57,66 +57,66 @@ import CopyToClipboard from '../CopyToClipboard.astro';
       ></small
     >
   </div>
+</footer>
 
-  <style lang="scss">
-    @use '../../sass/abstracts';
+<style lang="scss">
+  @use '../../sass/abstracts';
 
-    #logo-references {
-      #logos {
-        $img-width: 15em;
-        .logo-wrapper {
-          a {
-            max-width: 15em;
-            height: auto;
+  #logo-references {
+    #logos {
+      $img-width: 15em;
+      .logo-wrapper {
+        a {
+          max-width: 15em;
+          height: auto;
 
-            img {
-              @include abstracts.zoom;
-            }
+          img {
+            @include abstracts.zoom;
           }
         }
       }
     }
+  }
 
-    $legal-spacing: 0.5rem;
-    #legal-box,
-    #legal-statement {
-      font-family: font-family(merriweather-sans);
-      font-size: 0.8em;
-      line-height: 1;
+  $legal-spacing: 0.5rem;
+  #legal-box,
+  #legal-statement {
+    font-family: font-family(merriweather-sans);
+    font-size: 0.8em;
+    line-height: 0.8em;
+  }
+
+  #legal-box {
+    small {
+      opacity: 0;
     }
 
-    #legal-box {
-      small {
-        opacity: 0;
-      }
+    padding-block: $legal-spacing;
+  }
 
-      padding-block: $legal-spacing;
+  #legal-statement {
+    position: fixed;
+    bottom: $legal-spacing;
+    left: 0;
+    right: 0;
+    z-index: 99;
+
+    text-align: center;
+    cursor: default;
+
+    * {
+      color: silver;
+      text-decoration: none;
     }
 
-    #legal-statement {
-      position: fixed;
-      bottom: $legal-spacing;
-      left: 0;
-      right: 0;
-      z-index: 99;
-
-      text-align: center;
-      cursor: default;
-
-      * {
-        color: silver;
-        text-decoration: none;
-      }
-
-      &:hover .cvr {
-        text-decoration: underline;
-      }
+    &:hover .cvr {
+      text-decoration: underline;
     }
-  </style>
+  }
+</style>
 
-  <script is:inline>
-    document
-      .querySelector('.copyright-year')
-      .appendChild(document.createTextNode(new Date().getFullYear()));
-  </script>
-</footer>
+<script>
+  document
+    .querySelector('.copyright-year')
+    .appendChild(document.createTextNode(new Date().getFullYear()));
+</script>

@@ -79,27 +79,14 @@
   }
 </style>
 
-<script is:inline>
-  const langSwitch = document.querySelector('#lang-switch');
-  const slider = langSwitch.querySelector('.slider');
+<script>
+  const langSwitch = document.querySelector('#lang-switch')!;
+  const slider = langSwitch.querySelector('.slider')!;
 
   langSwitch.addEventListener('click', (e) => {
     slider.classList.toggle('switch');
 
-    if (slider.classList.contains('switch')) setLanguage('en');
-    else setLanguage('da');
+    //if (slider.classList.contains('switch')) EN;
+    //else DA;
   });
-
-  function getLanguage() {
-    let lang = localStorage.getItem('lang');
-    if (lang == null) {
-      if (!navigator.language.contains('da')) setLanguage('en');
-      else setLanguage('da');
-    }
-    return lang;
-  }
-
-  function setLanguage(lang) {
-    localStorage.setItem('lang', lang);
-  }
 </script>

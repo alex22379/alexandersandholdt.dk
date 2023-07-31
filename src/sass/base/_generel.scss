@@ -26,6 +26,14 @@ hr {
   border: 1px solid $body-text-color;
 }
 
+h1 {
+  line-height: 1;
+}
+h2,
+h3 {
+  line-height: 1.1;
+}
+
 input,
 button,
 textarea,

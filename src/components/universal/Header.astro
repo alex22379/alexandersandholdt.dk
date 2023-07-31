@@ -1,4 +1,4 @@
-<header class="flex">
+<div class="flex">
   <div id="topbar">
     <div
       class="container flex | my-1"
@@ -11,17 +11,22 @@
       <!-- Links: instagram/alexandersandholdt, in/alexandersandholdt, mail@alexandersandholdt.dk -->
       <div class="links">
         <a href="https://instagram.com/alexandersandholdt" target="_blank"
-          >instagram/alexandersandholdt</a
-        ><a
-          href="https://www.linkedin.com/in/alexandersandholdt/"
-          target="_blank">in/alexandersandholdt</a
-        ><a href="mailto:mail@alexandersandholdt.dk"
-          >mail@alexandersandholdt.dk</a
-        >
+          ><span class="text">instagram/alexandersandholdt</span>
+          <span class="icon"><i class="fa-brands fa-instagram"></i></span>
+        </a><span class="dot">&#x2022;</span><a
+          href="https:www.linkedin.com/in/alexandersandholdt"
+          target="_blank"
+          ><span class="text">in/alexandersandholdt</span>
+          <span class="icon"><i class="fa-brands fa-linkedin-in"></i></span>
+        </a><span class="dot">&#x2022;</span><a
+          href="mailto:mail@alexandersandholdt.dk"
+          ><span class="text">mail@alexandersandholdt.dk</span>
+          <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+        </a>
       </div>
     </div>
   </div>
-</header>
+</div>
 
 <style lang="scss">
   @use '../../sass/abstracts' as *;
@@ -45,28 +50,57 @@
         @include zoom();
       }
     }
+
     .links {
-      --grid-gap: 0;
       cursor: default;
       font-size: 0.8em;
       font-family: 'Merriweather Sans';
 
+      display: flex;
+      gap: 2rem;
+
       a {
         text-decoration: none;
-        color: blue;
+        display: block;
 
-        &:hover {
-          text-decoration: underline;
-          cursor: pointer;
+        .text {
+          display: none;
+
+          &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+          }
+        }
+
+        .icon {
+          font-size: 2em;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          color: color(brand, 200);
+        }
+
+        @include mq(md) {
+          .text {
+            display: initial;
+          }
+          .icon {
+            display: none;
+          }
         }
       }
 
-      & > * + * {
-        &::before {
-          content: '\2022';
-          margin: 0 0.25em;
-          color: black;
-          display: inline-block;
+      .dot {
+        user-select: none;
+        display: none;
+      }
+
+      @include mq(md) {
+        gap: 0.125rem;
+        .dot {
+          display: initial;
         }
       }
     }
