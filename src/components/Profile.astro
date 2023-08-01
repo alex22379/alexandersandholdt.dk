@@ -305,7 +305,13 @@
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 150px;
+    height: 50px;
+    @include mq(md) {
+      height: calc(50px * 1.5);
+    }
+    @include mq(lg) {
+      height: calc(50px * 2);
+    }
   }
 
   .custom-shape-divider-top-1690840359 .shape-fill {
@@ -325,7 +331,13 @@
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 168px;
+    height: 67.5px;
+    @include mq(md) {
+      height: calc(67.5px * 1.5);
+    }
+    @include mq(lg) {
+      height: calc(67.5px * 2);
+    }
   }
 
   .custom-shape-divider-bottom-1690842394 .shape-fill {
