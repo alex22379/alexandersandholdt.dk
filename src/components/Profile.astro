@@ -153,14 +153,17 @@
 
   #profile {
     background: rgb(75, 108, 183);
-    background: linear-gradient(165deg, #2f4aa2 0%, #3d57ac 50%, #01266b 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(75, 108, 183, 1) 0%,
+      rgba(24, 40, 72, 1) 100%
+    );
 
     @include mq(md) {
       background: linear-gradient(
-        105deg,
-        #2f4aa2 0%,
-        #3d57ac 50%,
-        #01266b 100%
+        90deg,
+        rgba(75, 108, 183, 1) 0%,
+        rgba(24, 40, 72, 1) 100%
       );
     }
 
@@ -206,7 +209,7 @@
           transform: scale(102%);
         }
 
-        border-radius: 1.5rem 1.5rem 1.5rem 1.5rem;
+        border-radius: 3rem 3rem 1.5rem 1.5rem;
         @include mq(lg) {
           border-radius: 6rem 1.5rem 1.5rem 1.5rem;
 
@@ -227,22 +230,23 @@
       .tabs {
         display: flex;
         flex-wrap: wrap;
+        align-items: center;
         gap: 0.25em;
         margin-bottom: 0.25rem;
 
         .tab {
           font-family: font-family(ubuntu-mono);
+          font-size: font-size(100);
           text-transform: uppercase;
-          letter-spacing: 0.1em;
-          font-size: font-size(200);
-          line-height: font-size(200);
-          color: rgba(255, 255, 255, 0.6);
-          background-color: rgba(0, 0, 0, 0.3);
+          text-align: center;
+          letter-spacing: 0.175em;
+          padding: 0.3em 0.6em;
+          border-radius: 50vw;
           border: none;
           outline: none;
-          border-radius: 50vw;
-          padding: 0.3em 0.6em;
-          margin: 0;
+          color: rgba(255, 255, 255, 0.6);
+          background-color: rgba(0, 0, 0, 0.3);
+          line-height: font-size(100);
           cursor: pointer;
 
           &:focus,
@@ -252,7 +256,7 @@
           }
 
           &:active {
-            transform: scale(95%);
+            transform: scale(97.5%);
           }
 
           &.active {
