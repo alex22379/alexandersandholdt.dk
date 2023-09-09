@@ -1,5 +1,5 @@
 {
-  "name": "alexandersandholdt-dk",
+  "name": "alexandersandholdt.dk",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -13,7 +13,7 @@
     "@fontsource-variable/merriweather-sans": "^5.0.6",
     "@fontsource/ubuntu": "^5.0.5",
     "@fontsource/ubuntu-mono": "^5.0.5",
-    "astro": "^2.9.4"
+    "astro": "^3.0.6"
   },
   "devDependencies": {
     "sass": "^1.64.1"

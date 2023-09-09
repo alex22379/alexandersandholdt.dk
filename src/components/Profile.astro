@@ -13,7 +13,6 @@
         <button class="tab" type="button" data-tab-target="about">
           Om mig
         </button>
-
         <button class="tab" type="button" data-tab-target="education">
           Uddannelse
         </button>
@@ -21,7 +20,6 @@
         <button class="tab" type="button" data-tab-target="skills">
           Kompetencer
         </button>
-
         <button class="tab" type="button" data-tab-target="experience">
           Erfaring
         </button>
@@ -31,7 +29,7 @@
         <div class="tab-window" data-tab-id="about">
           <h2>Hej, velkommen til</h2>
           <p>
-            Som sagt, velkommen til, mit navn er Alexander,
+            Lorme ipsum dolor sit amet conse
             <br /><br />
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit alias
             tenetur nostrum excepturi perferendis officia accusantium explicabo nemo
@@ -64,7 +62,7 @@
                 Færdiggører en højere handelseksamen (HHX), og dimitterer fra
                 Det Blå Gymnasium på Haderslev Handelsskole
               </p>
-              <span class="">2020 - 2023</span>
+              <span class="">August 2020 - Juni 2023</span>
             </div>
 
             <div>
@@ -79,10 +77,10 @@
             <div>
               <h3 class="">Opkvalificering</h3>
               <p class="">
-                Påbegynder opkvalificering i Fysik og Kemi i Aarhus med henblik
+                Færdiggører opkvalificering i Fysik og Kemi i Aarhus med henblik
                 på senere at læse til civilingeniør
               </p>
-              <span class="text-xs">Februar 2024</span>
+              <span class="text-xs">Juni 2024</span>
             </div>
 
             <div>
@@ -149,7 +147,7 @@
 </section>
 
 <style lang="scss">
-  @use '../sass/abstracts' as *;
+  @use '../styles/abstracts' as *;
 
   #profile {
     background: rgb(75, 108, 183);
@@ -198,6 +196,7 @@
       .portrait-wrapper {
         overflow: hidden;
         transition: all 650ms ease;
+				box-shadow: $box-shadow-3;
 
         img {
           transform: scale(103%);

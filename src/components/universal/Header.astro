@@ -1,3 +1,7 @@
+---
+import links from '../../data/links.json';
+---
+
 <div class="flex">
   <div id="topbar">
     <div
@@ -6,30 +10,27 @@
       data-flex="center"
       data-flex-direction="column"
     >
-      <a class="signature" href="#"><img src="img/signature.png" alt="" /></a>
-
-      <!-- Links: instagram/alexandersandholdt, in/alexandersandholdt, mail@alexandersandholdt.dk -->
-      <div class="links">
-        <a href="https://instagram.com/alexandersandholdt" target="_blank"
-          ><span class="text">instagram/alexandersandholdt</span>
-          <span class="icon"><i class="fa-brands fa-instagram"></i></span>
-        </a><span class="dot">&#x2022;</span><a
-          href="https:www.linkedin.com/in/alexandersandholdt"
-          target="_blank"
-          ><span class="text">in/alexandersandholdt</span>
-          <span class="icon"><i class="fa-brands fa-linkedin-in"></i></span>
-        </a><span class="dot">&#x2022;</span><a
-          href="mailto:mail@alexandersandholdt.dk"
-          ><span class="text">mail@alexandersandholdt.dk</span>
-          <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-        </a>
-      </div>
+      <a class="signature" href="/"><img src="img/signature.png" alt="" /></a>
+      <ul class="links">
+        {
+          links.map((l) => (
+            <li>
+              <a href={l.url} target="_blank">
+                <span class="text">{l.text}</span>
+                <span class="icon">
+                  <i class={l.icon} />
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </div>
 </div>
 
 <style lang="scss">
-  @use '../../sass/abstracts' as *;
+  @use '../../styles/abstracts' as *;
 
   #topbar {
     position: fixed;
@@ -56,51 +57,54 @@
       font-size: 0.8em;
       font-family: 'Merriweather Sans', sans-serif;
 
-      display: flex;
-      gap: 1rem;
+      li {
+        display: inline-block;
+				list-style: none;
 
-      a {
-        text-decoration: none;
-        display: block;
+				&:not(:last-child) {
+					padding-right: 1em;
 
-        .text {
-          display: none;
+					@include mq(md) {
+						padding-right: initial;
+						&::after {
+						content: '\2022';
+						padding-inline: .25em;
+					}
+				}
+				}
 
-          &:hover {
-            text-decoration: underline;
-            cursor: pointer;
-          }
-        }
+				
 
-        .icon {
-          font-size: 1.75em;
+        a {
+          text-decoration: none;
 
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
-          color: color(neutral, 800);
-        }
-
-        @include mq(md) {
           .text {
-            display: initial;
-          }
-          .icon {
             display: none;
+
+            &:hover {
+              text-decoration: underline;
+              cursor: pointer;
+            }
           }
-        }
-      }
 
-      .dot {
-        user-select: none;
-        display: none;
-      }
+          .icon {
+            font-size: 1.75em;
 
-      @include mq(md) {
-        gap: 0.125rem;
-        .dot {
-          display: initial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: color(neutral, 800);
+          }
+
+          @include mq(md) {
+            .text {
+              display: initial;
+            }
+            .icon {
+              display: none;
+            }
+          }
         }
       }
     }

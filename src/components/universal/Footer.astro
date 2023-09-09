@@ -1,5 +1,6 @@
 ---
 import CopyToClipboard from '../CopyToClipboard.astro';
+import siteInfo from '../../data/siteInfo.json';
 ---
 
 <footer class="flow-root | bg-neutral-150" style="position: relative;">
@@ -11,7 +12,7 @@ import CopyToClipboard from '../CopyToClipboard.astro';
       </div>
       <CopyToClipboard
         type="email"
-        value="mail@alexandersandholdt.dk"
+        value={siteInfo.contactEmail}
         size="24"
       />
     </section>
@@ -48,19 +49,19 @@ import CopyToClipboard from '../CopyToClipboard.astro';
     <!-- Legal: Copyright © (&copy;) 2023 Alexander Sandholdt | CVR: 43768085 (https://datacvr.virk.dk/enhed/virksomhed/43768085) -->
     <small>
       Copyright &copy;
-      <span class="copyright-year"></span>
+      {(new Date().getFullYear()).toString()}
       Alexander Sandholdt |
       <a
         class="cvr"
-        href="https://datacvr.virk.dk/enhed/virksomhed/43768085"
-        target="_blank">CVR: 43768085</a
+        href={"https://datacvr.virk.dk/enhed/virksomhed/"+siteInfo.cvr}
+        target="_blank">CVR: {siteInfo.cvr}</a
       ></small
     >
   </div>
 </footer>
 
 <style lang="scss">
-  @use '../../sass/abstracts' as *;
+  @use '../../styles/abstracts' as *;
 
   footer {
   }
@@ -117,9 +118,3 @@ import CopyToClipboard from '../CopyToClipboard.astro';
     }
   }
 </style>
-
-<script>
-  document
-    .querySelector('.copyright-year')
-    .appendChild(document.createTextNode(new Date().getFullYear()));
-</script>
