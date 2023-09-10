@@ -1,7 +1,7 @@
 <div id="lang-switch">
   <div class="switch">
-    <div class="option1">da</div>
-    <div class="option2">en</div>
+    <div class="option1" data-lang="da">da</div>
+    <div class="option2" data-lang="en">en</div>
     <div class="slider"></div>
   </div>
 </div>
@@ -70,7 +70,7 @@
         background-repeat: no-repeat;
         background-size: cover;
 
-        &.switch {
+        &.switched {
           transform: translateX(100%);
           background-image: url('/img/flags/eu_flag.png');
         }
@@ -83,10 +83,17 @@
   const langSwitch = document.querySelector('#lang-switch')!;
   const slider = langSwitch.querySelector('.slider')!;
 
-  langSwitch.addEventListener('click', (e) => {
-    slider.classList.toggle('switch');
+	const slideLang = () => {
+		slider.classList.toggle('switched');
+		return ((slider.classList.contains('switched')) ? 'en' : 'da');
+	};
 
-    //if (slider.classList.contains('switch')) EN;
-    //else DA;
+	const switchLang = (lang) => {
+		const href =  `/${lang}`;
+    window.location.href = href;
+	};
+
+  langSwitch.addEventListener('click', (e) => {
+    switchLang(slideLang());
   });
 </script>

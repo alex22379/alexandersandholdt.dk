@@ -3,17 +3,11 @@ import Layout from '../layouts/Layout.astro';
 
 import Hero from '../components/Hero.astro';
 import Profile from "../components/Profile.astro";
+import Portfolio from "../components/Portfolio.astro";
 ---
 
-<Layout title="Alexander Sandholdt" language="da">
+<Layout title="Alexander Sandholdt">
   <Hero />
   <Profile />
-  <section id="portfolio" class="page-section">
-    <div class="portfolio-container | container | my-32">
-			<div class="text-center">
-    	  <h2>Portefølje</h2>
-    	  <p>Et udvalg af mine projekter af både større og mindre karakter</p>
-			</div>
-    </div>
-  </section>
+	<Portfolio />
 </Layout>

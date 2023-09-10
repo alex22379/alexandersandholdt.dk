@@ -1,0 +1,44 @@
+<section id="portfolio" class="page-section">
+	<div class="container flow | my-32">
+		<div class="text-center">
+			<h2>Portefølje</h2>
+			<p>Et udvalg af mine projekter af både større og mindre karakter</p>
+		</div>
+		<div class="case-slider">
+			<button class="arrow left"><i class="fa-solid fa-chevron-left"></i></button>
+			<div class="cases">
+				<div class="case"></div>
+				<div class="case"></div>
+				<div class="case"></div>
+			</div>
+			<button class="arrow right"><i class="fa-solid fa-chevron-right"></i></button>
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	.case-slider {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
+
+		.arrow {
+			background: none;
+			border: none;
+			outline: none;
+			cursor: pointer;
+		}
+
+		.cases {
+			display: flex;
+			gap: 1rem;
+		}
+
+		.case {
+			height: 35rem;
+			width: 20rem;
+			background: red;
+		}	
+	}
+</style>

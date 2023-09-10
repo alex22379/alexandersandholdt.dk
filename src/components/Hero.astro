@@ -10,7 +10,7 @@
       >
     </h1>
     <a class="scroll | round flex | m-2 p-2" data-flex="center" href="#profile">
-      <i class="fa-solid fa-chevron-down | clr-brand-400"></i></a
+      <i class="fa-solid fa-arrow-down | clr-brand-400"></i></a
     >
   </div>
 </section>
@@ -55,13 +55,12 @@
     .scroll {
       animation: float 4s ease-in-out infinite;
       transition: all 100ms ease-out;
-
-      padding: 1.5em;
+			text-decoration: none;
+      padding: .8em;
 
       i {
         font-size: 1.5em;
         transition: all 200ms ease-out;
-        position: absolute;
       }
       &:hover {
         animation-play-state: paused;

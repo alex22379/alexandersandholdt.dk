@@ -21,14 +21,15 @@ import LangSwitch from '../components/universal/LangSlider.astro';
 
 interface Props {
   title: string;
-  language: string;
 }
 
-const { title = 'Alexander Sandholdt', language } = Astro.props;
+const { title = 'Alexander Sandholdt' } = Astro.props;
+const lang = 'da'; // getLangFromUrl
+
 ---
 
 <!DOCTYPE html>
-<html lang={language}>
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
