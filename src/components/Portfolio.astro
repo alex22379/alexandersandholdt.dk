@@ -4,14 +4,24 @@
 			<h2>Portefølje</h2>
 			<p>Et udvalg af mine projekter af både større og mindre karakter</p>
 		</div>
-		<div class="case-slider">
+		<div class="cases-slider">
 			<button class="arrow left"><i class="fa-solid fa-chevron-left"></i></button>
-			<div class="cases">
-				<div class="case"></div>
-				<div class="case" style="background: pink;"></div>
-				<div class="case" style="background: blue;"></div>
-				<div class="case" style="background: yellow;"></div>
-				<div class="case" style="background: purple;"></div>
+			<div class="cases-wrapper">
+				<div class="cases">
+					<div id="case-1" class="case"></div>
+					<div id="case-2" class="case"></div>
+					<div id="case-3" class="case"></div>
+					<div id="case-4" class="case"></div>
+					<div id="case-5" class="case"></div>
+				</div>
+				<div class="pagination text-center">
+					<a href="#case-1">&bull;</a>
+					<a href="#case-2">&bull;</a>
+					<a href="#case-3">&bull;</a>
+					<a href="#case-4">&bull;</a>
+					<a href="#case-5">&bull;</a>
+					<!-- TODO use scrollIntoView with js -->
+				</div>
 			</div>
 			<button class="arrow right"><i class="fa-solid fa-chevron-right"></i></button>
 		</div>
@@ -19,42 +29,61 @@
 </section>
 
 <style lang="scss">
-	.case-slider {
+  @use '../styles/abstracts' as *;
+
+	.cases-slider {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		gap: 2rem;
+		gap: 1rem;
 
 		.arrow {
 			background: none;
 			border: none;
 			outline: none;
 			cursor: pointer;
+
+			display: none;
+
+			@include mq(lg) {
+				display: initial;
+			}
 		}
 
-		$case-width: 20rem;
-		$case-gap: 1rem;
+		.cases-wrapper {
+			overflow: hidden;
+			.cases {
+				$case-width: 20rem;
+				$case-gap: 1rem;
 
-		.cases {
-			display: flex;
-			gap: 1rem;
-			padding-inline: $case-gap;
-			width: $case-width * 1 + $case-gap * 2;
-			overflow-x: scroll;
-			scroll-snap-type: x mandatory;
-			&::-webkit-scrollbar {
-				display: none;
+				display: flex;
+				gap: $case-gap;
+				overflow-x: auto;
+				scroll-snap-type: x mandatory;
+				&::-webkit-scrollbar {
+					display: none;
+				}
+				
+				.case {
+					scroll-snap-align: start;
+					min-height: $case-width*2;
+					min-width: $case-width;
+					background-color: color(neutral, '000');
+				}	
 			}
 
-			background: green;
-			
-			.case {
-				scroll-snap-align: center;
-				height: 35rem;
-				min-width: 20rem;
-				background: red;
-			}	
-		}		
+			.pagination {
+				display: flex;
+				justify-content: center;
+				gap: .5em;
+
+				& > * {
+					text-decoration: none;
+					color: black;
+					font-size: 1.25em;
+				}
+			}
+		}	
 	}
 </style>
 
@@ -64,10 +93,10 @@
 	const right = document.querySelector('.right');
 
 	left?.addEventListener('click', (e) => {
-		cases.scrollLeft -= 200;
+		cases?.scrollBy({ left: -200, behavior: 'smooth' });
 	});
 
 	right?.addEventListener('click', (e) => {
-		cases.scrollLeft += 200;
+		cases?.scrollBy({ left: 200, behavior: 'smooth' });
 	});
 </script>
