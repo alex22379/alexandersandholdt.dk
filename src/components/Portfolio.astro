@@ -8,8 +8,10 @@
 			<button class="arrow left"><i class="fa-solid fa-chevron-left"></i></button>
 			<div class="cases">
 				<div class="case"></div>
-				<div class="case"></div>
-				<div class="case"></div>
+				<div class="case" style="background: pink;"></div>
+				<div class="case" style="background: blue;"></div>
+				<div class="case" style="background: yellow;"></div>
+				<div class="case" style="background: purple;"></div>
 			</div>
 			<button class="arrow right"><i class="fa-solid fa-chevron-right"></i></button>
 		</div>
@@ -30,15 +32,42 @@
 			cursor: pointer;
 		}
 
+		$case-width: 20rem;
+		$case-gap: 1rem;
+
 		.cases {
 			display: flex;
 			gap: 1rem;
-		}
+			padding-inline: $case-gap;
+			width: $case-width * 1 + $case-gap * 2;
+			overflow-x: scroll;
+			scroll-snap-type: x mandatory;
+			&::-webkit-scrollbar {
+				display: none;
+			}
 
-		.case {
-			height: 35rem;
-			width: 20rem;
-			background: red;
-		}	
+			background: green;
+			
+			.case {
+				scroll-snap-align: center;
+				height: 35rem;
+				min-width: 20rem;
+				background: red;
+			}	
+		}		
 	}
 </style>
+
+<script>
+	const cases = document.querySelector('.cases');
+	const left = document.querySelector('.left');
+	const right = document.querySelector('.right');
+
+	left?.addEventListener('click', (e) => {
+		cases.scrollLeft -= 200;
+	});
+
+	right?.addEventListener('click', (e) => {
+		cases.scrollLeft += 200;
+	});
+</script>
