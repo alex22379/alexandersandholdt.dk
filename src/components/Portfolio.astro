@@ -5,14 +5,14 @@
 			<p>Et udvalg af mine projekter af både større og mindre karakter</p>
 		</div>
 		<div class="cases-slider">
-			<button class="arrow left"><i class="fa-solid fa-chevron-left"></i></button>
+			<button class="arrow left">:=)<i class="fa-solid fa-chevron-left"></i></button>
 			<div class="cases-wrapper">
 				<div class="cases">
-					<div id="case-1" class="case"></div>
-					<div id="case-2" class="case"></div>
-					<div id="case-3" class="case"></div>
-					<div id="case-4" class="case"></div>
-					<div id="case-5" class="case"></div>
+					<div id="case-1" class="case">1</div>
+					<div id="case-2" class="case">2</div>
+					<div id="case-3" class="case">3</div>
+					<div id="case-4" class="case">4</div>
+					<div id="case-5" class="case">5</div>
 				</div>
 				<div class="pagination text-center">
 					<a href="#case-1">&bull;</a>
@@ -23,7 +23,7 @@
 					<!-- TODO use scrollIntoView with js -->
 				</div>
 			</div>
-			<button class="arrow right"><i class="fa-solid fa-chevron-right"></i></button>
+			<button class="arrow right">(=:<i class="fa-solid fa-chevron-right"></i></button>
 		</div>
 	</div>
 </section>
@@ -69,6 +69,7 @@
 					min-height: $case-width*2;
 					min-width: $case-width;
 					background-color: color(neutral, '000');
+					border-radius: 1rem;
 				}	
 			}
 
@@ -94,6 +95,7 @@
 
 	left?.addEventListener('click', (e) => {
 		cases?.scrollBy({ left: -200, behavior: 'smooth' });
+		//document.querySelector('#case-4')?.scrollIntoView(false, {behavior: 'smooth' });
 	});
 
 	right?.addEventListener('click', (e) => {

@@ -1,0 +1,51 @@
+<div id="lang-switch">
+	<!--<div class="option" data-lang="da">da</div>-->
+	<span class="option" data-lang="en"></span>
+</div>
+
+<style lang="scss">
+  @use '../styles/abstracts' as *;
+
+  #lang-switch {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 101;
+
+    margin: size(2);
+
+		.option {box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.2),
+			inset 0 0 0.2rem rgba(0, 0, 0, 0.2);
+			cursor: pointer;
+			height: 2rem;
+			width: 2rem;
+			display: block;
+			border: .075rem solid color(neutral, 200);
+			border-radius: 2rem;
+			background-image: url('/img/flags/en_flag.png');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+    
+  }
+</style>
+
+<script>
+  const langSwitch = document.querySelector('#lang-switch')!;
+  const slider = langSwitch.querySelector('.slider')!;
+
+	const slideLang = () => {
+		slider.classList.toggle('switched');
+		return ((slider.classList.contains('switched')) ? 'en' : 'da');
+	};
+
+	const switchLang = (lang) => {
+		const href =  `/${lang}`;
+    window.location.href = href;
+	};
+
+  langSwitch.addEventListener('click', (e) => {
+    switchLang(slideLang());
+  });
+</script>

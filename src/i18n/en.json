@@ -1,0 +1,9 @@
+{
+  "meta.description": "...",
+  "footer.contact": {
+    "title": "Inquiries?",
+    "subtitle": "Do not hesitate sending me a mail :)"
+  },
+  "404.title": "Not found",
+  "404.msg": "How did you end up here?"
+}
