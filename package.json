@@ -17,7 +17,8 @@
 		"@fontsource/ubuntu": "^5.0.5",
 		"@fontsource/ubuntu-mono": "^5.0.5",
 		"astro": "^3.0.6",
-		"astro-i18n": "^1.8.1"
+		"astro-i18n": "^1.8.1",
+		"astro-purgecss": "^3.1.0"
 	},
 	"devDependencies": {
 		"sass": "^1.64.1"
