@@ -13,30 +13,37 @@ import '@fontsource/ubuntu/700.css';
 import '@fontsource/ubuntu-mono/400.css';
 import '@fontsource/ubuntu-mono/700.css';
 
+
+// Astro imports
+import { ViewTransitions } from 'astro:transitions';
+
+// astro-i18n
+import { HrefLangs } from "astro-i18n/components"
+
 import '../styles/style.scss';
 
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import LangSwitch from '../components/LangSwitch.astro';
 
-interface Props {
-  title: string;
-}
+const { title, description } = Astro.props;
 
-const { title = 'Alexander Sandholdt' } = Astro.props;
-const lang = 'da'; // getLangFromUrl
-
+import { astroI18n, t, l } from "astro-i18n"
+astroI18n.init(Astro)
 ---
 
 <!DOCTYPE html>
-<html lang={lang}>
+<html lang={astroI18n.langCode}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+		<ViewTransitions />
+
+		<!-- astro-i18n -->
+		<HrefLangs />
 
     <!-- Favicon -->
     <link
@@ -73,7 +80,6 @@ const lang = 'da'; // getLangFromUrl
       <slot />
     </main>
     <Footer />
-
     <LangSwitch />
   </body>
 </html>

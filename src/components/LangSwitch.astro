@@ -1,6 +1,9 @@
 <div id="lang-switch">
-	<!--<div class="option" data-lang="da">da</div>-->
-	<span class="option" data-lang="en"></span>
+  <div class="switch">
+    <div class="option1">da</div>
+    <div class="option2">en</div>
+    <div class="slider"></div>
+  </div>
 </div>
 
 <style lang="scss">
@@ -8,26 +11,71 @@
 
   #lang-switch {
     position: fixed;
-    top: 0;
+    bottom: 0;
     right: 0;
     z-index: 101;
 
     margin: size(2);
 
-		.option {box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.2),
-			inset 0 0 0.2rem rgba(0, 0, 0, 0.2);
-			cursor: pointer;
-			height: 2rem;
-			width: 2rem;
-			display: block;
-			border: .075rem solid color(neutral, 200);
-			border-radius: 2rem;
-			background-image: url('/img/flags/en_flag.png');
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: cover;
-		}
-    
+    .switch {
+      $lang-slider-height: 2rem;
+      $lang-slider-width: 4rem;
+      height: $lang-slider-height;
+      width: $lang-slider-width;
+      position: relative;
+      background: color(neutral, 150);
+      cursor: pointer;
+      border-radius: $lang-slider-height;
+      overflow: hidden;
+      box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.2),
+        inset 0 0 0.2rem rgba(0, 0, 0, 0.2);
+      user-select: none;
+
+      .option1,
+      .option2,
+      .slider {
+        height: 100%;
+        width: 50%;
+        position: absolute;
+        text-align: center;
+        line-height: $lang-slider-height;
+        font-family: font-family(system-ui);
+        font-size: 0.7em;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: $body-text-color;
+      }
+
+      .option1 {
+        left: 0;
+      }
+
+      .option2 {
+        right: 0;
+      }
+
+      .slider {
+        position: absolute;
+        right: 0;
+        height: calc(100% * 0.9);
+        width: calc(50% * 0.9);
+        border-radius: $lang-slider-height;
+        top: calc(100% * 0.05);
+        left: calc(100% * 0.05);
+        transition: transform cubic-bezier(1, 0.11, 1, 1.04) 400ms,
+          background-image 200ms ease 200ms;
+
+        background-image: url('/img/flags/da_flag.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        &.switch {
+          transform: translateX(100%);
+          background-image: url('/img/flags/eu_flag.png');
+        }
+      }
+    }
   }
 </style>
 
@@ -35,17 +83,10 @@
   const langSwitch = document.querySelector('#lang-switch')!;
   const slider = langSwitch.querySelector('.slider')!;
 
-	const slideLang = () => {
-		slider.classList.toggle('switched');
-		return ((slider.classList.contains('switched')) ? 'en' : 'da');
-	};
-
-	const switchLang = (lang) => {
-		const href =  `/${lang}`;
-    window.location.href = href;
-	};
-
   langSwitch.addEventListener('click', (e) => {
-    switchLang(slideLang());
+    slider.classList.toggle('switch');
+		document.location.href = "en/";
+    //if (slider.classList.contains('switch')) EN;
+    //else DA;
   });
 </script>

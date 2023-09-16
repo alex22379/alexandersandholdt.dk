@@ -1,16 +1,19 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import { astroI18n, t, l } from "astro-i18n";
+astroI18n.init(Astro)
 ---
 
-<Layout title="Alexander Sandholdt" >
+<BaseLayout title="404 | Alexander Sandholdt" description="...">
 	<section id="404" class="page-section">
 		<div class="container | my-64">
 			<div class="text-center">
 				<span class="fs-900">&#129300;</span>
-				<h1 class="fs-700 "><span class="fw-black">404 </span><span class="fw-semi-bold">(ikke fundet)</span></h1>
-				<p class="fs-500">Hvordan endte du her?</p>
+				<h1 class="fs-700 "><span class="fw-black">404 </span><span class="fw-semi-bold">({t('404.title')})</span></h1>
+				<p class="fs-500">{t('404.subtitle')}</p>
 			</div>
 		</div>
 	</section>
   
-</Layout>
+</BaseLayout>

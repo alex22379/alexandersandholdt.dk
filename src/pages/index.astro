@@ -1,13 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 import Hero from '../components/Hero.astro';
 import Profile from "../components/Profile.astro";
 import Portfolio from "../components/Portfolio.astro";
 ---
 
-<Layout title="Alexander Sandholdt">
+<BaseLayout title="Alexander Sandholdt" description="...">
   <Hero />
   <Profile />
 	<Portfolio />
-</Layout>
+</BaseLayout>

@@ -1,8 +1,10 @@
 ---
+import { astroI18n, t, l } from "astro-i18n"
+astroI18n.init(Astro)
 const { type = 'text', value, size = undefined } = Astro.props;
 ---
 
-<div class="copy-to-clipboard">
+<div class={"copy-to-clipboard " + ((astroI18n.langCode == "da") ? "lang-da" : "lang-en")}>
   <input
     type={type}
     value={value}
@@ -11,7 +13,7 @@ const { type = 'text', value, size = undefined } = Astro.props;
     size={size || value.length.toString()}
     .toString
   />
-  <button type="button" title="Kopier til udklipsholder">
+  <button type="button" title={(astroI18n.langCode == "da") ? "Kopier til udklipsholder" : "Copy to Clipboard"}>
     <i class="fa-solid fa-copy"></i>
   </button>
 </div>
@@ -69,7 +71,6 @@ const { type = 'text', value, size = undefined } = Astro.props;
 
     &:before {
       transition: all 250ms ease-in-out;
-      content: 'Kopieret';
       position: absolute;
       color: red;
       font-size: 0.8em;
@@ -81,6 +82,14 @@ const { type = 'text', value, size = undefined } = Astro.props;
       left: calc(50% - 3rem);
       opacity: 0%;
     }
+
+		&.lang-da:before {
+			content: 'Kopieret';
+		}
+
+		&.lang-en:before {
+			content: 'Copied';
+		}
 
     &.copied:before {
       opacity: 100%;

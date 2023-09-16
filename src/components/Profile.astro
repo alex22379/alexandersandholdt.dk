@@ -1,27 +1,31 @@
+---
+import { astroI18n, t, l } from "astro-i18n"
+astroI18n.init(Astro)
+---
+
 <section id="profile" class="page-section">
   <div class="profile-container | container | clr-neutral-000 my-48">
     <div class="portrait">
       <div class="portrait-wrapper">
         <img
-          src="img/portrait.jpg"
-          alt="Portrait of Alexander Sandholdt August 2023"
+          src="/img/portrait.jpg"
+          alt={t('profile.portraitAlt')}
         />
       </div>
     </div>
     <div class="profile-tabs">
       <nav class="tabs">
         <button class="tab" type="button" data-tab-target="about">
-          Om mig
+          {t('profile.tabTitles.about')}
         </button>
         <button class="tab" type="button" data-tab-target="education">
-          Uddannelse
+          {t('profile.tabTitles.education')}
         </button>
-
         <button class="tab" type="button" data-tab-target="skills">
-          Kompetencer
+          {t('profile.tabTitles.skills')}
         </button>
         <button class="tab" type="button" data-tab-target="experience">
-          Erfaring
+          {t('profile.tabTitles.experience')}
         </button>
       </nav>
 

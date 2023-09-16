@@ -1,18 +1,20 @@
 ---
 import CopyToClipboard from './CopyToClipboard.astro';
-import siteInfo from '../data/siteInfo.json';
+
+import { astroI18n, t, l } from "astro-i18n"
+astroI18n.init(Astro)
 ---
 
 <footer class="flow-root | bg-neutral-150" style="position: relative;">
   <div class="container | my-32">
     <section class="flow text-center" style="--flow-space: .5em;">
       <div>
-        <h3 class="fs-700 fw-bold">Henvendelser?</h3>
-        <p class="">Tøv ikke med at sende mig en mail :)</p>
+        <h3 class="fs-700 fw-bold">{t('footer.contact.title')}</h3>
+        <p class="">{t('footer.contact.subtitle')}</p>
       </div>
       <CopyToClipboard
         type="email"
-        value={siteInfo.contactEmail}
+        value={t('site.mail')}
         size="24"
       />
     </section>
@@ -27,12 +29,12 @@ import siteInfo from '../data/siteInfo.json';
       >
         <div class="logo-wrapper | flex" data-flex="center">
           <a href="https://www.to-be-digital.dk/" target="_blank"
-            ><img src="img/logos/to-be-digital.png" alt="" /></a
+            ><img src="/img/logos/to-be-digital.png" alt="" /></a
           >
         </div>
         <div class="logo-wrapper | flex" data-flex="center">
           <a href="https://estate.alexandersandholdt.dk/" target="_blank"
-            ><img src="img/logos/as-estate.png" alt="" /></a
+            ><img src="/img/logos/as-estate.png" alt="" /></a
           >
         </div>
       </div>
@@ -53,8 +55,8 @@ import siteInfo from '../data/siteInfo.json';
       Alexander Sandholdt |
       <a
         class="cvr"
-        href={"https://datacvr.virk.dk/enhed/virksomhed/"+siteInfo.cvr}
-        target="_blank">CVR: {siteInfo.cvr}</a
+        href={"https://datacvr.virk.dk/enhed/virksomhed/"+t('site.cvr')}
+        target="_blank">CVR: {t('site.cvr')}</a
       ></small
     >
   </div>

@@ -1,21 +1,25 @@
 {
-  "name": "alexandersandholdt.dk",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@fontsource-variable/merriweather-sans": "^5.0.6",
-    "@fontsource/ubuntu": "^5.0.5",
-    "@fontsource/ubuntu-mono": "^5.0.5",
-    "astro": "^3.0.6"
-  },
-  "devDependencies": {
-    "sass": "^1.64.1"
-  }
+	"name": "alexandersandholdt.dk",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"i18n:install": "astro-i18n install",
+		"i18n:sync": "astro-i18n sync",
+		"i18n:extract:keys": "astro-i18n extract:keys"
+	},
+	"dependencies": {
+		"@fontsource-variable/merriweather-sans": "^5.0.6",
+		"@fontsource/ubuntu": "^5.0.5",
+		"@fontsource/ubuntu-mono": "^5.0.5",
+		"astro": "^3.0.6",
+		"astro-i18n": "^1.8.1"
+	},
+	"devDependencies": {
+		"sass": "^1.64.1"
+	}
 }

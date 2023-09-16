@@ -1,11 +1,18 @@
+---
+import { astroI18n, t, l } from "astro-i18n"
+astroI18n.init(Astro)
+---
+
 <section id="portfolio" class="page-section">
 	<div class="container flow | my-32">
 		<div class="text-center">
-			<h2>Portefølje</h2>
-			<p>Et udvalg af mine projekter af både større og mindre karakter</p>
+			<a class="fs-600" href="https://github.com/alex22379" target="_blank"><i class="clr-brand-400 | fa-brands fa-github" style="color: #333"></i></a>
+			<h2>{t("portfolio.title")}</h2>
+			<p>{t("portfolio.subtitle")}</p>
+			
 		</div>
 		<div class="cases-slider">
-			<button class="arrow left">:=)<i class="fa-solid fa-chevron-left"></i></button>
+			<button class="arrow left"><i class="fa-solid fa-chevron-left"></i></button>
 			<div class="cases-wrapper">
 				<div class="cases">
 					<div id="case-1" class="case">1</div>
@@ -14,16 +21,17 @@
 					<div id="case-4" class="case">4</div>
 					<div id="case-5" class="case">5</div>
 				</div>
-				<div class="pagination text-center">
+				
+				<!-- <div class="pagination text-center">
 					<a href="#case-1">&bull;</a>
 					<a href="#case-2">&bull;</a>
 					<a href="#case-3">&bull;</a>
 					<a href="#case-4">&bull;</a>
 					<a href="#case-5">&bull;</a>
-					<!-- TODO use scrollIntoView with js -->
-				</div>
+					TODO use scrollIntoView with js 
+				</div>-->
 			</div>
-			<button class="arrow right">(=:<i class="fa-solid fa-chevron-right"></i></button>
+			<button class="arrow right"><i class="fa-solid fa-chevron-right"></i></button>
 		</div>
 	</div>
 </section>

@@ -1,0 +1,48 @@
+{
+  "site": {
+    "mail": "mail@alexandersandholdt.dk",
+    "cvr": "43768085"
+  },
+  "header": {
+    "links": {
+      "instagram": {
+        "text": "instagram/alexandersandholdt",
+        "url": "https://www.instagram.com/alexandersandholdt/",
+        "icon": "fa-brands fa-instagram"
+      },
+      "linkedin": {
+        "text": "in/alexandersandholdt",
+        "url": "https://www.linkedin.com/in/alexandersandholdt/",
+        "icon": "fa-brands fa-linkedin-in"
+      },
+      "mail": {
+        "text": "mail@alexandersandholdt.dk",
+        "url": "mailto:mail@alexandersandholdt.dk",
+        "icon": "fa-solid fa-envelope"
+      }
+    }
+  },
+  "footer": {
+    "contact": {
+      "title": "Henvendelser?",
+      "subtitle": "Tøv ikke med at sende mig en mail :)"
+    }
+  },
+  "404": {
+    "title": "Ikke fundet",
+    "subtitle": "Hvordan endte du her?"
+  },
+  "profile": {
+    "portraitAlt": "Portræt af Alexander Sandholdt August 2023",
+    "tabTitles": {
+      "about": "Om mig",
+      "education": "Uddannelse",
+      "skills": "Kompetencer",
+      "experience": "Erfaring"
+    }
+  },
+  "portfolio": {
+    "title": "Portefølje",
+    "subtitle": "Et udvalg af diverse projekter i diverse kategorier"
+  }
+}

@@ -1,5 +1,11 @@
 ---
-import links from '../data/links.json';
+import { Image } from 'astro:assets';
+import signatureImg from '../assets/signature.png'
+
+import { astroI18n, t, l } from "astro-i18n"
+astroI18n.init(Astro)
+
+const linkPaths = ['header.links.instagram', 'header.links.linkedin', 'header.links.mail'];
 ---
 
 <div class="flex">
@@ -10,20 +16,20 @@ import links from '../data/links.json';
       data-flex="center"
       data-flex-direction="column"
     >
-      <a class="signature" href="/"><img src="img/signature.png" alt="" /></a>
+      <a class="signature" href={l("/")}><Image src={signatureImg} alt="Alexander Sandholdt Signature" /></a>
       <ul class="links">
         {
-          links.map((l) => (
-            <li>
-              <a href={l.url} target="_blank">
-                <span class="text">{l.text}</span>
+          linkPaths.map((l) => (
+						<li>
+              <a href={t(l+".url")} target="_blank">
+                <span class="text">{t(l+".text")}</span>
                 <span class="icon">
-                  <i class={l.icon} />
+                  <i class={t(l+".icon")} />
                 </span>
               </a>
             </li>
-          ))
-        }
+          )
+        )}
       </ul>
     </div>
   </div>
