@@ -1,0 +1,98 @@
+---
+import { Image } from "astro:assets";
+import htmlIcon from "../assets/icons/html5.svg"
+import cssIcon from "../assets/icons/css3.svg"
+import jsIcon from "../assets/icons/javascript.svg"
+import tsIcon from "../assets/icons/typescript.svg"
+import astroIcon from "../assets/icons/astro.png"
+
+---
+
+<div class="case">
+	<div class="header">Hej med dig</div>
+	<div class="body">
+		<div class="text">
+			<h3 class="title">alexandersandholdt.dk</h3>
+			<p class="subtitle">Min personlige hjemmeside</p>
+
+			<div class="description">
+				<p>Hjemmesiden du sidder på netop nu, er opbygget fra bunden med frameworket, <a href="https://astro.build" target="_blank">Astro</a>.</p>
+				<p>Den er skabt med fokus på <i>den enkelte detalje</i>, <i>en effektiv kompetence- og identitsformidling</i> og selvfølgelig også med <i>ydeevne, brugervenlighed og optimering</i> for øje - og dertil en masse kærlighed og omhu.</p>
+			</div>
+		</div>
+		<div class="tools">
+			<Image src={htmlIcon} alt="" />
+			<Image src={cssIcon} alt="" />
+			<Image src={jsIcon} alt="" />
+			<Image src={tsIcon} alt="" />
+			<Image src={astroIcon} alt="" style="height: 1.2em;" />
+		</div>
+	</div>
+</div>
+
+<style lang="scss">
+  @use '../styles/abstracts' as *;
+	
+	$case-width: 20rem;
+	$case-gap: 1rem;
+	
+	.case {
+		scroll-snap-align: start;
+		min-height: $case-width*2;
+		min-width: $case-width;
+		background-color: color(neutral, '000');
+		border-radius: 0.5rem;
+		overflow: hidden;
+
+		.header {
+			height: 12.5rem;
+			width: 100%;
+			background: black;
+		}
+
+		.body {
+			padding: 0.5rem;
+			display: flex;
+			justify-content: space-between;
+			flex-direction: column;
+			height: calc(100% - 12.5rem);
+
+			.text {
+				font-family: 'Ubuntu', sans-serif;
+
+				.title {
+					font-size: 1.2em;
+				}
+
+				.subtitle {
+					text-transform: lowercase;
+					font-family: 'Ubuntu Mono', sans-serif;
+					font-size: 1em;
+				}
+
+				.description {
+					margin-top: .5rem;
+					font-size: .9em;
+
+					& > * + * {
+						margin-top: .25em;
+					}
+				}
+			}
+
+			.tools {
+				display: flex;
+				gap: .35em;
+				flex-wrap: wrap;
+				align-items: center;
+
+				img {
+					height: 1.5em;
+					width: auto;
+				}
+			}
+		}
+
+		
+	}	
+</style>

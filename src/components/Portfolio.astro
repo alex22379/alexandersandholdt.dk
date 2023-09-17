@@ -1,12 +1,14 @@
 ---
-import { astroI18n, t, l } from "astro-i18n"
-astroI18n.init(Astro)
+import FirstCase from "./FirstCase.astro";
+
+import { astroI18n, t, l } from "astro-i18n";
+astroI18n.init(Astro);
 ---
 
 <section id="portfolio" class="page-section">
 	<div class="container flow | my-32">
 		<div class="text-center">
-			<a class="fs-600" href="https://github.com/alex22379" target="_blank"><i class="clr-brand-400 | fa-brands fa-github" style="color: #333"></i></a>
+			<!--<a class="fs-600" href="https://github.com/alex22379" target="_blank"><i class="clr-brand-400 | fa-brands fa-github" style="color: #333"></i></a>-->
 			<h2>{t("portfolio.title")}</h2>
 			<p>{t("portfolio.subtitle")}</p>
 			
@@ -15,6 +17,7 @@ astroI18n.init(Astro)
 			<button class="arrow left"><i class="fa-solid fa-chevron-left"></i></button>
 			<div class="cases-wrapper">
 				<div class="cases">
+					<FirstCase />
 					<div id="case-1" class="case">1</div>
 					<div id="case-2" class="case">2</div>
 					<div id="case-3" class="case">3</div>
@@ -79,18 +82,6 @@ astroI18n.init(Astro)
 					background-color: color(neutral, '000');
 					border-radius: 1rem;
 				}	
-			}
-
-			.pagination {
-				display: flex;
-				justify-content: center;
-				gap: .5em;
-
-				& > * {
-					text-decoration: none;
-					color: black;
-					font-size: 1.25em;
-				}
 			}
 		}	
 	}
