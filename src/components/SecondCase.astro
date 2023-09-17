@@ -1,10 +1,4 @@
 ---
-import { Image } from "astro:assets";
-import htmlIcon from "../assets/icons/html5.svg"
-import cssIcon from "../assets/icons/css3.svg"
-import jsIcon from "../assets/icons/javascript.svg"
-import tsIcon from "../assets/icons/typescript.svg"
-import astroIcon from "../assets/icons/astro.png"
 
 ---
 
@@ -12,20 +6,14 @@ import astroIcon from "../assets/icons/astro.png"
 	<div class="header"></div>
 	<div class="body">
 		<div class="text">
-			<a style="color: #333" class="github | fs-300" href="https://github.com/alex22379/alexandersandholdt.dk" target="_blank"><i class=" mr-1 | fa-solid fa-arrow-up-right-from-square"></i>Find på Github</a>
-			<h3 class="title">alexandersandholdt.dk</h3>
-			<p class="subtitle">Min personlige hjemmeside</p>
+			<a style="color: #333" class="download | fs-300" href="" target="_blank"><i class=" mr-1 | fa-solid fa-download"></i>Download rapporten her</a>
+			<h3 class="title">Blockchain i Finanssektoren</h3>
+			<p class="subtitle">Afsluttende studieområdeprojekt, HHX</p>
 			<div class="description">
-				<p>Hjemmesiden du sidder på netop nu, er kodet og opbygget fra bunden med frameworket, <a href="https://astro.build" target="_blank">Astro</a>.</p>
-				<p>Den er skabt med fokus på <i>den enkelte detalje</i>, <i>en effektiv kompetence- og identitsformidling</i> og selvfølgelig også med <i>ydeevne, brugervenlighed og optimering</i> for øje - og dertil en masse kærlighed og omhu.</p>
+				<p>Som led i afslutningen på min HHX, skrev jeg i mit SOP-projekt om Blockchain i Finanssektoren i fagene Matematik og Afsætning.</p>
+				<p>Det var er udfordrende og spændende område, og indenfor fag der kræver fokus for at få dem til at spille sammen og danne den røde tråd.</p>
+				<p> Overordnet set et tilfredsstillende projekt, men selvfølgelig med plads til forbedringspunkter.</p>
 			</div>
-		</div>
-		<div class="tools">
-			<Image src={htmlIcon} alt="" />
-			<Image src={cssIcon} alt="" />
-			<Image src={jsIcon} alt="" />
-			<Image src={tsIcon} alt="" />
-			<Image src={astroIcon} alt="" style="height: 1.2em;" />
 		</div>
 	</div>
 </div>
@@ -71,7 +59,7 @@ import astroIcon from "../assets/icons/astro.png"
 				}
 
 				.subtitle {
-					text-transform: lowercase;
+					text-transform: uppercase;
 					font-family: 'Ubuntu Mono', sans-serif;
 					font-size: 1em;
 				}
