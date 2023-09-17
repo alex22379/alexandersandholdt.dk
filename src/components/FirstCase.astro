@@ -9,12 +9,12 @@ import astroIcon from "../assets/icons/astro.png"
 ---
 
 <div class="case">
-	<div class="header">Hej med dig</div>
+	<div class="header"></div>
 	<div class="body">
 		<div class="text">
+			<a style="color: #333" class="github | fs-300" href="https://github.com/alex22379" target="_blank"><i class=" mr-1 | fa-solid fa-arrow-up-right-from-square"></i>Find på Github</a>
 			<h3 class="title">alexandersandholdt.dk</h3>
 			<p class="subtitle">Min personlige hjemmeside</p>
-
 			<div class="description">
 				<p>Hjemmesiden du sidder på netop nu, er opbygget fra bunden med frameworket, <a href="https://astro.build" target="_blank">Astro</a>.</p>
 				<p>Den er skabt med fokus på <i>den enkelte detalje</i>, <i>en effektiv kompetence- og identitsformidling</i> og selvfølgelig også med <i>ydeevne, brugervenlighed og optimering</i> for øje - og dertil en masse kærlighed og omhu.</p>
@@ -47,11 +47,16 @@ import astroIcon from "../assets/icons/astro.png"
 		.header {
 			height: 12.5rem;
 			width: 100%;
-			background: black;
+			background-color: color(brand, '700');
 		}
-
+		a {
+						text-decoration: none;
+						&:hover {
+							text-decoration: underline;
+						}
+					}
 		.body {
-			padding: 0.5rem;
+			padding: 0.25rem 0.75rem 1rem 0.75rem;
 			display: flex;
 			justify-content: space-between;
 			flex-direction: column;
@@ -61,6 +66,7 @@ import astroIcon from "../assets/icons/astro.png"
 				font-family: 'Ubuntu', sans-serif;
 
 				.title {
+					margin-top: .25rem;
 					font-size: 1.2em;
 				}
 
@@ -71,11 +77,18 @@ import astroIcon from "../assets/icons/astro.png"
 				}
 
 				.description {
-					margin-top: .5rem;
+					margin-top: .75rem;
 					font-size: .9em;
 
 					& > * + * {
-						margin-top: .25em;
+						margin-top: .35em;
+					}
+
+					a {
+						text-decoration: none;
+						&:hover {
+							text-decoration: underline;
+						}
 					}
 				}
 			}
