@@ -25,7 +25,7 @@ const { type = 'text', value, size = undefined } = Astro.props;
     box-shadow: $box-shadow-2;
 
     background-color: color(neutral, '000');
-    border-radius: 1rem;
+    border-radius: size(4);
     position: relative;
     display: inline-flex;
 
@@ -33,8 +33,8 @@ const { type = 'text', value, size = undefined } = Astro.props;
     button {
       border: none;
       outline: none;
-      padding: 0.8rem;
-      font-size: 1.2em;
+      padding: size(3.5);
+      font-size: size(4.5);
       line-height: 1;
     }
 
@@ -47,7 +47,7 @@ const { type = 'text', value, size = undefined } = Astro.props;
     }
 
     button {
-      border-radius: 0 1rem 1rem 0;
+      border-radius: 0 size(4) size(4) 0;
       background-color: color(brand, 400);
       color: color(neutral, 100);
       cursor: pointer;
@@ -73,13 +73,13 @@ const { type = 'text', value, size = undefined } = Astro.props;
       transition: all 250ms ease-in-out;
       position: absolute;
       color: red;
-      font-size: 0.8em;
-      bottom: -1.6em;
-      width: 6rem;
+      font-size: size(3.5);
+      bottom: -size(6.5);
+      width: size(24);
       display: flex;
       justify-content: center;
       align-items: center;
-      left: calc(50% - 3rem);
+      left: calc(50% - size(12));
       opacity: 0%;
     }
 
