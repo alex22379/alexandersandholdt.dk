@@ -65,11 +65,9 @@ astroI18n.init(Astro);
 				}
 				
 				.case {
-					scroll-snap-align: start;
-					min-height: $case-width*2;
-					min-width: $case-width;
-					background-color: color(neutral, '000');
-					border-radius: 1rem;
+					&:hover {
+						transform: scale(110%);
+					}
 				}	
 			}
 		}	

@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /
 
-Sitemap: https://www.alexandersandholdt.dk/sitemap.xml
+Sitemap: https://www.alexandersandholdt.dk/sitemap-index.xml

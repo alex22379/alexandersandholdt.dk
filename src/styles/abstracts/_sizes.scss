@@ -9,7 +9,10 @@ $sizes: ();
 $step-in-rem: calc(1rem / 4); // 1 step should be fourth of a rem
 $total-steps: 24 * 4; // We want 24 rems of spacing with 4 steps being 1 rem
 $step-base: 0.5; // We want the ability of half steps aswell
-@for $i from 0 through calc($total-steps / $step-base) {
+@for $i
+  from calc($total-steps / $step-base * -1)
+  through calc($total-steps / $step-base)
+{
   $loop-step: $step-base * $i;
   $map: map.merge(
     $sizes,

@@ -13,6 +13,7 @@
 		"i18n:extract:keys": "astro-i18n extract:keys"
 	},
 	"dependencies": {
+		"@astrojs/sitemap": "^3.0.0",
 		"@fontsource-variable/merriweather-sans": "^5.0.6",
 		"@fontsource/ubuntu": "^5.0.5",
 		"@fontsource/ubuntu-mono": "^5.0.5",
