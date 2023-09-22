@@ -115,4 +115,27 @@ astroI18n.init(Astro);
 	right?.addEventListener('click', (e) => {
 		cases?.scrollBy({ left: 200, behavior: 'smooth' });
 	});
+
+	const scrollItems = document.querySelectorAll('.case');
+
+	const observerOptions = {
+		root: document.querySelector('cases'),
+		rootMargin: '0px',
+		threshold: 0.5, // Adjust this threshold as needed
+	};
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				// The item is in focus, you can apply focus styles or perform other actions here.
+				entry.target.classList.add("hover");
+			} else {
+				entry.target.classList.remove("hover");
+			}
+		});
+	}, observerOptions);
+
+	scrollItems.forEach((item) => {
+		observer.observe(item);
+	});
 </script>
