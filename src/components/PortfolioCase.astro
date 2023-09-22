@@ -12,29 +12,29 @@ Example usage
 </Case>
 */
 
-const { id, title = "...", subtitle = "...", cta = {}, banner = "solid" } = Astro.props;
-const useCta = (cta.hasOwnProperty('faIcon') && cta.hasOwnProperty('prompt') && cta.hasOwnProperty('link'));
-const useBanner = (banner != 'solid');
+const { id, title = "Lorem Ipsum", subtitle = "Lorem ipsum dolor sit amet", cta = {faIcon:"fa-solid fa-arrow-up-right-from-square",prompt:"Lorem ipsum dolor",link:"https://www.lipsum.com"}, banner = "/img/denmark.jpg" } = Astro.props;
 ---
 
 <div id={id} class="case">
 	<slot>
 		<div class="banner">
-			<div class="background" style={useBanner ? `background-image: ${banner}` : ''};></div>
+			<div class="background" style={`background-image: url(${banner});`}></div>
 		</div>
-		<div class="content | flow">
+		<div class="content">
 			<div class="header">
-				{ useCta && (<a class="call-to-action" href={cta.link} target="_blank"><i class:list={["mr-1", cta.faIcon]}></i>{cta.prompt}</a>) }
+				<a class="call-to-action" href={cta.link} target="_blank"><i class:list={["mr-1", cta.faIcon]}></i>{cta.prompt}</a>
 				<h3 class="title">{title}</h3>
 				<p class="subtitle | word-break">{subtitle}</p>
+				<hr />
 			</div>
 			<div class="body">
-				<slot name="body"><p>???</p></slot>
+				<slot name="body"><p>...</p></slot>
 			</div>
 			<div class="footer">
 				<slot name="footer" />
 			</div>
 		</div>
+		<div class="stribe"></div>
 	</slot>
 </div>
 
@@ -47,41 +47,48 @@ const useBanner = (banner != 'solid');
 	.case {
 		min-width: $case-width;
 		min-height: $case-height;
+
+		$banner-height: 31%;
+		$stribe-height: 3%;
+		$content-height: 100% - ($banner-height + $stribe-height);
+
 		background-color: color(neutral, "000");
 		overflow: hidden;
-		border-radius: $border-radius-1;
+		border-radius: $border-radius-2;
 
 		transform: scale(99.5%);
 		@include zoom(0%);
 		&:hover {
 			.banner {
-				--case-banner-blur: 1px;
+				.background {
+					--case-banner-blur: 0;
+					transform: scale(101%);
+				}
 			}
 		}
 
-		$banner-height: 31%;
 		.banner {
 			height: $banner-height;
 			overflow: hidden;
+			border-radius: $border-radius-1;
+			margin: size(1.5) size(1.5) 0 size(1.5);
 			
 			.background {
-      	transition: transform 600ms ease, filter 750ms ease;
+      	transition: transform 350ms ease, filter 750ms ease;
 
 				height: 100%;
-				background: linear-gradient(45deg, color(brand, '400') 0%, color(brand, '600') 80%, color(brand, '500') 100%);
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-position: center;
 
-				filter: blur(var(--case-banner-blur, 2px));
-  			-webkit-filter: blur(var(--case-banner-blur, 2px));
+				--case-banner-blur: 2px;
+				filter: grayscale(100%), blur(var(--case-banner-blur));
+  			-webkit-filter: blur(var(--case-banner-blur));
 			}
 		}
 
 		.content {
-			--flow-space: .5rem;
-
-			height: 100% - $banner-height;
+			height: $content-height;
 			padding: size(1.5) size(3) size(3) size(3);
 			display: flex;
 			flex-direction: column;
@@ -90,7 +97,7 @@ const useBanner = (banner != 'solid');
 				.call-to-action {
 					padding-bottom: size(1);
 					font-size: font-size(200);
-					color: inherit;
+					color: color(brand, 400);
 					display: block;
 				}
 
@@ -101,6 +108,10 @@ const useBanner = (banner != 'solid');
 				.subtitle {
 					text-transform: lowercase;
 					font-family: 'Ubuntu Mono', sans-serif;
+				}
+
+				hr {
+					margin: size(1) 0;
 				}
 			}
 
@@ -117,6 +128,11 @@ const useBanner = (banner != 'solid');
 			.footer {
 				margin-top: auto;
 			}
+		}
+
+		.stribe {
+			height: $stribe-height;
+			background: linear-gradient(45deg, color(brand, '400') 0%, color(brand, '600') 80%, color(brand, '500') 100%);
 		}
 	}
 </style>
