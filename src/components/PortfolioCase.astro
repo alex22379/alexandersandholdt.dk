@@ -1,15 +1,122 @@
 ---
+/*
+
+Example usage
+<Case id="caseId" title="Example title" subtitle="The above is a title while this is a subtitle" cta={faIcon:"",prompt:"",link:""}>
+	<div slot="body">
+		<p>Body</p>
+	</div>
+	<div slot="footer">
+		<p>Footer</p>
+	</div>
+</Case>
+*/
+
+const { id, title = "...", subtitle = "...", cta = {}, banner = "solid" } = Astro.props;
+const useCta = (cta.hasOwnProperty('faIcon') && cta.hasOwnProperty('prompt') && cta.hasOwnProperty('link'));
+const useBanner = (banner != 'solid');
 ---
 
-<div class="case">
-	<div class="banner"></div>
-	<div class="content">
-		<div class="header">
-			<slot name="call-to-action"></slot>
-			<h3 class="title"></h3>
-			<p class="subtitle"></p>
+<div id={id} class="case">
+	<slot>
+		<div class="banner">
+			<div class="background" style={useBanner ? `background-image: ${banner}` : ''};></div>
 		</div>
-		<slot name="body"><p>...</p></slot>
-		<slot name="footer" />
-	</div>
+		<div class="content | flow">
+			<div class="header">
+				{ useCta && (<a class="call-to-action" href={cta.link} target="_blank"><i class:list={["mr-1", cta.faIcon]}></i>{cta.prompt}</a>) }
+				<h3 class="title">{title}</h3>
+				<p class="subtitle | word-break">{subtitle}</p>
+			</div>
+			<div class="body">
+				<slot name="body"><p>???</p></slot>
+			</div>
+			<div class="footer">
+				<slot name="footer" />
+			</div>
+		</div>
+	</slot>
 </div>
+
+<style lang="scss">
+	@use '../styles/abstracts' as *;
+
+	$case-width: 20rem;
+	$case-height: 40rem;
+
+	.case {
+		min-width: $case-width;
+		min-height: $case-height;
+		background-color: color(neutral, "000");
+		overflow: hidden;
+		border-radius: $border-radius-1;
+
+		transform: scale(99.5%);
+		@include zoom(0%);
+		&:hover {
+			.banner {
+				--case-banner-blur: 1px;
+			}
+		}
+
+		$banner-height: 31%;
+		.banner {
+			height: $banner-height;
+			overflow: hidden;
+			
+			.background {
+      	transition: transform 600ms ease, filter 750ms ease;
+
+				height: 100%;
+				background: linear-gradient(45deg, color(brand, '400') 0%, color(brand, '600') 80%, color(brand, '500') 100%);
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+
+				filter: blur(var(--case-banner-blur, 2px));
+  			-webkit-filter: blur(var(--case-banner-blur, 2px));
+			}
+		}
+
+		.content {
+			--flow-space: .5rem;
+
+			height: 100% - $banner-height;
+			padding: size(1.5) size(3) size(3) size(3);
+			display: flex;
+			flex-direction: column;
+
+			.header {
+				.call-to-action {
+					padding-bottom: size(1);
+					font-size: font-size(200);
+					color: inherit;
+					display: block;
+				}
+
+				.title {
+					font-size: size(5);
+				}
+
+				.subtitle {
+					text-transform: lowercase;
+					font-family: 'Ubuntu Mono', sans-serif;
+				}
+			}
+
+			.body {
+				& :global(*) {
+					font-size: size(3.5);
+
+					&:not(:first-child) {
+						margin-top: size(1.5);
+					}
+				}
+			}
+
+			.footer {
+				margin-top: auto;
+			}
+		}
+	}
+</style>
