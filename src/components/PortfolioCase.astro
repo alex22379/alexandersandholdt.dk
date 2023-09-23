@@ -12,129 +12,154 @@ Example usage
 </Case>
 */
 
-const { id, title = "Lorem Ipsum", subtitle = "Lorem ipsum dolor sit amet", cta = {faIcon:"fa-solid fa-arrow-up-right-from-square",prompt:"Lorem ipsum dolor",link:"https://www.lipsum.com"}, banner = "/img/denmark.jpg" } = Astro.props;
+const {
+  id,
+  title = 'Lorem Ipsum',
+  subtitle = 'Lorem ipsum dolor sit amet',
+  cta = {
+    faIcon: 'fa-solid fa-arrow-up-right-from-square',
+    prompt: 'Lorem ipsum dolor',
+    link: 'https://www.lipsum.com',
+  },
+  banner = '/img/denmark.jpg',
+} = Astro.props;
 ---
 
 <div id={id} class="case">
-	<slot>
-		<div class="banner">
-			<div class="background" style={`background-image: url(${banner});`}></div>
-		</div>
-		<div class="content">
-			<div class="header">
-				<a class="call-to-action" href={cta.link} target="_blank"><i class:list={["mr-1", cta.faIcon]}></i>{cta.prompt}</a>
-				<h3 class="title">{title}</h3>
-				<p class="subtitle | word-break">{subtitle}</p>
-				<hr />
-			</div>
-			<div class="body">
-				<slot name="body"><p>...</p></slot>
-			</div>
-			<div class="footer">
-				<slot name="footer" />
-			</div>
-		</div>
-		<div class="stribe"></div>
-	</slot>
+  <slot>
+    <div class="banner">
+      <div class="background" style={`background-image: url(${banner});`}></div>
+    </div>
+    <div class="content">
+      <div class="header">
+        <a class="call-to-action" href={cta.link} target="_blank"
+          ><i class:list={['mr-1', cta.faIcon]}></i>{cta.prompt}</a
+        >
+        <h3 class="title">{title}</h3>
+        <p class="subtitle | word-break">{subtitle}</p>
+        <hr />
+      </div>
+      <div class="body">
+        <slot name="body"><p>...</p></slot>
+      </div>
+      <div class="footer">
+        <slot name="footer" />
+      </div>
+    </div>
+    <div class="stribe"></div>
+  </slot>
 </div>
 
 <style lang="scss">
-	@use '../styles/abstracts' as *;
+  @use '../styles/abstracts' as *;
 
-	$case-width: 20rem;
-	$case-height: 40rem;
+  $case-width: 21.5rem;
+  $case-height: 40rem;
 
-	.case {
-		scroll-snap-align: start;
+  .case {
+    scroll-snap-align: start;
 
-		min-width: $case-width;
-		min-height: $case-height;
+    min-width: $case-width;
+    min-height: $case-height;
 
-		$banner-height: 31%;
-		$stribe-height: 3%;
-		$content-height: 100% - ($banner-height + $stribe-height);
+    $banner-height: 31%;
+    $stribe-height: 3%;
+    $content-height: 100% - ($banner-height + $stribe-height);
 
-		background-color: color(neutral, "000");
-		overflow: hidden;
-		border-radius: $border-radius-2;
+    background-color: color(neutral, '000');
+    overflow: hidden;
+    border-radius: $border-radius-2;
 
-		transform: scale(99.5%);
-		@include zoom(0%);
-		&:hover, &.hover {
-			.banner {
-				.background {
-					--case-banner-blur: 0;
-					transform: scale(101%);
-				}
-			}
-		}
+    transform: scale(99.5%);
+    @include zoom(0%);
+    &:hover,
+    &.hover {
+      .banner {
+        .background {
+          --case-banner-blur: 0;
+          transform: scale(101%);
+          opacity: 100%;
+        }
+      }
+    }
 
-		.banner {
-			height: $banner-height;
-			overflow: hidden;
-			border-radius: $border-radius-1;
-			margin: size(1.5) size(1.5) 0 size(1.5);
-			
-			.background {
-      	transition: transform 350ms ease, filter 750ms ease;
+    .banner {
+      height: $banner-height;
+      overflow: hidden;
+      border-radius: $border-radius-1;
+      margin: size(1.5) size(1.5) 0 size(1.5);
 
-				height: 100%;
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;
+      .background {
+        transition:
+          transform 350ms ease,
+          filter 750ms ease-out,
+          opacity 750ms ease-out;
 
-				--case-banner-blur: 2px;
-				filter: grayscale(100%), blur(var(--case-banner-blur));
-  			-webkit-filter: blur(var(--case-banner-blur));
-			}
-		}
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        opacity: 70%;
+        //background-color: #000;
+        //background-blend-mode: luminosity;
 
-		.content {
-			height: $content-height;
-			padding: size(1.5) size(3) size(3) size(3);
-			display: flex;
-			flex-direction: column;
+        --case-banner-blur: 1px;
+        filter: grayscale(100%), blur(var(--case-banner-blur));
+        -webkit-filter: blur(var(--case-banner-blur));
+      }
+    }
 
-			.header {
-				.call-to-action {
-					padding-bottom: size(1);
-					font-size: font-size(200);
-					color: color(brand, 400);
-					display: block;
-				}
+    .content {
+      height: $content-height;
+      padding: size(1.5) size(3) size(3) size(3);
+      display: flex;
+      flex-direction: column;
 
-				.title {
-					font-size: size(5);
-				}
+      .header {
+        .call-to-action {
+          padding-bottom: size(1);
+          font-size: font-size(200);
+          color: color(brand, 400);
+          display: block;
+        }
 
-				.subtitle {
-					text-transform: lowercase;
-					font-family: 'Ubuntu Mono', sans-serif;
-				}
+        .title {
+          font-size: font-size(500);
+        }
 
-				hr {
-					margin: size(1) 0;
-				}
-			}
+        .subtitle {
+          text-transform: lowercase;
+          font-family: 'Ubuntu Mono', sans-serif;
+        }
 
-			.body {
-				& :global(*) {
-					font-size: size(3.5);
+        hr {
+          margin: size(1) 0;
+        }
+      }
 
-					&:not(:first-child) {
-						margin-top: size(1.5);
-					}
-				}
-			}
+      .body {
+        & :global(*) {
+          font-size: font-size(300);
 
-			.footer {
-				margin-top: auto;
-			}
-		}
+          &:not(:first-child) {
+            margin-top: size(1.5);
+          }
+        }
+      }
 
-		.stribe {
-			height: $stribe-height;
-			background: linear-gradient(45deg, color(brand, '400') 0%, color(brand, '600') 80%, color(brand, '500') 100%);
-		}
-	}
+      .footer {
+        margin-top: auto;
+      }
+    }
+
+    .stribe {
+      height: $stribe-height;
+      background: linear-gradient(
+        45deg,
+        color(brand, '400') 0%,
+        color(brand, '600') 80%,
+        color(brand, '500') 100%
+      );
+    }
+  }
 </style>
