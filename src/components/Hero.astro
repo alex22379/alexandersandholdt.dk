@@ -1,20 +1,28 @@
 ---
-
+import { Icon } from 'astro-icon';
 ---
 
 <section id="hero" class="flex bg-neutral-100">
   <div
-    class="container flex | clr-brand-400"
+    class="container flex | my-16 clr-brand-600"
     data-flex="center"
     data-flex-direction="column"
   >
+    <div class="pb | round">
+      <img src="/img/portrait.jpg" alt="Alexander Sandholdt, August 2022" />
+    </div>
     <h1 class="title">
       <span class="firstname">Alexander</span><br /><span class="lastname"
         >Sandholdt</span
       >
     </h1>
-    <a class="scroll | round flex | m-2 p-2" data-flex="center" href="#profile">
-      <i class="fa-solid fa-arrow-down | clr-brand-400"></i></a
+    <a
+      class="scroll | round flex | m-2 p-2"
+      style="color: inherit;"
+      data-flex="center"
+      href="#profile"
+    >
+      <Icon name="mdi:arrow-down" height="35" /></a
     >
   </div>
 </section>
@@ -25,9 +33,38 @@
   #hero {
     min-height: 85vh;
 
+    .pb {
+      overflow: hidden;
+      max-height: size(64);
+      background-color: white;
+      transform: translateY(size(2));
+      img {
+        margin-top: -1.5rem;
+        max-height: inherit;
+        width: auto;
+        transform: scale(80%);
+        transition:
+          filter 350ms linear,
+          transform 740ms cubic-bezier(0, 0.93, 0.46, 0.94);
+      }
+
+      transition: transform 740ms cubic-bezier(0, 0.93, 0.46, 0.94);
+      &.titleHover {
+        transform: translateY(size(6)) scale(97.5%);
+        img {
+          transform: scale(77.5%);
+          filter: grayscale(100%);
+        }
+      }
+    }
+
+    .title:hover ~ .pb {
+      background-color: green;
+    }
+
     .title {
       font-family: 'Times New Roman', Times, serif;
-      font-size: clamp(4.3rem, 9.83vw + 1.84rem, 11.28rem);
+      font-size: clamp(4.3rem, 9.83vw + 1.84rem, 10rem);
       line-height: 0.85;
       cursor: default;
 
@@ -59,10 +96,10 @@
     .scroll {
       animation: float 4s ease-in-out infinite;
       transition: all 100ms ease-out;
-			text-decoration: none;
-      padding: .8em;
+      text-decoration: none;
+      padding: size(2);
 
-      i {
+      [astro-icon] {
         font-size: 1.5em;
         transition: all 200ms ease-out;
       }
@@ -70,10 +107,23 @@
         animation-play-state: paused;
         background-color: rgba(0, 0, 0, 0.035);
 
-        i {
+        [astro-icon] {
           transform: scale(110%);
         }
       }
     }
   }
 </style>
+
+<script>
+  const pbElement = document.querySelector('.pb');
+  const titleElement = document.querySelector('.title');
+
+  titleElement.addEventListener('mouseenter', (e) => {
+    pbElement.classList.add('titleHover');
+  });
+
+  titleElement.addEventListener('mouseleave', (e) => {
+    pbElement.classList.remove('titleHover');
+  });
+</script>

@@ -1,16 +1,13 @@
 ---
-import { astroI18n, t, l } from "astro-i18n"
-astroI18n.init(Astro)
+import { astroI18n, t, l } from 'astro-i18n';
+astroI18n.init(Astro);
 ---
 
 <section id="profile" class="page-section">
   <div class="profile-container | container | clr-neutral-000 my-36">
     <div class="portrait">
       <div class="portrait-wrapper">
-        <img
-          src="/img/portrait.jpg"
-          alt={t('profile.portraitAlt')}
-        />
+        <img src="/img/portrait.jpg" alt={t('profile.portraitAlt')} />
       </div>
     </div>
     <div class="profile-tabs">
@@ -35,16 +32,16 @@ astroI18n.init(Astro)
           <p>
             Lorme ipsum dolor sit amet conse
             <br /><br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit alias
-            tenetur nostrum excepturi perferendis officia accusantium explicabo nemo
-            voluptatem minima voluptatibus minus error, libero earum nulla molestias.
-            Nihil, esse ipsam. Lorem ipsum dolor, sit amet consectetur adipisicing
-            elit. Vel ea consectetur sunt excepturi eligendi. Commodi corrupti atque
-            officia, eos nemo, odio repudiandae temporibus corporis fuga autem iste
-            cum, dolor veritatis.
+             Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+            alias tenetur nostrum excepturi perferendis officia accusantium
+            explicabo nemo voluptatem minima voluptatibus minus error, libero
+            earum nulla molestias. Nihil, esse ipsam. Lorem ipsum dolor, sit
+            amet consectetur adipisicing elit. Vel ea consectetur sunt excepturi
+            eligendi. Commodi corrupti atque officia, eos nemo, odio repudiandae
+            temporibus corporis fuga autem iste cum, dolor veritatis.
             <br /><br />
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores culpa
-            nisi nesciunt.
+             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
+            culpa nisi nesciunt.
           </p>
         </div>
         <div class="tab-window" data-tab-id="education">
@@ -154,29 +151,22 @@ astroI18n.init(Astro)
   @use '../styles/abstracts' as *;
 
   #profile {
-		min-height: 100vh;
-    background: rgb(75, 108, 183);
+    min-height: 100vh;
     background: linear-gradient(
       180deg,
       rgba(75, 108, 183, 1) 0%,
       rgba(24, 40, 72, 1) 100%
     );
 
-    @include mq(md) {
-      background: linear-gradient(
-        90deg,
-        rgba(75, 108, 183, 1) 0%,
-        rgba(24, 40, 72, 1) 100%
-      );
-			background-attachment: fixed;
-
-    }
+    /*background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;*/
 
     .profile-container {
       display: grid;
       --cols: 4;
       grid-template-columns: repeat(var(--cols), 1fr);
-      grid-gap: 1rem;
+      grid-gap: size(4);
       justify-content: center;
 
       @include mq(md) {
@@ -202,12 +192,14 @@ astroI18n.init(Astro)
 
       .portrait-wrapper {
         overflow: hidden;
-        transition: all 650ms ease;
-				box-shadow: $box-shadow-3;
+        transition: all 450ms ease-out;
+        box-shadow: $box-shadow-3;
 
         img {
           transform: scale(103%);
-          transition: filter 300ms linear, transform 700ms ease-in-out;
+          transition:
+            filter 300ms linear,
+            transform 600ms ease;
         }
 
         &:hover img {
@@ -238,7 +230,6 @@ astroI18n.init(Astro)
         flex-wrap: wrap;
         align-items: center;
         gap: 0.25em;
-        margin-bottom: 0.25rem;
 
         .tab {
           font-family: font-family(ubuntu-mono);
@@ -270,9 +261,15 @@ astroI18n.init(Astro)
             background-color: rgba(0, 0, 0, 0.5);
           }
         }
+        margin-bottom: size(1);
       }
 
       .tab-windows {
+        /*background-color: rgba(0, 0, 0, 0.5);
+        padding: size(2);
+        border-radius: $border-radius-1;
+        margin-top: size(1);*/
+
         & > * {
           display: none;
         }

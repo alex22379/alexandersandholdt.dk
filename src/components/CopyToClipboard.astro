@@ -26,101 +26,101 @@ const { type = 'text', value, size = undefined } = Astro.props;
   >
     <i class="fa-solid fa-copy"></i>
   </button>
-</div>
 
-<style lang="scss">
-  @use '../styles/abstracts' as *;
+  <style lang="scss">
+    @use '../styles/abstracts' as *;
 
-  .copy-to-clipboard {
-    box-shadow: $box-shadow-2;
+    .copy-to-clipboard {
+      box-shadow: $box-shadow-2;
 
-    background-color: color(neutral, '000');
-    border-radius: size(4);
-    position: relative;
-    display: inline-flex;
+      background-color: color(neutral, '000');
+      border-radius: size(4);
+      position: relative;
+      display: inline-flex;
 
-    input,
-    button {
-      border: none;
-      outline: none;
-      padding: size(3.5);
-      font-size: size(4.5);
-      line-height: 1;
-    }
-
-    input {
-      border-radius: inherit;
-      background-color: transparent;
-      width: 100%;
-      min-width: 0;
-      max-width: 100%;
-    }
-
-    button {
-      border-radius: 0 size(4) size(4) 0;
-      background-color: color(brand, 400);
-      color: color(neutral, 100);
-      cursor: pointer;
-
-      &:focus,
-      &:hover {
-        background-color: color(brand, 500);
+      input,
+      button {
+        border: none;
+        outline: none;
+        padding: size(3.5);
+        font-size: size(4.5);
+        line-height: 1;
       }
 
-      &:active {
-        i {
-          transform: scale(90%);
+      input {
+        border-radius: inherit;
+        background-color: transparent;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      button {
+        border-radius: 0 size(4) size(4) 0;
+        background-color: color(brand, 400);
+        color: color(neutral, 100);
+        cursor: pointer;
+
+        &:focus,
+        &:hover {
+          background-color: color(brand, 500);
+        }
+
+        &:active {
+          i {
+            transform: scale(90%);
+          }
         }
       }
+
+      &:focus-within {
+        outline-style: solid;
+        outline-color: color(neutral, 200);
+      }
+
+      &:before {
+        transition: all 250ms ease-in-out;
+        position: absolute;
+        color: red;
+        font-size: size(3.5);
+        bottom: size(-6);
+        width: size(24);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: calc(50% - size(12));
+        opacity: 0%;
+      }
+
+      &.lang-da:before {
+        content: 'Kopieret';
+      }
+
+      &.lang-en:before {
+        content: 'Copied';
+      }
+
+      &.copied:before {
+        opacity: 100%;
+      }
     }
+  </style>
 
-    &:focus-within {
-      outline-style: solid;
-      outline-color: color(neutral, 200);
-    }
+  <script>
+    const ctcList = document.querySelectorAll('.copy-to-clipboard');
+    ctcList.forEach((ctc) => {
+      const button = ctc.querySelector('button');
+      button?.addEventListener('click', (e) => {
+        const input = ctc.querySelector('input');
 
-    &:before {
-      transition: all 250ms ease-in-out;
-      position: absolute;
-      color: red;
-      font-size: size(3.5);
-      bottom: size(-6);
-      width: size(24);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      left: calc(50% - size(12));
-      opacity: 0%;
-    }
-
-    &.lang-da:before {
-      content: 'Kopieret';
-    }
-
-    &.lang-en:before {
-      content: 'Copied';
-    }
-
-    &.copied:before {
-      opacity: 100%;
-    }
-  }
-</style>
-
-<script>
-  const ctcList = document.querySelectorAll('.copy-to-clipboard');
-  ctcList.forEach((ctc) => {
-    const button = ctc.querySelector('button');
-    button?.addEventListener('click', (e) => {
-      const input = ctc.querySelector('input');
-
-      input?.select();
-      document.execCommand('copy');
-      ctc.classList.add('copied');
-      window.getSelection()?.removeAllRanges();
-      setTimeout(() => {
-        ctc.classList.remove('copied');
-      }, 2500);
+        input?.select();
+        document.execCommand('copy');
+        ctc.classList.add('copied');
+        window.getSelection()?.removeAllRanges();
+        setTimeout(() => {
+          ctc.classList.remove('copied');
+        }, 2500);
+      });
     });
-  });
-</script>
+  </script>
+</div>

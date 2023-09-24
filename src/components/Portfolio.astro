@@ -1,10 +1,5 @@
 ---
-import { Image } from 'astro:assets';
-import htmlIcon from '../assets/icons/html5.svg';
-import cssIcon from '../assets/icons/css3.svg';
-import jsIcon from '../assets/icons/javascript.svg';
-import tsIcon from '../assets/icons/typescript.svg';
-import astroIcon from '../assets/icons/astro.png';
+import { Icon } from 'astro-icon';
 
 import Case from './PortfolioCase.astro';
 
@@ -19,8 +14,8 @@ astroI18n.init(Astro);
       <p>{t('portfolio.subtitle')}</p>
     </div>
     <div class="cases-slider">
-      <button class="arrow left"
-        ><i class="fa-solid fa-chevron-left"></i></button
+      <button class="chevron left"
+        ><Icon name="mdi:chevron-left" height="110" /></button
       >
       <div class="cases-wrapper">
         <div class="cases">
@@ -52,11 +47,11 @@ astroI18n.init(Astro);
               </p>
             </div>
             <div slot="footer" class="thisCase-footer">
-              <Image src={htmlIcon} alt="" />
-              <Image src={cssIcon} alt="" />
-              <Image src={jsIcon} alt="" />
-              <Image src={tsIcon} alt="" />
-              <Image src={astroIcon} alt="" style="height: 1.2em;" />
+              <Icon name="logos:html-5" />
+              <Icon name="logos:css-3" />
+              <Icon name="logos:javascript" />
+              <Icon name="logos:typescript-icon" />
+              <Icon name="logos:astro" />
             </div>
           </Case>
           <Case
@@ -73,13 +68,13 @@ astroI18n.init(Astro);
             <div slot="body">
               <p>
                 Som led i afslutningen på min HHX, skrev jeg i mit SOP-projekt
-                om Blockchain-teknologiens anvendelse i Finanssektoren i fagene
+                om Blockchain-teknologiens anvendelse i Finanssektoren, i fagene
                 Matematik og Afsætning.
               </p>
               <p>
-                Det var er udfordrende og spændende område, og med fag der
-                kræver fokus for at få dem til at spille sammen, og samlet danne
-                den røde tråd.
+                Det var et udfordrende og spændende område, og med fag der
+                krævede fokus, for at få dem til at spille sammen og samlet
+                danne den røde tråd.
               </p>
               <p>
                 Overordnet set et tilfredsstillende projekt, men selvfølgelig
@@ -91,101 +86,103 @@ astroI18n.init(Astro);
           <Case id="empty2" />
         </div>
       </div>
-      <button class="arrow right"
-        ><i class="fa-solid fa-chevron-right"></i></button
-      >
+      <button class="chevron right"
+        ><Icon name="mdi:chevron-right" height="110" />
+      </button>
     </div>
   </div>
-</section>
 
-<style lang="scss">
-  @use '../styles/abstracts' as *;
+  <style lang="scss">
+    @use '../styles/abstracts' as *;
 
-  .thisCase-footer {
-    display: flex;
-    gap: 0.35em;
-    flex-wrap: wrap;
-    align-items: center;
+    .thisCase-footer {
+      display: flex;
+      gap: size(2.5);
+      flex-wrap: wrap;
+      align-items: center;
 
-    img {
-      height: 1.5em;
-      width: auto;
-    }
-  }
-
-  .cases-slider {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: size(4);
-
-    .arrow {
-      background: none;
-      border: none;
-      outline: none;
-      cursor: pointer;
-
-      display: none;
-
-      @include mq(lg) {
-        display: initial;
+      img,
+      [astro-icon] {
+        height: 1.5em;
+        width: auto;
       }
     }
 
-    .cases-wrapper {
-      overflow: hidden;
+    .cases-slider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: size(4);
 
-      .cases {
-        display: flex;
-        gap: size(4);
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        &::-webkit-scrollbar {
-          display: none;
+      .chevron {
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+
+        display: none;
+
+        @include mq(lg) {
+          display: initial;
+        }
+      }
+
+      .cases-wrapper {
+        overflow: hidden;
+
+        .cases {
+          display: flex;
+          gap: size(4);
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+          padding-top: size(1);
         }
       }
     }
-  }
-</style>
+  </style>
 
-<script>
-  const cases = document.querySelector('.cases');
-  const left = document.querySelector('.left');
-  const right = document.querySelector('.right');
+  <script>
+    const cases = document.querySelector('.cases');
+    const left = document.querySelector('.left');
+    const right = document.querySelector('.right');
 
-  left?.addEventListener('click', (e) => {
-    cases?.scrollBy({ left: -200, behavior: 'smooth' });
-    //document.querySelector('#case-4')?.scrollIntoView(false, {behavior: 'smooth' });
-  });
-
-  right?.addEventListener('click', (e) => {
-    cases?.scrollBy({ left: 200, behavior: 'smooth' });
-  });
-
-  import isTouchEnabled from '../scripts/isTouchEnabled.js';
-
-  if (isTouchEnabled()) {
-    const scrollItems = document.querySelectorAll('.case');
-
-    const observerOptions = {
-      root: document.querySelector('.cases'),
-      rootMargin: '0px',
-      threshold: 0.5, // Adjust this threshold as needed
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // The item is in focus, you can apply focus styles or perform other actions here.
-          entry.target.classList.add('hover');
-        } else {
-          entry.target.classList.remove('hover');
-        }
-      });
-    }, observerOptions);
-
-    scrollItems.forEach((item) => {
-      observer.observe(item);
+    left?.addEventListener('click', (e) => {
+      cases?.scrollBy({ left: -200, behavior: 'smooth' });
+      //document.querySelector('#case-4')?.scrollIntoView(false, {behavior: 'smooth' });
     });
-  }
-</script>
+
+    right?.addEventListener('click', (e) => {
+      cases?.scrollBy({ left: 200, behavior: 'smooth' });
+    });
+
+    import isTouchEnabled from '../scripts/isTouchEnabled.js';
+
+    if (isTouchEnabled()) {
+      const scrollItems = document.querySelectorAll('.case');
+
+      const observerOptions = {
+        root: document.querySelector('.cases'),
+        rootMargin: '0px',
+        threshold: 0.5, // Adjust this threshold as needed
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // The item is in focus, you can apply focus styles or perform other actions here.
+            entry.target.classList.add('hover');
+          } else {
+            entry.target.classList.remove('hover');
+          }
+        });
+      }, observerOptions);
+
+      scrollItems.forEach((item) => {
+        observer.observe(item);
+      });
+    }
+  </script>
+</section>

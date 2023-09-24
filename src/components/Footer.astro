@@ -1,8 +1,8 @@
 ---
 import CopyToClipboard from './CopyToClipboard.astro';
 
-import { astroI18n, t, l } from "astro-i18n"
-astroI18n.init(Astro)
+import { astroI18n, t, l } from 'astro-i18n';
+astroI18n.init(Astro);
 ---
 
 <footer class="flow-root | bg-neutral-150" style="position: relative;">
@@ -12,11 +12,7 @@ astroI18n.init(Astro)
         <h3 class="fs-700 fw-bold">{t('footer.contact.title')}</h3>
         <p class="">{t('footer.contact.subtitle')}</p>
       </div>
-      <CopyToClipboard
-        type="email"
-        value={t('site.mail')}
-        size="24"
-      />
+      <CopyToClipboard type="email" value={t('site.mail')} size="24" />
     </section>
 
     <section id="logo-references" class="mt-12">
@@ -51,11 +47,11 @@ astroI18n.init(Astro)
     <!-- Legal: Copyright © (&copy;) 2023 Alexander Sandholdt | CVR: 43768085 (https://datacvr.virk.dk/enhed/virksomhed/43768085) -->
     <small>
       Copyright &copy;
-      {(new Date().getFullYear()).toString()}
-      Alexander Sandholdt |
+      {new Date().getFullYear().toString()}
+       Alexander Sandholdt |
       <a
         class="cvr"
-        href={"https://datacvr.virk.dk/enhed/virksomhed/"+t('site.cvr')}
+        href={'https://datacvr.virk.dk/enhed/virksomhed/' + t('site.cvr')}
         target="_blank">CVR: {t('site.cvr')}</a
       ></small
     >

@@ -1,19 +1,39 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-import { astroI18n, t, l } from "astro-i18n";
-astroI18n.init(Astro)
+import { astroI18n, t, l } from 'astro-i18n';
+astroI18n.init(Astro);
 ---
 
 <BaseLayout title="404 | Alexander Sandholdt" description="...">
-	<section id="404" class="page-section">
-		<div class="container | my-64">
-			<div class="text-center">
-				<span class="fs-900">&#129300;</span>
-				<h1 class="fs-700 "><span class="fw-black">404 </span><span class="fw-semi-bold">({t('404.title')})</span></h1>
-				<p class="fs-500">{t('404.subtitle')}</p>
-			</div>
-		</div>
-	</section>
-  
+  <section id="page-404" class="page-section" data-page-height="100">
+    <div class="container">
+      <div class="text-center">
+        <span class="emoji | fs-1000"></span>
+        <h1 class="fs-700">
+          <span class="fw-black">404</span><span class="fw-semi-bold"></span>
+           ({t('404.title')})
+        </h1>
+        <p class="fs-500">{t('404.subtitle')}</p>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style lang="scss">
+  @use '../styles/abstracts/' as *;
+
+  #page-404 {
+    display: grid;
+    place-items: center;
+  }
+
+  .emoji {
+    &:before {
+      content: '\1F914';
+    }
+    &:hover:before {
+      content: '\1F928';
+    }
+  }
+</style>
