@@ -48,13 +48,16 @@ astroI18n.init(Astro);
           <h2>Min uddannelse</h2>
 
           <div class="timeline | flow">
-            <div>
-              <h3 class="">Folkeskolen</h3>
-              <p class="">
-                Færdiggører folkeskolens 9. klasse på VGE i Varde, efter at have
-                gået på Favrdalskolen i Haderslev t.o.m 8. klasse
-              </p>
-              <span class="">2010 - 2020</span>
+            <div class="timeperiod">
+              <div class="count">1</div>
+              <div class="content">
+                <h3 class="">Folkeskolen</h3>
+                <p class="">
+                  Færdiggører folkeskolens 9. klasse på VGE i Varde, efter at
+                  have gået på Favrdalskolen i Haderslev t.o.m 8. klasse
+                </p>
+                <span class="">2010 - 2020</span>
+              </div>
             </div>
 
             <div>
@@ -293,6 +296,28 @@ astroI18n.init(Astro);
           span {
             font-size: font-size(100);
             font-style: italic;
+          }
+        }
+
+        .timeperiod {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 0.8rem;
+
+          .count {
+            font-size: size(20);
+            line-height: 0;
+            font-family: Times new Roman;
+          }
+
+          &:hover {
+            //transform: translateX(size(1.5));
+
+            .count {
+              transform: scale(110%);
+            }
           }
         }
       }
