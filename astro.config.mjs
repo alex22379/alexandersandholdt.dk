@@ -8,9 +8,6 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   integrations: [i18n(), purgecss(), sitemap()],
   site: 'https://www.alexandersandholdt.dk',
-  redirects: {
-    '/da': '',
-  },
   trailingSlash: 'never',
   build: {
     format: 'file',
