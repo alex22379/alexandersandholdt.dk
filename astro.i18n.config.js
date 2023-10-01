@@ -4,7 +4,7 @@ export default defineAstroI18nConfig({
   defaultLangCode: 'da',
   supportedLangCodes: ['en'],
   showDefaultLangCode: false,
-  trailingSlash: 'always',
+  trailingSlash: 'never',
   translations: { da: 'public/locales/da.json', en: 'public/locales/en.json' },
   routeTranslations: {},
 });

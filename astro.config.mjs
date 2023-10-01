@@ -9,10 +9,10 @@ export default defineConfig({
   integrations: [i18n(), purgecss(), sitemap()],
   site: 'https://www.alexandersandholdt.dk',
   redirects: {
-    '/da': '/',
+    '/da': '',
   },
-  trailingSlash: 'always',
+  trailingSlash: 'never',
   build: {
-    format: 'directory',
+    format: 'file',
   },
 });

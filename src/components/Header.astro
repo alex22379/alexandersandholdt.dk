@@ -1,39 +1,47 @@
 ---
 import { Image } from 'astro:assets';
-import signatureImg from '../assets/img/signature.png'
+import signatureImg from '../assets/img/signature.png';
 
-import { astroI18n, t, l } from "astro-i18n"
-astroI18n.init(Astro)
+import { astroI18n, t, l } from 'astro-i18n';
+astroI18n.init(Astro);
 
-const linkPaths = ['header.links.instagram', 'header.links.linkedin', 'header.links.mail'];
+const linkPaths = [
+  'header.links.instagram',
+  'header.links.linkedin',
+  'header.links.mail',
+];
 ---
 
-<div class="flex">
-  <div id="topbar">
-    <div
-      class="container flex | my-1"
-      data-type="fluid"
-      data-flex="center"
-      data-flex-direction="column"
-    >
-      <a class="signature" href={l("/")}><Image src={signatureImg} alt="Alexander Sandholdt Signature" /></a>
-      <ul class="links">
-        {
-          linkPaths.map((l) => (
-						<li>
-              <a href={t(l+".url")} target="_blank">
-                <span class="text">{t(l+".text")}</span>
-                <span class="icon">
-                  <i class={t(l+".icon")} />
-                </span>
-              </a>
-            </li>
-          )
-        )}
-      </ul>
+<header>
+  <div class="flex">
+    <div id="topbar">
+      <div
+        class="container flex | my-1"
+        data-type="fluid"
+        data-flex="center"
+        data-flex-direction="column"
+      >
+        <a class="signature" href={l('/')}
+          ><Image src={signatureImg} alt="Alexander Sandholdt Signature" /></a
+        >
+        <ul class="links">
+          {
+            linkPaths.map((l) => (
+              <li>
+                <a href={t(l + '.url')} target="_blank">
+                  <span class="text">{t(l + '.text')}</span>
+                  <span class="icon">
+                    <i class={t(l + '.icon')} />
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+</header>
 
 <style lang="scss">
   @use '../styles/abstracts' as *;
@@ -65,21 +73,19 @@ const linkPaths = ['header.links.instagram', 'header.links.linkedin', 'header.li
 
       li {
         display: inline-block;
-				list-style: none;
+        list-style: none;
 
-				&:not(:last-child) {
-					padding-right: 1em;
+        &:not(:last-child) {
+          padding-right: 1em;
 
-					@include mq(md) {
-						padding-right: initial;
-						&::after {
-							content: '\2022';
-							padding-inline: .25em;
-						}
-					}
-				}
-
-				
+          @include mq(md) {
+            padding-right: initial;
+            &::after {
+              content: '\2022';
+              padding-inline: 0.25em;
+            }
+          }
+        }
 
         a {
           text-decoration: none;
