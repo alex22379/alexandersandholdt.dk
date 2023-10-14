@@ -18,10 +18,15 @@ astroI18n.init(Astro);
         <button class="tab" type="button" data-tab-target="education">
           {t('profile.tabTitles.education')}
         </button>
-        <button class="tab" type="button" data-tab-target="skills">
-          {t('profile.tabTitles.skills')}
+        <button class="tab" type="button" data-tab-target="tools">
+          {t('profile.tabTitles.tools')}
         </button>
-        <button class="tab" type="button" data-tab-target="experience">
+        <button
+          class="tab"
+          type="button"
+          data-tab-target="experience"
+          style="display: none;"
+        >
           {t('profile.tabTitles.experience')}
         </button>
       </nav>
@@ -60,46 +65,58 @@ astroI18n.init(Astro);
               </div>
             </div>
 
-            <div>
-              <h3 class="">Gymnasiet</h3>
-              <p class="">
-                Færdiggører en højere handelseksamen (HHX), og dimitterer fra
-                Det Blå Gymnasium på Haderslev Handelsskole
-              </p>
-              <span class="">August 2020 - Juni 2023</span>
+            <div class="timeperiod">
+              <div class="count">2</div>
+              <div class="content">
+                <h3 class="">Gymnasiet</h3>
+                <p class="">
+                  Færdiggører en højere handelseksamen (HHX), og dimitterer fra
+                  Det Blå Gymnasium på Haderslev Handelsskole
+                </p>
+                <span class="">August 2020 - Juni 2023</span>
+              </div>
             </div>
 
-            <div>
-              <h3 class="">Værnepligt</h3>
-              <p class="">
-                Aftjener som værnepligtig i hæren på Varde Kaserne v. Forsvarets
-                Efterretningsregiment, og gennemfører HBU
-              </p>
-              <span class="">August 2023 - November 2023</span>
+            <div class="timeperiod">
+              <div class="count">3</div>
+              <div class="content">
+                <h3 class="">Værnepligt</h3>
+                <p class="">
+                  Aftjener som værnepligtig i hæren på Varde Kaserne v.
+                  Forsvarets Efterretningsregiment, og gennemfører HBU
+                </p>
+                <span class="">August 2023 - November 2023</span>
+              </div>
             </div>
 
-            <div>
-              <h3 class="">Opkvalificering</h3>
-              <p class="">
-                Færdiggører opkvalificering i Fysik og Kemi i Aarhus med henblik
-                på senere at læse til civilingeniør
-              </p>
-              <span class="text-xs">Juni 2024</span>
+            <div class="timeperiod">
+              <div class="count">4</div>
+              <div class="content">
+                <h3 class="">Opkvalificering</h3>
+                <p class="">
+                  Færdiggører opkvalificering i Fysik og Kemi i Aarhus med
+                  henblik på senere at læse til civilingeniør
+                </p>
+                <span class="text-xs">Juni 2024</span>
+              </div>
             </div>
 
-            <div>
-              <h3 class="">
-                Civilingeniør <span class="text-xs">(Bachelor)</span>
-              </h3>
-              <p class="">
-                Påbegynder en B.Sc i Matematik & Teknologi på DTU i København
-              </p>
-              <span class="">Sommerstart 2025</span>
+            <div class="timeperiod">
+              <div class="count">5</div>
+              <div class="content">
+                <h3 class="">
+                  Civilingeniør <span class="text-xs">(Bachelor)</span>
+                </h3>
+                <p class="">
+                  Påbegynder en B.Sc i Matematik & Teknologi på DTU i København
+                </p>
+                <span class="">Sommerstart 2025</span>
+              </div>
             </div>
           </div>
         </div>
-        <div class="tab-window" data-tab-id="skills">
-          <div class=""><h2>Hvad jeg laver</h2></div>
+        <div class="tab-window" data-tab-id="tools">
+          <div class=""><h2>Mine daglige redskaber</h2></div>
         </div>
         <div class="tab-window" data-tab-id="experience">
           <div class=""><h2>Mine beskæftigelser</h2></div>
@@ -281,6 +298,7 @@ astroI18n.init(Astro);
       .timeline {
         margin-top: 0.5rem;
         & > * {
+          transition: all 150ms ease-out;
           padding: 0.5rem 0.8rem;
           background-color: rgba(0, 0, 0, 0.425);
           border-radius: 0.75rem;
@@ -302,23 +320,29 @@ astroI18n.init(Astro);
         .timeperiod {
           display: flex;
           flex-direction: row;
-          justify-content: center;
+          justify-content: flex-start;
           align-items: center;
           gap: 0.8rem;
 
           .count {
-            font-size: size(20);
+            font-size: size(18);
             line-height: 0;
             font-family: Times new Roman;
+            transition: transform 300ms ease;
           }
 
           &:hover {
             //transform: translateX(size(1.5));
 
+            transform: scale(101%);
             .count {
               transform: scale(110%);
             }
           }
+        }
+
+        &:hover .timeperiod:not(:hover) {
+          opacity: 80%;
         }
       }
     }
