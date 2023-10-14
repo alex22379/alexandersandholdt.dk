@@ -49,17 +49,6 @@ import { Icon } from 'astro-icon';
       }
 
       transition: transform 740ms cubic-bezier(0, 0.93, 0.46, 0.94);
-      &.titleHover {
-        transform: translateY(size(6)) scale(97.5%);
-        img {
-          transform: scale(77.5%);
-          filter: grayscale(100%);
-        }
-      }
-    }
-
-    .title:hover ~ .pb {
-      background-color: green;
     }
 
     .title {
@@ -82,8 +71,18 @@ import { Icon } from 'astro-icon';
         transform: translateX(2.5%);
         transition: transform 700ms cubic-bezier(0, 0.93, 0.46, 0.94) 40ms;
       }
+    }
 
-      &:hover {
+    &.hovering {
+      .pb {
+        transform: translateY(size(6)) scale(97.5%);
+        img {
+          transform: scale(77.5%);
+          filter: grayscale(100%);
+        }
+      }
+
+      .title {
         .firstname {
           transform: translateX(-4%);
         }
@@ -116,14 +115,21 @@ import { Icon } from 'astro-icon';
 </style>
 
 <script>
-  const pbElement = document.querySelector('.pb');
-  const titleElement = document.querySelector('.title');
+  const hero = document.getElementById('hero');
+  const pb = hero.querySelector('.pb');
+  const title = hero.querySelector('.title');
 
-  titleElement.addEventListener('mouseenter', (e) => {
-    pbElement.classList.add('titleHover');
-  });
+  const onMouseEnter = (e) => {
+    hero.classList.add('hovering');
+  };
 
-  titleElement.addEventListener('mouseleave', (e) => {
-    pbElement.classList.remove('titleHover');
+  const onMouseLeave = (e) => {
+    hero.classList.remove('hovering');
+  };
+
+  const elements = [pb, title];
+  elements.forEach((elmnt) => {
+    elmnt.addEventListener('mouseenter', onMouseEnter);
+    elmnt.addEventListener('mouseleave', onMouseLeave);
   });
 </script>
