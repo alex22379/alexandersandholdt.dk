@@ -118,7 +118,7 @@ import Case from './PortfolioCase.astro';
   </div>
 
   <style lang="scss">
-    @use '../styles/abstracts' as *;
+    @use '/../src/styles/abstracts' as *;
 
     .thisCase-footer {
       display: flex;
@@ -183,7 +183,7 @@ import Case from './PortfolioCase.astro';
       cases?.scrollBy({ left: 200, behavior: 'smooth' });
     });
 
-    import isTouchEnabled from '../scripts/isTouchEnabled.js';
+    import isTouchEnabled from '../../../scripts/isTouchEnabled.js';
 
     if (isTouchEnabled()) {
       const scrollItems = document.querySelectorAll('.case');
