@@ -1,18 +1,19 @@
 ---
 import CopyToClipboard from './CopyToClipboard.astro';
-
-import { astroI18n, t, l } from 'astro-i18n';
-astroI18n.init(Astro);
 ---
 
 <footer class="flow-root | bg-neutral-150" style="position: relative;">
   <div class="container | my-32">
     <section class="flow text-center" style="--flow-space: .5em;">
       <div>
-        <h3 class="fs-700 fw-bold">{t('footer.contact.title')}</h3>
-        <p class="">{t('footer.contact.subtitle')}</p>
+        <h3 class="fs-700 fw-bold">Henvendelser?</h3>
+        <p>Tøv ikke med at sende mig en mail :)</p>
       </div>
-      <CopyToClipboard type="email" value={t('site.mail')} size="24" />
+      <CopyToClipboard
+        type="email"
+        value="mail@alexandersandholdt.dk"
+        size="24"
+      />
     </section>
 
     <section id="logo-references" class="mt-12">
@@ -51,8 +52,8 @@ astroI18n.init(Astro);
        Alexander Sandholdt |
       <a
         class="cvr"
-        href={'https://datacvr.virk.dk/enhed/virksomhed/' + t('site.cvr')}
-        target="_blank">CVR: {t('site.cvr')}</a
+        href={'https://datacvr.virk.dk/enhed/virksomhed/' + '43768085'}
+        target="_blank">CVR: 43768085</a
       ></small
     >
   </div>

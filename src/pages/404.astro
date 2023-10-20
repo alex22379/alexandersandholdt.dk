@@ -1,8 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-import { astroI18n, t, l } from 'astro-i18n';
-astroI18n.init(Astro);
 ---
 
 <BaseLayout title="404 | Alexander Sandholdt" description="...">
@@ -12,9 +9,9 @@ astroI18n.init(Astro);
         <span class="emoji | fs-1000"></span>
         <h1 class="fs-700">
           <span class="fw-black">404</span><span class="fw-semi-bold"></span>
-           ({t('404.title')})
+           Ikke fundet
         </h1>
-        <p class="fs-500">{t('404.subtitle')}</p>
+        <p class="fs-500">Hvordan endte du her?</p>
       </div>
     </div>
   </section>

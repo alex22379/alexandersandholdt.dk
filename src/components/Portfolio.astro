@@ -2,16 +2,13 @@
 import { Icon } from 'astro-icon';
 
 import Case from './PortfolioCase.astro';
-
-import { astroI18n, t, l } from 'astro-i18n';
-astroI18n.init(Astro);
 ---
 
 <section id="portfolio" class="page-section">
   <div class="container flow | my-32">
     <div class="text-center">
-      <h2 class="fs-700 fw-bold">{t('portfolio.title')}</h2>
-      <p>{t('portfolio.subtitle')}</p>
+      <h2 class="fs-700 fw-bold">Portefølje</h2>
+      <p>Et lille udvalg af diverse projekter i diverse kategorier</p>
     </div>
     <div class="cases-slider">
       <button class="chevron left"
@@ -28,7 +25,7 @@ astroI18n.init(Astro);
               prompt: 'Find på GitHub',
               link: 'https://github.com/alex22379/alexandersandholdt.dk',
             }}
-            banner="/img/chateau-motel.jpeg"
+            banner="/img/haderslevhavn.jpg"
           >
             <div slot="body">
               <p>
@@ -39,7 +36,7 @@ astroI18n.init(Astro);
                 >.
               </p>
               <p>
-                Den er skabt med fokus på <i>den enkelte detalje</i>, <i
+                Siden er skabt med fokus på <i>den enkelte detalje</i>, <i
                   >en effektiv kompetence- og identitsformidling</i
                 > og selvfølgelig også med <i
                   >ydeevne, brugervenlighed og optimering</i
@@ -94,12 +91,24 @@ astroI18n.init(Astro);
           >
             <div slot="body">
               <p>
-                To-Be-Digital startede ultimo 2023, og har siden da uviklet sig
-                meget.
+                Jeg startede To-Be-Digital ultimo 2023, med formålet om at skabe
+                et webbureau til enkeltpersoner og mindre virksomheder.
+              </p>
+              <p>
+                Vi specialiserer os hovedsagligt i, at udvikle og levere
+                hjemmesider. Dette omfatter både personlige-, portefølje- og
+                karrierehjemmesider - men også mindre identitetsformidlende
+                hjemmesider til virksomheder, organisationer/foreninger eller
+                kultursteder.
+              </p>
+              <p>
+                Derudover hjælper vi med alle slags digitale opgaver mellem
+                himmel og jord; alt fra grafik til mailopsætning til hjælp med
+                nyhedsbreve.
               </p>
             </div>
           </Case>
-          <Case id="empty2" />
+          <!-- <Case id="empty2" /> -->
         </div>
       </div>
       <button class="chevron right"

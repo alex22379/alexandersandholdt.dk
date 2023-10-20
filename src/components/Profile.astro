@@ -1,41 +1,36 @@
 ---
-import { astroI18n, t, l } from 'astro-i18n';
-astroI18n.init(Astro);
+
 ---
 
 <section id="profile" class="page-section">
-  <div class="profile-container | container | clr-neutral-000 my-36">
+  <div class="profile-container | container | clr-neutral-000 my-44">
     <div class="portrait">
       <div class="portrait-wrapper">
-        <img src="/img/portrait.jpg" alt={t('profile.portraitAlt')} />
+        <img
+          src="/img/portrait.jpg"
+          alt="Alexander Sandholdt August 2023 3.G"
+        />
       </div>
     </div>
     <div class="profile-tabs">
       <nav class="tabs">
-        <button class="tab" type="button" data-tab-target="about">
-          {t('profile.tabTitles.about')}
-        </button>
+        <button class="tab" type="button" data-tab-target="bio">Biografi</button
+        >
         <button class="tab" type="button" data-tab-target="education">
-          {t('profile.tabTitles.education')}
+          Uddannelse
         </button>
         <button class="tab" type="button" data-tab-target="tools">
-          {t('profile.tabTitles.tools')}
-        </button>
-        <button
-          class="tab"
-          type="button"
-          data-tab-target="experience"
-          style="display: none;"
-        >
-          {t('profile.tabTitles.experience')}
+          Redskaber
         </button>
       </nav>
 
       <div class="tab-windows">
-        <div class="tab-window" data-tab-id="about">
+        <div class="tab-window" data-tab-id="bio">
           <h2>Hej, velkommen til</h2>
           <p>
-            Lorme ipsum dolor sit amet conse
+            Lorme ipsum dolor <span class="text-highlight">sit amet</span> conse
+
+
             <br /><br />
              Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
             alias tenetur nostrum excepturi perferendis officia accusantium
@@ -171,12 +166,7 @@ astroI18n.init(Astro);
   @use '../styles/abstracts' as *;
 
   #profile {
-    min-height: 100vh;
-    background: linear-gradient(
-      180deg,
-      rgba(75, 108, 183, 1) 0%,
-      rgba(24, 40, 72, 1) 100%
-    );
+    background: color(neutral, '150');
 
     /*background-repeat: no-repeat;
     background-size: cover;
@@ -261,15 +251,15 @@ astroI18n.init(Astro);
           border-radius: 50vw;
           border: none;
           outline: none;
-          color: rgba(255, 255, 255, 0.6);
-          background-color: rgba(0, 0, 0, 0.3);
+          color: rgba(255, 255, 255, 0.8);
+          background-color: rgba(0, 0, 0, 0.4);
           line-height: font-size(100);
           cursor: pointer;
 
           &:focus,
           &:hover {
-            color: rgba(255, 255, 255, 0.85);
-            background-color: rgba(0, 0, 0, 0.425);
+            color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(0, 0, 0, 0.55);
           }
 
           &:active {
@@ -278,20 +268,21 @@ astroI18n.init(Astro);
 
           &.active {
             color: rgba(255, 255, 255, 1);
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.8);
           }
         }
         margin-bottom: size(1);
       }
 
       .tab-windows {
-        /*background-color: rgba(0, 0, 0, 0.5);
-        padding: size(2);
-        border-radius: $border-radius-1;
-        margin-top: size(1);*/
+        color: black;
 
         & > * {
           display: none;
+        }
+
+        span.text-highlight {
+          color: color(brand, 600);
         }
       }
 
@@ -300,7 +291,7 @@ astroI18n.init(Astro);
         & > * {
           transition: all 150ms ease-out;
           padding: 0.5rem 0.8rem;
-          background-color: rgba(0, 0, 0, 0.425);
+          background-color: color(neutral, '000');
           border-radius: 0.75rem;
 
           font-size: font-size(400);
@@ -323,17 +314,18 @@ astroI18n.init(Astro);
           justify-content: flex-start;
           align-items: center;
           gap: 0.8rem;
+          border-right: size(2) solid color(brand, 400);
 
           .count {
             font-size: size(18);
             line-height: 0;
             font-family: Times new Roman;
             transition: transform 300ms ease;
+            color: color(brand, 600);
           }
 
           &:hover {
-            //transform: translateX(size(1.5));
-
+            box-shadow: $box-shadow-1;
             transform: scale(101%);
             .count {
               transform: scale(110%);
