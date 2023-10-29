@@ -1,0 +1,18 @@
+---
+const { id, title } = Astro.props;
+---
+
+<article class="tab-window" data-tab-id={id}>
+  <h2 class="title">{title}</h2>
+  <div class="content">
+    <slot />
+  </div>
+</article>
+
+<style lang="scss">
+  @use '/../src/styles/abstracts' as *;
+
+  .tab-window {
+    color: black;
+  }
+</style>

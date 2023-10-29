@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import TabWindow from './TabWindow.astro';
+import EducationSection from './EducationSection.astro';
+
+const educationSections = await getCollection('educationSection');
+---
+
+<TabWindow id="education" title="Min uddannelse">
+  <ul class="education-sections | flow">
+    {
+      educationSections
+        .sort((a, b) => a.data.order - b.data.order)
+        .map((e) => <EducationSection educationSection={e} />)
+    }
+  </ul>
+</TabWindow>
+
+<style lang="scss">
+  @use '/../src/styles/abstracts' as *;
+
+  .education-sections {
+    list-style: none;
+    margin-top: 0.5rem;
+
+    &:hover :global(.education-section:not(:hover)) {
+      opacity: 70%;
+    }
+  }
+</style>

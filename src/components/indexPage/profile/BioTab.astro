@@ -1,0 +1,27 @@
+---
+import { getEntry } from 'astro:content';
+import TabWindow from './TabWindow.astro';
+
+const bio = await getEntry('bio', 'bio');
+const { lastUpdate } = bio.data;
+const { Content } = await bio.render();
+const lastUpdateLocale = new Date(lastUpdate).toLocaleString('da-DK', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  /*timeZone: '', TODO match locale (da-dk) and timeZone based on client */
+});
+---
+
+<TabWindow id="bio" title="Hej, velkommen til🤝">
+  <p class="lastUpdate | fs-200 clr-brand-700" style="font-style: italic;">
+    (<time datetime={lastUpdate}>{lastUpdateLocale}</time>)
+  </p>
+  <Content />
+</TabWindow>
+
+<style lang="scss">
+  @use '/../src/styles/abstracts' as *;
+</style>

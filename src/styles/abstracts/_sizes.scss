@@ -6,9 +6,9 @@
 
 $sizes: ();
 
-$step-in-rem: calc(1rem / 4); // 1 step should be fourth of a rem
+$steps-in-unit: calc(1 / 4); // 1 step should be fourth of a rem
 $total-steps: 24 * 4; // We want 24 rems of spacing with 4 steps being 1 rem
-$step-base: 0.5; // We want the ability of half steps aswell
+$step-base: 0.25; // We want the ability of half steps aswell
 @for $i
   from calc($total-steps / $step-base * -1)
   through calc($total-steps / $step-base)
@@ -17,15 +17,19 @@ $step-base: 0.5; // We want the ability of half steps aswell
   $map: map.merge(
     $sizes,
     (
-      $loop-step: $loop-step * $step-in-rem,
+      $loop-step: $loop-step * $steps-in-unit,
     )
   );
   $sizes: $map !global;
 }
 
-@function size($step) {
+@function size($step, $em: false) {
   @if map.has-key($sizes, $step) {
-    @return map.get($sizes, $step);
+    @if ($em) {
+      @return map.get($sizes, $step) + 0em;
+    } @else {
+      @return map.get($sizes, $step) + 0rem;
+    }
   } @else {
     @error '$sizes does not have that step!';
   }

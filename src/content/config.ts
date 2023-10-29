@@ -1,7 +1,7 @@
 import { z, reference, defineCollection } from 'astro:content';
 
 // Profile
-const educationSections = defineCollection({
+const educationSection = defineCollection({
   type: 'data',
   schema: z.object({
     order: z.number().int().positive(),
@@ -12,8 +12,17 @@ const educationSections = defineCollection({
   }),
 });
 
+// Bio
+const bio = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      lastUpdate: z.string().datetime({ offset: true }),
+    }),
+});
+
 // Portfolio
-const portfolioCases = defineCollection({
+const portfolioCase = defineCollection({
   type: 'content',
   schema: ({ image }) =>
     z.object({
@@ -29,6 +38,7 @@ const portfolioCases = defineCollection({
 });
 
 export const collections = {
-  portfolioCases: portfolioCases,
-  educationSections: educationSections,
+  portfolioCase: portfolioCase,
+  educationSection: educationSection,
+  bio: bio,
 };

@@ -1,5 +1,8 @@
 ---
-
+import EducationTab from './EducationTab.astro';
+import TabButton from './TabButton.astro';
+import BioTab from './BioTab.astro';
+import ToolsTab from './ToolsTab.astro';
 ---
 
 <section id="profile" class="page-section">
@@ -12,111 +15,18 @@
         />
       </div>
     </div>
-    <div class="profile-tabs">
-      <nav class="tabs">
-        <button class="tab" type="button" data-tab-target="bio">Biografi</button
-        >
-        <button class="tab" type="button" data-tab-target="education">
-          Uddannelse
-        </button>
-        <button class="tab" type="button" data-tab-target="tools">
-          Redskaber
-        </button>
+
+    <div class="tabs">
+      <nav class="tab-buttons">
+        <TabButton name="Biografi" target="bio" />
+        <TabButton name="Uddannelse" target="education" />
+        <TabButton name="Redskaber" target="tools" />
       </nav>
 
       <div class="tab-windows">
-        <div class="tab-window" data-tab-id="bio">
-          <h2>Hej, velkommen til</h2>
-          <p>
-            Lorme ipsum dolor <span class="text-highlight">sit amet</span> conse
-
-
-            <br /><br />
-             Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-            alias tenetur nostrum excepturi perferendis officia accusantium
-            explicabo nemo voluptatem minima voluptatibus minus error, libero
-            earum nulla molestias. Nihil, esse ipsam. Lorem ipsum dolor, sit
-            amet consectetur adipisicing elit. Vel ea consectetur sunt excepturi
-            eligendi. Commodi corrupti atque officia, eos nemo, odio repudiandae
-            temporibus corporis fuga autem iste cum, dolor veritatis.
-            <br /><br />
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
-            culpa nisi nesciunt.
-          </p>
-        </div>
-        <div class="tab-window" data-tab-id="education">
-          <h2>Min uddannelse</h2>
-
-          <div class="timeline | flow">
-            <div class="timeperiod">
-              <div class="count">1</div>
-              <div class="content">
-                <h3 class="">Folkeskolen</h3>
-                <p class="">
-                  Færdiggører folkeskolens 9. klasse på VGE i Varde, efter at
-                  have gået på Favrdalskolen i Haderslev t.o.m 8. klasse
-                </p>
-                <span class="">2010 - 2020</span>
-              </div>
-            </div>
-
-            <div class="timeperiod">
-              <div class="count">2</div>
-              <div class="content">
-                <h3 class="">Gymnasiet</h3>
-                <p class="">
-                  Færdiggører en højere handelseksamen (HHX), og dimitterer fra
-                  Det Blå Gymnasium på Haderslev Handelsskole
-                </p>
-                <span class="">August 2020 - Juni 2023</span>
-              </div>
-            </div>
-
-            <div class="timeperiod">
-              <div class="count">3</div>
-              <div class="content">
-                <h3 class="">Værnepligt</h3>
-                <p class="">
-                  Aftjener som værnepligtig i hæren på Varde Kaserne v.
-                  Forsvarets Efterretningsregiment, og gennemfører HBU
-                </p>
-                <span class="">August 2023 - November 2023</span>
-              </div>
-            </div>
-
-            <div class="timeperiod">
-              <div class="count">4</div>
-              <div class="content">
-                <h3 class="">Opkvalificering</h3>
-                <p class="">
-                  Færdiggører opkvalificering i Fysik og Kemi i Aarhus med
-                  henblik på senere at læse til civilingeniør
-                </p>
-                <span class="text-xs">Juni 2024</span>
-              </div>
-            </div>
-
-            <div class="timeperiod">
-              <div class="count">5</div>
-              <div class="content">
-                <h3 class="">
-                  Civilingeniør <span class="text-xs">(Bachelor)</span>
-                </h3>
-                <p class="">
-                  Påbegynder en B.Sc i Matematik & Teknologi på DTU (Lyngby
-                  Campus) i Storkøbenhavn
-                </p>
-                <span class="">Sommerstart 2025</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="tab-window" data-tab-id="tools">
-          <div class=""><h2>Mine daglige redskaber</h2></div>
-        </div>
-        <div class="tab-window" data-tab-id="experience">
-          <div class=""><h2>Mine beskæftigelser</h2></div>
-        </div>
+        <BioTab />
+        <EducationTab />
+        <ToolsTab />
       </div>
     </div>
   </div>
@@ -168,10 +78,6 @@
 
   #profile {
     background: color(neutral, '150');
-
-    /*background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;*/
 
     .profile-container {
       display: grid;
@@ -229,114 +135,22 @@
       }
     }
 
-    .profile-tabs {
+    .tabs {
       --span: 4;
       grid-column: span var(--span);
 
       @include mq(md) {
         --span: 8;
       }
-      .tabs {
+      .tab-buttons {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         gap: 0.25em;
-
-        .tab {
-          font-family: font-family(ubuntu-mono);
-          font-size: font-size(100);
-          text-transform: uppercase;
-          text-align: center;
-          letter-spacing: 0.175em;
-          padding: 0.3em 0.6em;
-          border-radius: 50vw;
-          border: none;
-          outline: none;
-          color: rgba(255, 255, 255, 0.8);
-          background-color: rgba(0, 0, 0, 0.4);
-          line-height: font-size(100);
-          cursor: pointer;
-
-          &:focus,
-          &:hover {
-            color: rgba(255, 255, 255, 0.95);
-            background-color: rgba(0, 0, 0, 0.55);
-          }
-
-          &:active {
-            transform: scale(97.5%);
-          }
-
-          &.active {
-            color: rgba(255, 255, 255, 1);
-            background-color: rgba(0, 0, 0, 0.8);
-          }
-        }
         margin-bottom: size(1);
       }
 
       .tab-windows {
-        color: black;
-
-        & > * {
-          display: none;
-        }
-
-        span.text-highlight {
-          color: color(brand, 600);
-        }
-      }
-
-      .timeline {
-        margin-top: 0.5rem;
-        & > * {
-          transition: all 150ms ease-out;
-          padding: 0.5rem 0.8rem;
-          background-color: color(neutral, '000');
-          border-radius: 0.75rem;
-
-          font-size: font-size(400);
-
-          h3 {
-            font-size: font-size(400);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-          }
-
-          span {
-            font-size: font-size(100);
-            font-style: italic;
-          }
-        }
-
-        .timeperiod {
-          display: flex;
-          flex-direction: row;
-          justify-content: flex-start;
-          align-items: center;
-          gap: 0.8rem;
-          border-right: size(2) solid color(brand, 400);
-
-          .count {
-            font-size: size(18);
-            line-height: 0;
-            font-family: Times new Roman;
-            transition: transform 300ms ease;
-            color: color(brand, 600);
-          }
-
-          &:hover {
-            box-shadow: $box-shadow-1;
-            transform: scale(101%);
-            .count {
-              transform: scale(110%);
-            }
-          }
-        }
-
-        &:hover .timeperiod:not(:hover) {
-          opacity: 80%;
-        }
       }
     }
   }
@@ -395,20 +209,20 @@
 </style>
 
 <script>
-  const tabs = document.querySelectorAll('.tab'),
+  const tabButtons = document.querySelectorAll('.tab-button'),
     tabWindows = document.querySelectorAll('.tab-window');
 
-  tabs.forEach((t) => {
+  tabButtons.forEach((t) => {
     t.addEventListener('click', (e) => {
       const tabTarget = t.dataset.tabTarget;
       openTab(tabTarget);
-      tabs.forEach((b) => b.classList.remove('active'));
+      tabButtons.forEach((b) => b.classList.remove('active'));
       t.classList.add('active');
     });
     t.click();
   });
 
-  tabs[0].click();
+  tabButtons[0].click();
 
   function openTab(tab) {
     tabWindows.forEach((t) => {

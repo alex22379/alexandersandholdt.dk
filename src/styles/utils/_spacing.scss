@@ -39,7 +39,7 @@ $spacing-direction-properties: (
       $size-selector: make-selector($size-step);
       .#{$spacer-prefix}#{$direction-prefix}-#{$size-selector} {
         @each $direction-prop in $direction-props {
-          #{$spacer-type}#{$direction-prop}: $size-value;
+          #{$spacer-type}#{$direction-prop}: size($size-step);
         }
       }
     }
