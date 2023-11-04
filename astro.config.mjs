@@ -9,7 +9,7 @@ export default defineConfig({
   integrations: [
     purgecss({
       content: [process.cwd() + '/src/**/*.{astro,html}'],
-      defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
+      defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:.)/g) || [],
     }),
     sitemap(),
     mdx(),
