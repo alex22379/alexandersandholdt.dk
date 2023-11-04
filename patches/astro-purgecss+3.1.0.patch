@@ -1,0 +1,13 @@
+diff --git a/node_modules/astro-purgecss/dist/index.mjs b/node_modules/astro-purgecss/dist/index.mjs
+index b2f5889..d4a8c68 100644
+--- a/node_modules/astro-purgecss/dist/index.mjs
++++ b/node_modules/astro-purgecss/dist/index.mjs
+@@ -26,7 +26,7 @@ function src_default(options = {}) {
+             ...options.content || []
+           ],
+           css: [`${outDir}/**/*.css`],
+-          defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || []
++          defaultExtractor: (content) => content.match(/[\w-/:.]+(?<!:)/g) || []
+         });
+         await Promise.all(
+           purged.filter(({ file }) => file == null ? void 0 : file.endsWith(".css")).map(async ({ css, file }) => await writeFile(file, css))
