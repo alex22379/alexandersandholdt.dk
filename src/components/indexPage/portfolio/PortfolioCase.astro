@@ -1,54 +1,39 @@
 ---
-/*
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
 
-Example usage
-<Case id="caseId" title="Example title" subtitle="The above is a title while this is a subtitle" cta={icon:"",prompt:"",link:""}>
-	<div slot="body">
-		<p>Body</p>
-	</div>
-	<div slot="footer">
-		<p>Footer</p>
-	</div>
-</Case>
-*/
+type Props = {
+  portfolioCase: CollectionEntry<'portfolioCase'>;
+};
 
-const {
-  id,
-  title = 'Lorem Ipsum',
-  subtitle = 'Lorem ipsum dolor sit amet',
-  cta = {
-    faIcon: 'fa-solid fa-arrow-up-right-from-square',
-    prompt: 'Lorem ipsum dolor',
-    link: 'https://www.lipsum.com',
-  },
-  banner = '/img/denmark.jpg',
-} = Astro.props;
+const { portfolioCase } = Astro.props;
+const { banner, c2a, title, subtitle } = portfolioCase.data;
+const { Content } = await portfolioCase.render();
 ---
 
-<div id={`portfolio-${id}`} class="portolio-case | case">
+<article id={`portfolioCase_${portfolioCase.id}`} class="case">
   <slot>
-    <div class="banner">
-      <div class="background" style={`background-image: url(${banner});`}></div>
+    <div class="banner-wrapper">
+      <img src={banner.src} alt="asd" />
     </div>
     <div class="content">
-      <div class="header">
-        <a class="call-to-action" href={cta.link} target="_blank"
-          ><i class:list={['mr-1', cta.faIcon]}></i>{cta.prompt}</a
+      <header>
+        <a class="call-to-action" href={c2a.url} target="_blank"
+          ><i class:list={['mr-1', c2a.faIcon]}></i>{c2a.prompt}</a
         >
         <h3 class="title">{title}</h3>
         <p class="subtitle | word-break">{subtitle}</p>
         <hr />
-      </div>
+      </header>
       <div class="body">
-        <slot name="body"><p>...</p></slot>
-      </div>
-      <div class="footer">
-        <slot name="footer" />
+        <slot name="body">
+          <Content />
+        </slot>
       </div>
     </div>
     <div class="stribe"></div>
   </slot>
-</div>
+</article>
 
 <style lang="scss">
   @use '/../src/styles/abstracts' as *;
@@ -77,8 +62,8 @@ const {
       @include mq(lg) {
         transform: translateY(calc(-1 * size(1)));
       }
-      .banner {
-        .background {
+      .banner-wrapper {
+        img {
           --case-banner-blur: 0;
           transform: scale(101%);
           opacity: 100%;
@@ -86,21 +71,16 @@ const {
       }
     }
 
-    .banner {
+    .banner-wrapper {
       height: $banner-height;
       overflow: hidden;
       border-radius: $border-radius-1;
       margin: size(1.5) size(1.5) 0 size(1.5);
 
-      .background {
+      img {
         transition: all 200ms linear;
-
-        height: 100%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        //background-color: color(neutral, 500);
-        //background-blend-mode: luminosity;
+        min-width: 100%;
+        min-height: 100%;
         opacity: 60%;
       }
     }
@@ -111,7 +91,7 @@ const {
       display: flex;
       flex-direction: column;
 
-      .header {
+      header {
         .call-to-action {
           padding-bottom: size(1);
           font-size: font-size(200);
@@ -134,6 +114,8 @@ const {
       }
 
       .body {
+        position: relative;
+        height: 100%;
         & :global(*) {
           font-size: font-size(300);
 
@@ -141,10 +123,6 @@ const {
             margin-top: size(1.5);
           }
         }
-      }
-
-      .footer {
-        margin-top: auto;
       }
     }
   }

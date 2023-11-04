@@ -1,8 +1,9 @@
 ---
+banner: './Nationalbanken.png'
 c2a:
-	prompt: 'Download rapporten her'
-	url: '/files/Blockchain%20i%20Finanssektoren.pdf'
-	faIcon: 'fa-solid fa-download'
+  prompt: 'Download rapporten her'
+  url: '/files/Blockchain%20i%20Finanssektoren.pdf'
+  faIcon: 'fa-solid fa-download'
 title: 'Blockchain i Finanssektoren'
 subtitle: 'Afsluttende studieområdeprojekt, HHX'
 ---

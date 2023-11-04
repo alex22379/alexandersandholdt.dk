@@ -16,7 +16,10 @@ import ToolsTab from './ToolsTab.astro';
       </div>
     </div>
 
-    <div class="tabs">
+    <div class="tabs | flow">
+      <a class="download-resume" href="/" download="Alexander Sandholdt CV.pdf"
+        ><i class="mr-0.5 | fa-solid fa-download"></i>Download CV</a
+      >
       <nav class="tab-buttons">
         <TabButton name="Biografi" target="bio" />
         <TabButton name="Uddannelse" target="education" />
@@ -136,12 +139,22 @@ import ToolsTab from './ToolsTab.astro';
     }
 
     .tabs {
+      --flow-space: 0.175rem;
       --span: 4;
       grid-column: span var(--span);
 
       @include mq(md) {
         --span: 8;
       }
+
+      .download-resume {
+        padding-bottom: size(1);
+        font-size: font-size(150);
+        color: color(brand, 900);
+        display: block;
+        line-height: normal;
+      }
+
       .tab-buttons {
         display: flex;
         flex-wrap: wrap;

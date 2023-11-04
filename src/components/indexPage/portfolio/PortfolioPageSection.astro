@@ -1,7 +1,9 @@
 ---
 import { Icon } from 'astro-icon';
-
 import Case from './PortfolioCase.astro';
+import { getCollection } from 'astro:content';
+
+const portfolioCases = await getCollection('portfolioCase');
 ---
 
 <section id="portfolio" class="page-section">
@@ -12,128 +14,21 @@ import Case from './PortfolioCase.astro';
     </div>
     <div class="cases-slider">
       <button class="chevron left"
-        ><Icon name="mdi:chevron-left" height="110" /></button
+        ><Icon name="mdi:chevron-left" width="110" /></button
       >
       <div class="cases-wrapper">
         <div class="cases">
-          <Case
-            id="this"
-            title="alexandersandholdt.dk"
-            subtitle="Min personlige hjemmeside"
-            cta={{
-              faIcon: 'fa-solid fa-arrow-up-right-from-square',
-              prompt: 'Find på GitHub',
-              link: 'https://github.com/alex22379/alexandersandholdt.dk',
-            }}
-            banner="/img/haderslevhavn.jpg"
-          >
-            <div slot="body">
-              <p>
-                Hjemmesiden du sidder på netop nu, er kodet og opbygget fra
-                bunden med frameworket <a
-                  href="https://astro.build"
-                  target="_blank">Astro</a
-                >.
-              </p>
-              <p>
-                Siden er skabt med fokus på <i>den enkelte detalje</i>, <i
-                  >en effektiv kompetence- og identitsformidling</i
-                > og selvfølgelig også med <i
-                  >ydeevne, brugervenlighed og optimering</i
-                > for øje - og dertil en masse kærlighed og omhu.
-              </p>
-            </div>
-            <div slot="footer" class="thisCase-footer">
-              <Icon name="logos:html-5" />
-              <Icon name="logos:css-3" />
-              <Icon name="logos:javascript" />
-              <Icon name="logos:typescript-icon" />
-              <Icon name="logos:astro" />
-            </div>
-          </Case>
-          <Case
-            id="sop"
-            title="Blockchain i Finanssektoren"
-            subtitle="Afsluttende studieområdeprojekt, HHX"
-            cta={{
-              faIcon: 'fa-solid fa-download',
-              prompt: 'Download rapporten her',
-              link: '/files/Blockchain%20i%20Finanssektoren.pdf',
-            }}
-            banner="/img/nationalbanken.webp"
-          >
-            <div slot="body">
-              <p>
-                Som led i afslutningen på min HHX, skrev jeg i mit SOP-projekt
-                om Blockchain-teknologiens anvendelse i Finanssektoren, i fagene
-                Matematik og Afsætning.
-              </p>
-              <p>
-                Det var et udfordrende og spændende område, og med fag der
-                krævede fokus, for at få dem til at spille sammen og samlet
-                danne den røde tråd.
-              </p>
-              <p>
-                Overordnet set et tilfredsstillende projekt, men selvfølgelig
-                med plads til forbedringspunkter.
-              </p>
-            </div>
-          </Case>
-          <Case
-            id="to-be-digital"
-            title="To-Be-Digital"
-            subtitle="Dansk webbureau"
-            cta={{
-              faIcon: 'fa-solid fa-arrow-up-right-from-square',
-              prompt: 'Besøg hjemmesiden',
-              link: 'https://www.to-be-digital.dk',
-            }}
-            banner="/../src/content/portfolioCase/to-be-digital.webp"
-          >
-            <div slot="body">
-              <p>
-                Jeg startede To-Be-Digital ultimo 2023, med formålet om at skabe
-                et webbureau til enkeltpersoner og mindre virksomheder.
-              </p>
-              <p>
-                Vi specialiserer os hovedsagligt i, at udvikle og levere
-                hjemmesider. Dette omfatter både personlige-, portefølje- og
-                karrierehjemmesider - men også mindre identitetsformidlende
-                hjemmesider til virksomheder, organisationer/foreninger og
-                kultursteder.
-              </p>
-              <p>
-                Derudover hjælper vi med alle slags digitale opgaver mellem
-                himmel og jord; alt fra grafik til mailopsætning til hjælp med
-                nyhedsbreve.
-              </p>
-            </div>
-          </Case>
-          <!-- <Case id="empty2" /> -->
+          {portfolioCases.map((c) => <Case portfolioCase={c} />)}
         </div>
       </div>
       <button class="chevron right"
-        ><Icon name="mdi:chevron-right" height="110" />
+        ><Icon name="mdi:chevron-right" width="110" />
       </button>
     </div>
   </div>
 
   <style lang="scss">
     @use '/../src/styles/abstracts' as *;
-
-    .thisCase-footer {
-      display: flex;
-      gap: size(2.5);
-      flex-wrap: wrap;
-      align-items: center;
-
-      img,
-      [astro-icon] {
-        height: 1.5em;
-        width: auto;
-      }
-    }
-
     .cases-slider {
       display: flex;
       justify-content: center;

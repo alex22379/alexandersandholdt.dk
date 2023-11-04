@@ -19,9 +19,17 @@ const lastUpdateLocale = new Date(lastUpdate).toLocaleString('da-DK', {
   <p class="lastUpdate | fs-200 clr-brand-700" style="font-style: italic;">
     (<time datetime={lastUpdate}>{lastUpdateLocale}</time>)
   </p>
-  <Content />
+  <div class="content">
+    <Content />
+  </div>
 </TabWindow>
 
 <style lang="scss">
   @use '/../src/styles/abstracts' as *;
+
+  .content :global(*) {
+    &:not(:first-child) {
+      margin-top: size(1.5);
+    }
+  }
 </style>

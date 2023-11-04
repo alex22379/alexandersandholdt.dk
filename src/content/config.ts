@@ -1,4 +1,4 @@
-import { z, reference, defineCollection } from 'astro:content';
+import { z, defineCollection } from 'astro:content';
 
 // Profile
 const educationSection = defineCollection({
@@ -15,7 +15,7 @@ const educationSection = defineCollection({
 // Bio
 const bio = defineCollection({
   type: 'content',
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
       lastUpdate: z.string().datetime({ offset: true }),
     }),
@@ -26,10 +26,10 @@ const portfolioCase = defineCollection({
   type: 'content',
   schema: ({ image }) =>
     z.object({
-      coverImg: image(),
+      banner: image().optional(),
       c2a: z.object({
         prompt: z.string(),
-        url: z.string().url(),
+        url: z.string(),
         faIcon: z.string(),
       }),
       title: z.string(),
