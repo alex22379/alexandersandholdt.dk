@@ -5,7 +5,7 @@ paths:
   data: data
 collections_config:
   portfolioCases:
-    path: content/portfolioCases
+    path: content/portfolioCase
     output: false
     url:
     filter:
