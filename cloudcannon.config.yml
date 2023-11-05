@@ -27,7 +27,19 @@ collections_config:
     singular_name:
     singular_key:
     _editables: {}
-    _inputs: {}
+    _inputs:
+      banner:
+        type: image
+        options:
+          paths:
+          mime_type:
+          correct_orientation: true
+          empty_type:
+          resize_style: contain
+          width:
+          height:
+          expandable:
+        cascade: true
     _select_data: {}
     _structures: {}
     add_options:
