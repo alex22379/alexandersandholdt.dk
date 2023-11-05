@@ -1,6 +1,7 @@
 source: src
 paths:
   uploads: assets/uploads
+  uploads_filename: cloudcannon-upload_
   collections: content
   data: data
 collections_config:
@@ -88,4 +89,6 @@ _select_data: {}
 _structures: {}
 _editables: {}
 data_config: {}
-timezone: Etc/UTC
+editor:
+  default_path:
+timezone: Etc/GMT+1
