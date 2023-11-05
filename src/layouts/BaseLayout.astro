@@ -21,10 +21,11 @@ import Footer from '../components/footer/Footer.astro';
 import LangSwitch from '../components/misc/LangSwitch.astro';
 
 const { title, description } = Astro.props;
+const lang = 'da';
 ---
 
 <!doctype html>
-<html lang="da_DK">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />

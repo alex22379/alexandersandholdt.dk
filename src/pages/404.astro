@@ -4,20 +4,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title="404 | Alexander Sandholdt" description="...">
   <section id="page-404" class="page-section" data-page-height="100">
-    <div class="container">
-      <div class="text-center">
-        <span class="emoji | fs-1000"></span>
-        <h1 class="fs-700">
-          <span class="fw-black">404</span><span class="fw-semi-bold"></span>
-           Ikke fundet
-        </h1>
-        <p class="fs-500">Hvordan endte du her?</p>
-      </div>
+    <div class="container | text-center">
+      <span class="emoji"></span>
+      <p class="t1"><span class="fw-bold">404</span> Ikke fundet</p>
+      <p class="t2"><span class="fw-bold">404</span> Not found</p>
+      <p class="t3"><span class="fw-bold">404</span> Extraviado</p>
+      <p class="t4"><span class="fw-bold">404</span> Pas trouvé</p>
+      <p class="t5"><span class="fw-bold">404</span> غير معثور عليه</p>
+      <p class="t6"><span class="fw-bold">404</span> 未找到</p>
     </div>
   </section>
 </BaseLayout>
 
 <style lang="scss">
+  @use 'sass:math';
   @use '../styles/abstracts/' as *;
 
   #page-404 {
@@ -26,11 +26,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .emoji {
+    font-size: size(24, true);
     &:before {
       content: '\1F914';
     }
     &:hover:before {
       content: '\1F928';
+    }
+  }
+
+  @for $i from 0 through 5 {
+    .t#{6 - $i} {
+      font-size: size(6, true) * math.pow(1.1, $i);
     }
   }
 </style>
