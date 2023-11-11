@@ -89,6 +89,10 @@ collection_groups:
     collections:
       - portfolioCases
       - educationSections
+_enabled_editors:
+  - visual
+  - content
+  - data
 _inputs: {}
 _select_data: {}
 _structures: {}
@@ -96,4 +100,8 @@ _editables: {}
 data_config: {}
 editor:
   default_path:
+source_editor:
+  tab_size: 2
+  theme: monokai
+  show_gutter: true
 timezone: Etc/GMT+1
