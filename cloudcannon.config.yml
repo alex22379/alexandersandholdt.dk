@@ -1,9 +1,94 @@
+source: src
 paths:
-  uploads: uploads
-collections_config: {}
+  uploads: assets/uploads
+  uploads_filename: cloudcannon_
+  collections: content
+  data: data
+collections_config:
+  portfolioCases:
+    path: content/portfolioCase
+    output: false
+    url:
+    filter:
+    parse_branch_index:
+    name: Portfolio Cases
+    description: ''
+    icon: notes
+    documentation:
+    preview:
+      text:
+      subtext:
+      icon:
+      icon_color:
+      image:
+      metadata:
+      gallery:
+    sort:
+    sort_options:
+    singular_name:
+    singular_key:
+    _editables: {}
+    _inputs:
+      banner:
+        type: image
+        options:
+          paths:
+          mime_type:
+          correct_orientation: true
+          empty_type:
+          resize_style: contain
+          width:
+          height:
+          expandable:
+        cascade: true
+    _select_data: {}
+    _structures: {}
+    add_options:
+    create:
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    new_preview_url:
+    schemas: {}
+    schema_key:
+  educationSections:
+    path: content/educationSection
+    output: false
+    url:
+    filter:
+    parse_branch_index:
+    name: Education Sections
+    description: ''
+    icon: notes
+    documentation:
+    preview:
+    sort:
+    sort_options:
+    singular_name:
+    singular_key:
+    _editables: {}
+    _inputs: {}
+    _select_data: {}
+    _structures: {}
+    add_options:
+    create:
+      path:
+      extra_data: {}
+      publish_to:
+      _inputs: {}
+      _select_data: {}
+      _structures: {}
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    new_preview_url:
+    schemas: {}
+    schema_key:
 _inputs: {}
 _select_data: {}
 _structures: {}
 _editables: {}
 data_config: {}
-timezone: Etc/UTC
+editor:
+  default_path:
+timezone: Etc/GMT+1
