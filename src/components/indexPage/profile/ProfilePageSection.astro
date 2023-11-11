@@ -222,10 +222,11 @@ import ToolsTab from './ToolsTab.astro';
 </style>
 
 <script>
-  const tabButtons = document.querySelectorAll('.tab-button'),
+  const tabButtons: NodeListOf<HTMLElement> =
+      document.querySelectorAll('.tab-button'),
     tabWindows = document.querySelectorAll('.tab-window');
 
-  tabButtons.forEach((t) => {
+  tabButtons.forEach((t: HTMLElement) => {
     t.addEventListener('click', (e) => {
       const tabTarget = t.dataset.tabTarget;
       openTab(tabTarget);
@@ -238,7 +239,7 @@ import ToolsTab from './ToolsTab.astro';
   tabButtons[0].click();
 
   function openTab(tab) {
-    tabWindows.forEach((t) => {
+    tabWindows.forEach((t: HTMLElement) => {
       const tabId = t.dataset.tabId;
       let display = 'none';
       if (tabId === tab) display = 'block';

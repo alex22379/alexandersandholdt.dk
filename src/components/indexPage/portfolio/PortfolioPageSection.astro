@@ -4,13 +4,17 @@ import Case from './PortfolioCase.astro';
 import { getCollection } from 'astro:content';
 
 const portfolioCases = await getCollection('portfolioCase');
+
+import { getLangFromUrl, useTranslations } from '../../../modules/i18n';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="portfolio" class="page-section">
   <div class="container flow | my-32">
     <div class="text-center">
-      <h2 class="fs-700 fw-bold">Portefølje</h2>
-      <p>Et lille udvalg af diverse projekter i diverse kategorier</p>
+      <h2 class="fs-700 fw-bold">{t('portfolio.title')}</h2>
+      <p>{t('portfolio.subtitle')}</p>
     </div>
     <div class="cases-slider">
       <button class="chevron left"

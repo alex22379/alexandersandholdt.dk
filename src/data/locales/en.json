@@ -1,36 +1,12 @@
 {
-  "site": {
-    "mail": "mail@alexandersandholdt.dk",
-    "cvr": "43768085"
-  },
-  "header": {
-    "links": {
-      "instagram": {
-        "text": "instagram/alexandersandholdt",
-        "url": "https://www.instagram.com/alexandersandholdt/",
-        "icon": "fa-brands fa-instagram"
-      },
-      "linkedin": {
-        "text": "in/alexandersandholdt",
-        "url": "https://www.linkedin.com/in/alexandersandholdt/",
-        "icon": "fa-brands fa-linkedin-in"
-      },
-      "mail": {
-        "text": "mail@alexandersandholdt.dk",
-        "url": "mailto:mail@alexandersandholdt.dk",
-        "icon": "fa-solid fa-envelope"
-      }
-    }
+  "meta": {
+    "language": "English"
   },
   "footer": {
     "contact": {
       "title": "Inquiries?",
       "subtitle": "Do not hesitate sending me a mail :)"
     }
-  },
-  "404": {
-    "title": "Not found",
-    "subtitle": "How did you end up here?"
   },
   "profile": {
     "portraitAlt": "Portrait of Alexander Sandholdt August 2023",

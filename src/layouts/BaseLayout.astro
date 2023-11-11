@@ -13,15 +13,18 @@ import '@fontsource/ubuntu/700.css';
 import '@fontsource/ubuntu-mono/400.css';
 import '@fontsource/ubuntu-mono/700.css';
 
+// font-family: 'BioRhyme', sans-serif;
+import '@fontsource/biorhyme';
+
 // styles
 import '../styles/style.scss';
 
 import Header from '../components/header/Header.astro';
 import Footer from '../components/footer/Footer.astro';
 import LangSwitch from '../components/misc/LangSwitch.astro';
+import { getLangFromUrl } from '../modules/i18n';
 
-const { title, description } = Astro.props;
-const lang = 'da';
+const { lang = getLangFromUrl(Astro.url), title, description } = Astro.props;
 ---
 
 <!doctype html>

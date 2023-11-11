@@ -1,8 +1,0 @@
-Tilføj kommentar/endorsement-system
-
-i18n
-
-404 - fjern footer, tilføj home-knap
-
-fix sass helper classes
-overvej universelle størrelses, farve, og font systemer, etc.

@@ -1,0 +1,18 @@
+---
+import { languages, defaultLang } from '../../modules/i18n';
+
+export async function getStaticPaths() {
+  const staticPaths = [];
+  Object.keys(languages)
+    .filter((l) => l != defaultLang)
+    .forEach((l) => {
+      staticPaths.push({ params: { lang: l.toString() } });
+    });
+  return staticPaths;
+}
+
+const { lang } = Astro.params;
+import Page from '../index.astro';
+---
+
+<Page {...Astro.props} />

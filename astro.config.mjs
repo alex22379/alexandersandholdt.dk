@@ -6,17 +6,20 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://www.alexandersandholdt.dk',
   integrations: [
     purgecss({
       content: [process.cwd() + '/src/**/*.{astro,html}'],
       defaultExtractor: (content) => content.match(/[\w-/:.]+(?<!:)/g) || [],
     }),
-    sitemap(),
+    sitemap({
+      i18n: {
+        defaultLocale: 'da',
+        locales: {
+          en: 'en',
+        },
+      },
+    }),
     mdx(),
   ],
-  site: 'https://www.alexandersandholdt.dk',
-  trailingSlash: 'never',
-  build: {
-    format: 'file',
-  },
 });

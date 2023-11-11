@@ -1,4 +1,7 @@
 {
+  "meta": {
+    "language": "Dansk"
+  },
   "site": {
     "mail": "mail@alexandersandholdt.dk",
     "cvr": "43768085"
@@ -28,17 +31,12 @@
       "subtitle": "Tøv ikke med at sende mig en mail :)"
     }
   },
-  "404": {
-    "title": "Ikke fundet",
-    "subtitle": "Hvordan endte du her?"
-  },
   "profile": {
     "portraitAlt": "Portræt af Alexander Sandholdt August 2023",
     "tabTitles": {
       "about": "Om mig",
       "education": "Uddannelse",
-      "tools": "Redskaber",
-      "experience": "Erfaring"
+      "tools": "Redskaber"
     }
   },
   "portfolio": {

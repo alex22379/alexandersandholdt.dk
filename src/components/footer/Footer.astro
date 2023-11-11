@@ -1,13 +1,17 @@
 ---
 import CopyToClipboard from '../misc/CopyToClipboard.astro';
+
+import { getLangFromUrl, useTranslations } from '../../modules/i18n';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer class="flow-root | bg-neutral-150" style="position: relative;">
   <div class="container | my-32">
     <section class="flow text-center" style="--flow-space: .5em;">
       <div>
-        <h3 class="fs-700 fw-bold">Henvendelser?</h3>
-        <p>Tøv ikke med at sende mig en mail :)</p>
+        <h3 class="fs-700 fw-bold">{t('footer.contact.title')}</h3>
+        <p>{t('footer.contact.subtitle')}</p>
       </div>
       <CopyToClipboard
         type="email"
@@ -48,7 +52,7 @@ import CopyToClipboard from '../misc/CopyToClipboard.astro';
     <!-- Legal: Copyright © (&copy;) 2023 Alexander Sandholdt | CVR: 43768085 (https://datacvr.virk.dk/enhed/virksomhed/43768085) -->
     <small>
       Copyright &copy;
-      {new Date().getFullYear().toString()}
+      <span class="year">2004</span>
        Alexander Sandholdt |
       <a
         class="cvr"
@@ -117,3 +121,8 @@ import CopyToClipboard from '../misc/CopyToClipboard.astro';
     }
   }
 </style>
+
+<script>
+  const dateSpan = document.querySelector('.year');
+  dateSpan.innerHTML = new Date().getFullYear().toString();
+</script>
