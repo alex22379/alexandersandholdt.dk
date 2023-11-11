@@ -84,6 +84,11 @@ collections_config:
     new_preview_url:
     schemas: {}
     schema_key:
+collection_groups:
+  - heading: Profile
+    collections:
+      - portfolioCases
+      - educationSections
 _inputs: {}
 _select_data: {}
 _structures: {}
