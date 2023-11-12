@@ -21,10 +21,10 @@ export async function getStaticPaths() {
   return staticPaths;
 }
 const { page } = Astro.params;
-const allPages = await Astro.glob('../*.astro');
-const filteredPages = allPages.filter((p) => {
-  return page != undefined ? p.url.substring(1) == page : p.url == '';
-});
+const pages = await Astro.glob('../*.astro');
+const Page = pages.find((p) =>
+  page != undefined ? p.url.substring(1) == page : p.url == ''
+).default;
 ---
 
-{filteredPages.map((p) => <p.default />)}
+{(<Page />)}
