@@ -1,17 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLangFromUrl, useTranslations } from '../modules/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <BaseLayout title="404 | Alexander Sandholdt" description="...">
   <section id="page-404" class="page-section" data-page-height="100">
     <div class="container | text-center">
       <span class="emoji"></span>
-      <p class="t1"><span class="fw-bold">404</span> Ikke fundet</p>
-      <p class="t2"><span class="fw-bold">404</span> Not found</p>
-      <p class="t3"><span class="fw-bold">404</span> Extraviado</p>
-      <p class="t4"><span class="fw-bold">404</span> Pas trouvé</p>
-      <p class="t5"><span class="fw-bold">404</span> غير معثور عليه</p>
-      <p class="t6"><span class="fw-bold">404</span> 未找到</p>
+      <h1 class="fs-700">
+        <span class="fw-bold">404</span>&nbsp;<span class="fw-semi-bold"
+          >{t('404.title')}</span
+        >
+      </h1>
+      <p>{t('404.subtitle')}</p>
     </div>
   </section>
 </BaseLayout>
@@ -32,12 +36,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
     &:hover:before {
       content: '\1F928';
-    }
-  }
-
-  @for $i from 0 through 5 {
-    .t#{6 - $i} {
-      font-size: size(6, true) * math.pow(1.1, $i);
     }
   }
 </style>

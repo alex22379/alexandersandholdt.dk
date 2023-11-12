@@ -42,5 +42,9 @@
   "portfolio": {
     "title": "Portefølje",
     "subtitle": "Et udvalg af diverse projekter i diverse kategorier"
+  },
+  "404": {
+    "title": "Ikke fundet",
+    "subtitle": "Hvordan endte du her?"
   }
 }

@@ -20,5 +20,9 @@
   "portfolio": {
     "title": "Portfolio",
     "subtitle": "A selection of various projects in various categories"
+  },
+  "404": {
+    "title": "Not Found",
+    "subtitle": "How did you end up here?"
   }
 }

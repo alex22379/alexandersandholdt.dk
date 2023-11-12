@@ -1,0 +1,30 @@
+---
+import { languages, defaultLang } from '../../modules/i18n';
+
+export async function getStaticPaths() {
+  const staticPaths = [];
+
+  const localeCodes = Object.keys(languages).filter((l) => l != defaultLang);
+  const pages = import.meta.glob(['../**/*.astro', '!../404.astro']);
+
+  for (const locale of localeCodes) {
+    for (const page in pages) {
+      const pageName = page.substring(3).replace('.astro', '');
+      staticPaths.push({
+        params: {
+          lang: locale,
+          page: pageName != 'index' ? pageName : undefined,
+        },
+      });
+    }
+  }
+  return staticPaths;
+}
+const { page } = Astro.params;
+const allPages = await Astro.glob('../*.astro');
+const filteredPages = allPages.filter((p) => {
+  return page != undefined ? p.url.substring(1) == page : p.url == '';
+});
+---
+
+{filteredPages.map((p) => <p.default />)}
