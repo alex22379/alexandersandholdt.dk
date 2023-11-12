@@ -11,25 +11,21 @@ function dotNotate(obj, target = {}, prefix = '') {
   return target;
 }
 
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-function getLocales(path) {
+async function getLocales() {
   const locales = {};
-  const fileNames = fs
-    .readdirSync(path)
-    .filter((file) => file.match(/\.json$/));
 
-  fileNames.forEach((fileName: string) => {
-    locales[fileName.replace('.json', '')] = dotNotate(
-      JSON.parse(fs.readFileSync(path + fileName, 'utf8').toString())
-    );
-  });
+  const files = import.meta.glob('../../data/locales/*.json', { as: 'raw' });
+
+  for (const path in files) {
+    const mod = await files[path]();
+    const data = dotNotate(JSON.parse(mod));
+    const localeCode = path.split(/[/]+/).pop().replace('.json', '');
+    locales[localeCode] = data;
+  }
+
   return locales;
 }
-export const locales = getLocales(path.join(__dirname, '../../data/locales/'));
+export const locales = await getLocales();
 
 function getLanguages(locales) {
   const languages = {};
@@ -51,7 +47,11 @@ export function getLangFromUrl(url: URL) {
 
 export function useTranslations(lang) {
   return function t(key) {
-    return locales[lang][key] || locales[defaultLang][key] || '...';
+    return (
+      locales[lang][key] ||
+      locales[defaultLang][key] ||
+      `Kunne ikke finde ui-string: ${key}`
+    );
   };
 }
 
