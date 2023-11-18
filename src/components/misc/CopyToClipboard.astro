@@ -1,8 +1,18 @@
 ---
 const { type = 'text', value, size = undefined } = Astro.props;
+import translate from '../../scripts/translate';
+import { getLangFromUrl } from '../../modules/i18n/index.mts';
 ---
 
-<div class={'copy-to-clipboard ' + ('da' == 'da' ? 'lang-da' : 'lang-en')}>
+<div
+  class="copy-to-clipboard"
+  }
+  data-copied-translation={await translate(
+    'Copied',
+    'en',
+    getLangFromUrl(Astro.url)
+  )}
+>
   <input
     type={type}
     value={value}
@@ -69,6 +79,7 @@ const { type = 'text', value, size = undefined } = Astro.props;
       }
 
       &:before {
+        content: attr(data-copied-translation);
         transition: all 250ms ease-in-out;
         position: absolute;
         color: red;
@@ -80,14 +91,6 @@ const { type = 'text', value, size = undefined } = Astro.props;
         align-items: center;
         left: calc(50% - size(12));
         opacity: 0%;
-      }
-
-      &.lang-da:before {
-        content: 'Kopieret';
-      }
-
-      &.lang-en:before {
-        content: 'Copied';
       }
 
       &.copied:before {

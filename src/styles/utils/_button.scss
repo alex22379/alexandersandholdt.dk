@@ -3,7 +3,7 @@
 .button {
   position: relative;
   display: inline-flex;
-  padding: size(2) size(4);
+  padding: size(2) size(3);
   background-color: color(brand, 400);
   color: white;
   border-radius: size(4);
@@ -15,6 +15,7 @@
   line-height: 0;
   justify-content: center;
   align-items: center;
+  font-size: font-size(400);
 
   &:hover,
   &:focus,
@@ -23,7 +24,7 @@
     text-decoration: none;
     color: white;
     background-color: color(brand, 500);
-    padding-inline: size(4.75);
+    padding-inline: size(4);
   }
 
   &:focus,
