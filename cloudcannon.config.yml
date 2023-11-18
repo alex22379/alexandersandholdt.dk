@@ -98,6 +98,7 @@ _inputs: {}
 _select_data: {}
 _structures: {}
 _editables: {}
+base_url: dist
 data_config: {}
 editor:
   default_path:
