@@ -1,9 +1,15 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntries } from 'astro:content';
 import TabWindow from './TabWindow.astro';
 import EducationSection from './EducationSection.astro';
+import { getLangFromUrl } from '../../../modules/i18n/index.mts';
 
-const educationSections = await getCollection('educationSection');
+const langFromUrl = getLangFromUrl(Astro.url);
+const allEducationSections = await getCollection('educationSection');
+const educationSections = allEducationSections.filter((eduSec) => {
+  const [lang, ...slug] = eduSec.id.split('/');
+  return lang == langFromUrl;
+});
 ---
 
 <TabWindow id="education" title="Min uddannelse">

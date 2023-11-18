@@ -1,6 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 import signatureImg from '../../assets/img/signature.png';
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+} from '../../modules/i18n/index.mts';
 
 const links = [
   {
@@ -19,6 +23,8 @@ const links = [
     icon: 'fa-solid fa-envelope',
   },
 ];
+
+const tPath = useTranslatedPath(getLangFromUrl(Astro.url));
 ---
 
 <header>
@@ -30,7 +36,7 @@ const links = [
         data-flex="center"
         data-flex-direction="column"
       >
-        <a class="signature" href="/"
+        <a class="signature" href={tPath('/')}
           ><Image src={signatureImg} alt="Alexander Sandholdt Signature" />
         </a>
         <ul class="links">

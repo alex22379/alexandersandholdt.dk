@@ -6,16 +6,16 @@
   padding: size(2) size(3);
   background-color: color(brand, 400);
   color: white;
-  border-radius: size(4);
+  border-radius: 50vh;
   text-transform: uppercase;
   font-family: 'Ubuntu Mono', sans-serif;
   box-shadow: $box-shadow-2;
-  transition: padding 650ms cubic-bezier(0.075, 0.82, 0.165, 1),
+  transition: padding 900ms cubic-bezier(0.075, 0.82, 0.165, 1),
     transform 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
-  line-height: 0;
   justify-content: center;
   align-items: center;
   font-size: font-size(400);
+  letter-spacing: size(0.5, true);
 
   &:hover,
   &:focus,
@@ -24,7 +24,7 @@
     text-decoration: none;
     color: white;
     background-color: color(brand, 500);
-    padding-inline: size(4);
+    padding-inline: size(3.75);
   }
 
   &:focus,
@@ -39,11 +39,17 @@
     transform: scale(97.5%);
   }
 
-  span.icon > * {
-    display: inline;
-    height: size(5, true);
-    width: auto;
-    margin-right: size(1);
-    fill: color(neutral, 100);
+  span.icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    & > * {
+      line-height: inherit;
+      display: inline;
+      height: size(5, true);
+      width: auto;
+      margin-right: size(1);
+      fill: color(neutral, 100);
+    }
   }
 }
