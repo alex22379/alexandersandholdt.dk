@@ -1,19 +1,23 @@
 ---
-import { languages, defaultLang } from '../../modules/i18n';
+import { languages, defaultLang } from '../../modules/i18n/index.mts';
+import path from 'node:path';
 
 export async function getStaticPaths() {
   const staticPaths = [];
 
   const localeCodes = Object.keys(languages).filter((l) => l != defaultLang);
-  const pages = import.meta.glob(['../**/*.astro', '!../404.astro']);
+  const pages = import.meta.glob([
+    '../**/*.astro',
+    './**/*' /*, '!../404.astro'*/,
+  ]);
 
   for (const locale of localeCodes) {
     for (const page in pages) {
-      const pageName = page.substring(3).replace('.astro', '');
+      const pageName = path.parse(page)['name'];
       staticPaths.push({
         params: {
           lang: locale,
-          page: pageName != 'index' ? pageName : undefined,
+          page: pageName /*!= 'index' ? pageName : undefined*/,
         },
       });
     }
@@ -21,10 +25,15 @@ export async function getStaticPaths() {
   return staticPaths;
 }
 const { page } = Astro.params;
-const pages = await Astro.glob('../*.astro');
-const Page = pages.find((p) =>
-  page != undefined ? p.url.substring(1) == page : p.url == ''
-).default;
+
+const allPages = await Astro.glob('../**/*.astro');
+const i18nDir = []; //await Astro.glob('./*');
+const pages = allPages.filter((el) => !i18nDir.includes(el));
+
+const Page = pages.find((p) => {
+  const pageName = path.parse(p.url)['name'];
+  return page == (pageName == '' ? 'index' : pageName);
+}).default;
 ---
 
-{(<Page />)}
+<Page />

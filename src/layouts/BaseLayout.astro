@@ -22,7 +22,7 @@ import '../styles/style.scss';
 import Header from '../components/header/Header.astro';
 import Footer from '../components/footer/Footer.astro';
 import LangSwitch from '../components/misc/LangSwitch.astro';
-import { getLangFromUrl } from '../modules/i18n';
+import { getLangFromUrl } from '../modules/i18n/index.mts';
 
 const { lang = getLangFromUrl(Astro.url), title, description } = Astro.props;
 ---

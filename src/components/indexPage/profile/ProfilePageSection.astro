@@ -3,6 +3,12 @@ import EducationTab from './EducationTab.astro';
 import TabButton from './TabButton.astro';
 import BioTab from './BioTab.astro';
 import ToolsTab from './ToolsTab.astro';
+import {
+  getLangFromUrl,
+  useTranslations,
+} from '../../../modules/i18n/index.mts';
+
+const t = useTranslations(getLangFromUrl(Astro.url));
 ---
 
 <section id="profile" class="page-section">
@@ -18,12 +24,12 @@ import ToolsTab from './ToolsTab.astro';
 
     <div class="tabs | flow">
       <a class="download-resume" href="/" download="Alexander Sandholdt CV.pdf"
-        ><i class="mr-0.5 | fa-solid fa-download"></i>Download CV</a
+        ><i class="mr-0.5 | fa-solid fa-download"></i>Download CV (pdf)</a
       >
       <nav class="tab-buttons">
-        <TabButton name="Biografi" target="bio" />
-        <TabButton name="Uddannelse" target="education" />
-        <TabButton name="Redskaber" target="tools" />
+        <TabButton name={t('profile.tabTitles.bio')} target="bio" />
+        <TabButton name={t('profile.tabTitles.education')} target="education" />
+        <TabButton name={t('profile.tabTitles.tools')} target="tools" />
       </nav>
 
       <div class="tab-windows">

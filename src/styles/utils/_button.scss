@@ -1,0 +1,48 @@
+@use '../abstracts' as *;
+
+.button {
+  position: relative;
+  display: inline-flex;
+  padding: size(2) size(4);
+  background-color: color(brand, 400);
+  color: white;
+  border-radius: size(4);
+  text-transform: uppercase;
+  font-family: 'Ubuntu Mono', sans-serif;
+  box-shadow: $box-shadow-2;
+  transition: padding 650ms cubic-bezier(0.075, 0.82, 0.165, 1),
+    transform 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  line-height: 0;
+  justify-content: center;
+  align-items: center;
+
+  &:hover,
+  &:focus,
+  &.hover,
+  &.focus {
+    text-decoration: none;
+    color: white;
+    background-color: color(brand, 500);
+    padding-inline: size(4.75);
+  }
+
+  &:focus,
+  &:focus-within,
+  &.focus {
+    outline-style: solid;
+    outline-color: color(neutral, 200);
+  }
+
+  &:active,
+  &.active {
+    transform: scale(97.5%);
+  }
+
+  span.icon > * {
+    display: inline;
+    height: size(5, true);
+    width: auto;
+    margin-right: size(1);
+    fill: color(neutral, 100);
+  }
+}

@@ -1,7 +1,7 @@
 ---
 import CopyToClipboard from '../misc/CopyToClipboard.astro';
 
-import { getLangFromUrl, useTranslations } from '../../modules/i18n';
+import { getLangFromUrl, useTranslations } from '../../modules/i18n/index.mts';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---

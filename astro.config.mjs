@@ -23,4 +23,8 @@ export default defineConfig({
     }),
     mdx(),
   ],
+  trailingSlash: 'never',
+  build: {
+    format: 'file',
+  },
 });

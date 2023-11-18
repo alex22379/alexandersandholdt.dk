@@ -34,7 +34,7 @@
   "profile": {
     "portraitAlt": "Portræt af Alexander Sandholdt August 2023",
     "tabTitles": {
-      "about": "Om mig",
+      "bio": "Bio",
       "education": "Uddannelse",
       "tools": "Redskaber"
     }
@@ -45,6 +45,8 @@
   },
   "404": {
     "title": "Ikke fundet",
-    "subtitle": "Hvordan endte du her?"
+    "subtitle": "Hvordan endte du her?",
+    "startpage": "Gå til startsiden",
+    "hint": "Eller send mig en besked (rul ned)"
   }
 }

@@ -1,8 +1,9 @@
 ---
 import { getEntry } from 'astro:content';
 import TabWindow from './TabWindow.astro';
+import { defaultLang, getLangFromUrl } from '../../../modules/i18n/index.mts';
 
-const bio = await getEntry('bio', 'bio');
+const bio = await getEntry('bio', `${getLangFromUrl(Astro.url)}/profile-bio`);
 const { lastUpdate } = bio.data;
 const { Content } = await bio.render();
 const lastUpdateLocale = new Date(lastUpdate).toLocaleString('da-DK', {

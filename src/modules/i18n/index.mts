@@ -1,3 +1,5 @@
+import { markdown } from '@astropub/md';
+
 // from https://stackoverflow.com/questions/33005575/how-to-convert-json-object-structure-to-dot-notation
 function dotNotate(obj, target = {}, prefix = '') {
   Object.keys(obj).forEach(function (key) {
@@ -40,22 +42,24 @@ export const languages = getLanguages(locales);
 export const defaultLang = 'da';
 
 export function getLangFromUrl(url: URL) {
-  const [, lang] = url.pathname.split('/');
-  if (lang in locales) return lang as keyof typeof locales;
+  let [, lang] = url.pathname.split('/');
+  lang = lang.toLowerCase();
+  if (lang in locales) return lang;
   return defaultLang;
 }
 
 export function useTranslations(lang) {
   return function t(key) {
-    return (
+    const md =
       locales[lang][key] ||
       locales[defaultLang][key] ||
-      `Kunne ikke finde ui-string: ${key}`
-    );
+      `Kunne ikke finde ui-string: *${key}*`; // markdown source
+    const html = markdown.inline(md);
+    return html;
   };
 }
 
-export function useTranslatedPath(lang: keyof typeof locales) {
+export function useTranslatedPath(lang) {
   return function translatePath(path: string, l: string = lang) {
     return l === defaultLang ? path : `/${l}${path}`;
   };
