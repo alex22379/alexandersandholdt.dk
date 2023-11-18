@@ -1,24 +1,16 @@
 ---
-banner: './Haderslev Havn.jpg'
+banner: /assets/uploads/cloudcannon_
 c2a:
-  prompt: 'Find på GitHub'
-  url: 'https://github.com/alex22379/alexandersandholdt.dk'
-  faIcon: 'fa-brands fa-github'
-title: 'alexandersandholdt.dk'
-subtitle: 'Min personlige hjemmeside'
+  prompt: Find på GitHub
+  url: https://github.com/alex22379/alexandersandholdt.dk
+  faIcon: fa-brands fa-github
+title: alexandersandholdt.dk
+subtitle: Min personlige hjemmeside
 ---
+import \{ Icon \} from 'astro-icon';
 
-import { Icon } from 'astro-icon';
+Hjemmesiden du sidder på netop nu, er kodet og opbygget fra bunden med frameworket <a target="_blank" href="https://astro.build">Astro</a>. Ydermere koblet op på et *Git-based CMS* fra <a target="_blank" href="https://cloudcannon.com">CloudCannon</a>, således at den er let og bekvem at opdatere og vedligeholde.
 
-Hjemmesiden du sidder på netop nu, er kodet og opbygget fra bunden med frameworket <a href="https://astro.build" target="_blank">Astro</a>. Ydermere koblet op på et _Git-based CMS_ fra <a href="https://cloudcannon.com" target="_blank">CloudCannon</a>, således at den er let og bekvem at opdatere og vedligeholde.
+Siden er skabt med fokus på *den enkelte detalje*, *en effektiv kompetence- og identitsformidling* og selvfølgelig også med *ydeevne, brugervenlighed og optimering* for øje - og dertil en masse kærlighed og omhu.
 
-Siden er skabt med fokus på _den enkelte detalje_, _en effektiv kompetence- og identitsformidling_ og selvfølgelig også med _ydeevne, brugervenlighed og optimering_ for øje - og dertil en masse kærlighed og omhu.
-
-<footer style=" bottom: 0; position: absolute;">
-  {['html-5', 'css-3', 'javascript', 'typescript-icon', 'astro'].map((l) => (
-    <Icon
-      name={`logos:${l}`}
-      style="height: 1.5em; width: auto; display: inline; margin-right: calc((1rem / 4) * 2.5);"
-    />
-  ))}
-</footer>
+<footer>{['html-5', 'css-3', 'javascript', 'typescript-icon', 'astro'].map((l) =&gt; ( &lt;icon name={`logos:${l}`} style="height: 1.5em; width: auto; display: inline; margin-right: calc((1rem / 4) * 2.5);"&gt; ))} &lt;/icon&gt;</footer>
