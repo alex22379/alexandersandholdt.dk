@@ -1,7 +1,8 @@
 source: src
 paths:
   uploads: assets/uploads
-  uploads_filename: cloudcannon_
+  uploads_filename: >-
+    cloudcannon_[asset_filename_without_ext|slugify|deburr][count].[asset_ext|lowercase]
   collections: content
   data: data
 collections_config:
