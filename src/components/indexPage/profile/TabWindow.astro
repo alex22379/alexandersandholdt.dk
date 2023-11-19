@@ -1,5 +1,11 @@
 ---
-const { id, title } = Astro.props;
+import {
+  getLangFromUrl,
+  useTranslations,
+} from '../../../modules/i18n/index.mts';
+const t = useTranslations(getLangFromUrl(Astro.url));
+
+const { id, title = t(`profile.tabWindowTitles.${id}`) } = Astro.props;
 ---
 
 <article class="tab-window" data-tab-id={id}>
@@ -13,6 +19,7 @@ const { id, title } = Astro.props;
   @use '/../src/styles/abstracts' as *;
 
   .tab-window {
+    display: none;
     color: black;
   }
 </style>

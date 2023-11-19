@@ -33,10 +33,15 @@
   },
   "profile": {
     "portraitAlt": "Portræt af Alexander Sandholdt August 2023",
-    "tabTitles": {
+    "tabButtonTitles": {
       "bio": "Bio",
       "education": "Uddannelse",
       "tools": "Redskaber"
+    },
+    "tabWindowTitles": {
+      "bio": "Hej, velkommen til🤝",
+      "education": "Min uddannelse",
+      "tools": "Mine daglige værktøjer"
     }
   },
   "portfolio": {

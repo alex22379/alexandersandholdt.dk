@@ -7,8 +7,10 @@ import {
   getLangFromUrl,
   useTranslations,
 } from '../../../modules/i18n/index.mts';
+import translate from '../../../scripts/translate';
 
-const t = useTranslations(getLangFromUrl(Astro.url));
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="profile" class="page-section">
@@ -24,12 +26,14 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 
     <div class="tabs | flow">
       <a class="download-resume" href="/" download="Alexander Sandholdt CV.pdf"
-        ><i class="mr-0.5 | fa-solid fa-download"></i>Download CV (pdf)</a
+        ><i class="mr-0.5 | fa-solid fa-download"></i>{
+          translate('Download', 'en', lang)
+        } CV (pdf)</a
       >
       <nav class="tab-buttons">
-        <TabButton name={t('profile.tabTitles.bio')} target="bio" />
-        <TabButton name={t('profile.tabTitles.education')} target="education" />
-        <TabButton name={t('profile.tabTitles.tools')} target="tools" />
+        <TabButton target="bio" />
+        <TabButton target="education" />
+        <TabButton target="tools" />
       </nav>
 
       <div class="tab-windows">
@@ -242,13 +246,36 @@ const t = useTranslations(getLangFromUrl(Astro.url));
     t.click();
   });
 
-  tabButtons[0].click();
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const profileTab = urlParams.get('profileTab');
+
+  if (
+    !Array.from(tabButtons).some((t: HTMLElement) => {
+      const tabTarget = t.dataset.tabTarget;
+      if (tabTarget == profileTab) {
+        t.click();
+        return true;
+      }
+    })
+  )
+    tabButtons[0].click();
 
   function openTab(tab) {
     tabWindows.forEach((t: HTMLElement) => {
       const tabId = t.dataset.tabId;
       let display = 'none';
-      if (tabId === tab) display = 'block';
+      if (tabId === tab) {
+        display = 'block';
+        const urlParams = new URLSearchParams(window.location.search);
+        urlParams.set('profileTab', tabId);
+        const newRelativePathQuery =
+          window.location.pathname +
+          '?' +
+          urlParams.toString() +
+          window.location.hash;
+        history.pushState(null, '', newRelativePathQuery);
+      }
       t.style.display = display;
     });
   }
