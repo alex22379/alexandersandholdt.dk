@@ -1,27 +1,17 @@
 import { markdown } from '@astropub/md';
-
-// from https://stackoverflow.com/questions/33005575/how-to-convert-json-object-structure-to-dot-notation
-function dotNotate(obj, target = {}, prefix = '') {
-  Object.keys(obj).forEach(function (key) {
-    if (typeof obj[key] === 'object' && obj[key] !== null) {
-      dotNotate(obj[key], target, prefix + key + '.');
-    } else {
-      return (target[prefix + key] = obj[key]);
-    }
-  });
-
-  return target;
-}
+import path from 'node:path';
+import dotNotateObj from '../../scripts/dotNotateObj';
+import translate from '../../scripts/translate';
 
 async function getLocales() {
   const locales = {};
 
   const files = import.meta.glob('../../data/locales/*.json', { as: 'raw' });
 
-  for (const path in files) {
-    const mod = await files[path]();
-    const data = dotNotate(JSON.parse(mod));
-    const localeCode = path.split(/[/]+/).pop().replace('.json', '');
+  for (const filePath in files) {
+    const mod = await files[filePath]();
+    const data = dotNotateObj(JSON.parse(mod));
+    const localeCode = path.parse(filePath)['name'];
     locales[localeCode] = data;
   }
 
@@ -29,7 +19,7 @@ async function getLocales() {
 }
 export const locales = await getLocales();
 
-function getLanguages(locales) {
+function getLanguages(locales: {}) {
   const languages = {};
   Object.keys(locales).forEach((l) => {
     languages[l] = useTranslations(l)('meta.language');
@@ -48,12 +38,16 @@ export function getLangFromUrl(url: URL) {
   return defaultLang;
 }
 
-export function useTranslations(lang) {
-  return function t(key) {
+export function useTranslations(lang: string) {
+  return function t(key: string, autoTrans: boolean = false) {
     const md =
       locales[lang][key] ||
       locales[defaultLang][key] ||
-      `Kunne ikke finde ui-string: *${key}*`; // markdown source
+      translate(
+        autoTrans ? locales[defaultLang][key] : 'Fejl, fandt ikke ui-string',
+        defaultLang,
+        lang
+      ); // markdown source
     const html = markdown.inline(md);
     return html;
   };

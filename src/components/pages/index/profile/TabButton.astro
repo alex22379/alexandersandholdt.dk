@@ -2,7 +2,7 @@
 import {
   getLangFromUrl,
   useTranslations,
-} from '../../../modules/i18n/index.mts';
+} from '../../../../modules/i18n/index.mts';
 const t = useTranslations(getLangFromUrl(Astro.url));
 
 const { target, name = t(`profile.tabButtonTitles.${target}`) } = Astro.props;

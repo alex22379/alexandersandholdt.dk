@@ -2,14 +2,14 @@
 import {
   getLangFromUrl,
   useTranslations,
-} from '../../../modules/i18n/index.mts';
+} from '../../../../modules/i18n/index.mts';
 const t = useTranslations(getLangFromUrl(Astro.url));
 
 const { id, title = t(`profile.tabWindowTitles.${id}`) } = Astro.props;
 ---
 
 <article class="tab-window" data-tab-id={id}>
-  <h2 class="title">{title}</h2>
+  <h3 class="title">{title}</h3>
   <div class="content">
     <slot />
   </div>

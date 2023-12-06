@@ -2,7 +2,7 @@
 import { getCollection, getEntries } from 'astro:content';
 import TabWindow from './TabWindow.astro';
 import EducationSection from './EducationSection.astro';
-import { getLangFromUrl } from '../../../modules/i18n/index.mts';
+import { getLangFromUrl } from '../../../../modules/i18n/index.mts';
 
 const langFromUrl = getLangFromUrl(Astro.url);
 const allEducationSections = await getCollection('educationSection');

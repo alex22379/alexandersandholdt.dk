@@ -6,15 +6,15 @@ import ToolsTab from './ToolsTab.astro';
 import {
   getLangFromUrl,
   useTranslations,
-} from '../../../modules/i18n/index.mts';
-import translate from '../../../scripts/translate';
+} from '../../../../modules/i18n/index.mts';
+import translate from '../../../../scripts/translate';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <section id="profile" class="page-section">
-  <div class="profile-container | container | clr-neutral-000 my-44">
+  <div class="container | clr-neutral-000">
     <div class="portrait">
       <div class="portrait-wrapper">
         <img
@@ -92,7 +92,7 @@ const t = useTranslations(lang);
   #profile {
     background: color(neutral, '150');
 
-    .profile-container {
+    .container {
       display: grid;
       --cols: 4;
       grid-template-columns: repeat(var(--cols), 1fr);
@@ -243,7 +243,6 @@ const t = useTranslations(lang);
       tabButtons.forEach((b) => b.classList.remove('active'));
       t.classList.add('active');
     });
-    t.click();
   });
 
   const queryString = window.location.search;

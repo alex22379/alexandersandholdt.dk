@@ -1,7 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
 import TabWindow from './TabWindow.astro';
-import { getLangFromUrl } from '../../../modules/i18n/index.mts';
+import { getLangFromUrl } from '../../../../modules/i18n/index.mts';
 
 const bio = await getEntry('bio', `${getLangFromUrl(Astro.url)}/profile-bio`);
 const { lastUpdate } = bio.data;

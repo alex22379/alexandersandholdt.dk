@@ -2,16 +2,16 @@
 import { Icon } from 'astro-icon';
 ---
 
-<section id="hero" class="flex bg-neutral-100">
+<section id="hero" class="flow-root page-section | flex bg-neutral-100">
   <div
-    class="container flex | my-16 clr-brand-600"
+    class="container flex | clr-brand-600"
     data-flex="center"
     data-flex-direction="column"
   >
     <div class="pb | round">
       <img src="/img/portrait.jpg" alt="Alexander Sandholdt, August 2022" />
     </div>
-    <h1 class="title editable">
+    <h1 class="title">
       <span class="firstname editable">Alexander</span><br /><span
         class="lastname">Sandholdt</span
       >
@@ -31,8 +31,6 @@ import { Icon } from 'astro-icon';
   @use '/../src/styles/abstracts' as *;
 
   #hero {
-    min-height: 85vh;
-
     .pb {
       overflow: hidden;
       max-height: size(64);
