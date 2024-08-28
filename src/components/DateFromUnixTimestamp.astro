@@ -1,0 +1,6 @@
+---
+const { unixTimestamp, locale = "da-DK", options = { dateStyle: "long", timeStyle: "short" }} = Astro.props;
+const date = new Date(unixTimestamp * 1000);
+---
+
+<span>{date.toLocaleString(locale, options)}</span>
