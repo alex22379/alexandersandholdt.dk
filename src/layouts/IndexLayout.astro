@@ -2,15 +2,16 @@
 const { lang = 'da' } = Astro.props;
 ---
 
+<!-- Heavily inspired by https://kenneth.io/ -->
 <html lang={lang}>
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Alexander Sandholdt</title>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Alexander Sandholdt</title>
 
-		<!-- Favicon -->
+    <!-- Favicon -->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -33,8 +34,14 @@ const { lang = 'da' } = Astro.props;
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
     <meta name="theme-color" content="#ffffff" />
-	</head>
-	<body>
-		<slot />
-	</body>
+  </head>
+  <body>
+    <slot />
+    <nav>
+      <ul>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/projektor">Projekter</a></li>
+      </ul>
+    </nav>
+  </body>
 </html>
