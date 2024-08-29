@@ -29,7 +29,7 @@ import signatureImg from '@assets/signature.png';
     </ul>
   </nav>
   <div class="signature">
-    <Image src={signatureImg} alt="" width={portraitImg.width / 15} />
+    <Image src={signatureImg} alt="" />
   </div>
 </header>
 
@@ -38,7 +38,12 @@ import signatureImg from '@assets/signature.png';
 
   #sidebar {
     background-color: $sidebar-background-color;
-    padding: 1.25rem 1rem 0.25rem 1rem;
+    padding: 1.25rem 1rem 0.675rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
 
     .site-identity {
       .portrait {
@@ -104,6 +109,33 @@ import signatureImg from '@assets/signature.png';
             transform: translateX(4%);
           }
         }
+      }
+    }
+
+    nav {
+      align-self: flex-start;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          a {
+            color: $body-text-color;
+            text-transform: uppercase;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    .signature {
+      margin-top: auto;
+
+      img {
+        max-width: 10rem;
+        height: auto;
       }
     }
   }
