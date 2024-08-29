@@ -1,4 +1,8 @@
 ---
+import '../styles/style.scss';
+
+import Sidebar from '@/components/Sidebar.astro';
+
 const { lang = 'da' } = Astro.props;
 ---
 
@@ -36,22 +40,25 @@ const { lang = 'da' } = Astro.props;
     <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
-    <header id="sidebar">
-      <div id="site-brand">
-        <div class="brand-visual">
-          <img src="" alt="" />
-        </div>
-        <div class="brand-name"></div>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/projektor">Projekter</a></li>
-        </ul>
-      </nav>
-    </header>
+    <Sidebar />
+
     <main>
-      <slot />
+      <div class="content-wrapper">
+        <slot />
+      </div>
     </main>
+
+    <style lang="scss">
+      @use '../styles/abstracts/' as *;
+
+      body {
+        display: flex;
+        min-height: 100vh;
+
+        .content-wrapper {
+          margin: 1.25rem 1.5rem 0rem 1.5rem;
+        }
+      }
+    </style>
   </body>
 </html>
