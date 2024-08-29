@@ -51,7 +51,7 @@ const { value } = Astro.props;
       const toCopy = ctc.querySelector('span.to-copy')?.textContent;
 
       navigator.clipboard
-        .writeText(toCopy)
+        .writeText(toCopy!)
         .then(() => {})
         .catch((err) => {
           console.error('Failed to copy text: ', err);
