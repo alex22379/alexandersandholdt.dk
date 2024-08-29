@@ -3,7 +3,7 @@ import '../styles/style.scss';
 
 import Sidebar from '@/components/Sidebar.astro';
 
-const { lang = 'da' } = Astro.props;
+const { lang = 'da', title, frontmatter } = Astro.props;
 ---
 
 <!-- Heavily inspired by https://kenneth.io/ -->
@@ -13,7 +13,15 @@ const { lang = 'da' } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Alexander Sandholdt</title>
+    <title>
+      {
+        (title !== undefined
+          ? `${title} | `
+          : frontmatter.title !== undefined
+            ? `${frontmatter.title} | `
+            : '') + 'Alexander Sandholdt'
+      }
+    </title>
 
     <!-- Favicon -->
     <link

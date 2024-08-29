@@ -1,29 +1,61 @@
 ---
 import { Icon } from 'astro-icon/components';
+
+const { value } = Astro.props;
 ---
 
-<span class="copy2clipboard-container"
-  ><slot /><button><Icon name="mdi:content-copy" /></button></span
->
+<span class="copy-to-clipboard">
+  <span class="to-copy">{value}</span>
+  <button title="Kopier til udklipsholder"
+    ><Icon name="mdi:content-copy" /></button
+  >
+</span>
 
 <style lang="scss">
-  .copy2clipboard-container {
+  .copy-to-clipboard {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    gap: 0.25em;
-    background: #e2e2e2;
-    padding: 0.175em 0.275em;
+    gap: 0.175em;
+    background: #e8e8e8;
+    padding: 0.125em 0.275em;
     border-radius: 0.25em;
+
+    .to-copy {
+      font-family: font-family(mono);
+      font-size: 0.9em;
+    }
 
     button {
       background: none;
       border: none;
+      outline: none;
       cursor: copy;
 
       [data-icon] {
-        font-size: 0.9em;
+        font-size: 0.8em;
+      }
+
+      &:active {
+        transform: scale(0.9);
       }
     }
   }
 </style>
+
+<script>
+  const ctcList = document.querySelectorAll('.copy-to-clipboard');
+  ctcList.forEach((ctc) => {
+    const button = ctc.querySelector('button');
+    button?.addEventListener('click', (e) => {
+      const toCopy = ctc.querySelector('span.to-copy')?.textContent;
+
+      navigator.clipboard
+        .writeText(toCopy)
+        .then(() => {})
+        .catch((err) => {
+          console.error('Failed to copy text: ', err);
+        });
+    });
+  });
+</script>

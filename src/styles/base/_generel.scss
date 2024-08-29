@@ -10,6 +10,11 @@ body {
   background-color: $body-background-color;
 }
 
+::selection {
+  background: $color-highlight__bg;
+  color: $color-highlight__text;
+}
+
 a {
   color: $link-color;
   text-decoration: none;
