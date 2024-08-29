@@ -36,12 +36,22 @@ const { lang = 'da' } = Astro.props;
     <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
-    <slot />
-    <nav>
-      <ul>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/projektor">Projekter</a></li>
-      </ul>
-    </nav>
+    <header id="sidebar">
+      <div id="site-brand">
+        <div class="brand-visual">
+          <img src="" alt="" />
+        </div>
+        <div class="brand-name"></div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/projektor">Projekter</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
   </body>
 </html>
