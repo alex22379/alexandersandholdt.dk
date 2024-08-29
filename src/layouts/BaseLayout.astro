@@ -1,6 +1,8 @@
 ---
 import '../styles/style.scss';
 
+import { ViewTransitions } from 'astro:transitions';
+
 import Sidebar from '@/components/Sidebar.astro';
 
 const { lang = 'da', title, frontmatter } = Astro.props;
@@ -10,7 +12,6 @@ const { lang = 'da', title, frontmatter } = Astro.props;
 <html lang={lang}>
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>
@@ -46,6 +47,8 @@ const { lang = 'da', title, frontmatter } = Astro.props;
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
     <meta name="theme-color" content="#ffffff" />
+
+    <!-- <ViewTransitions /> -->
   </head>
   <body>
     <Sidebar />

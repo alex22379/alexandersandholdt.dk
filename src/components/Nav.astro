@@ -1,0 +1,56 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+
+const navItems = [
+  { name: 'Blog', href: '/blog' },
+  { name: 'Projekter', href: '/projects' },
+];
+---
+
+<nav aria-label="Primary Nav">
+  <ul>
+    {
+      navItems.map((item) => (
+        <li class:list={{ active: pathname == item.href }}>
+          <a href={item.href}>{item.name}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style lang="scss">
+  @use '../styles/abstracts/' as *;
+
+  nav {
+    align-self: flex-start;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      //font-family: font-family('mono');
+
+      li {
+        a {
+          color: $body-text-color;
+          text-transform: uppercase;
+          font-weight: 600;
+        }
+
+        &.active {
+          &::after {
+            content: '👈';
+            //margin-left: 0.5ch;
+          }
+        }
+      }
+
+      &:has(li:hover) {
+        li:not(:hover) {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+</style>

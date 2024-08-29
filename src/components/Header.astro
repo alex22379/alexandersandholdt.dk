@@ -1,0 +1,110 @@
+---
+import { Image } from 'astro:assets';
+import portraitImg from '@assets/portrait.jpg';
+
+import Nav from './Nav.astro';
+---
+
+<header>
+  <div class="site-identity">
+    <a href="/">
+      <div class="portrait">
+        <Image
+          src={portraitImg}
+          alt="Portrait of Alexander Sandholdt August 2023"
+        />
+      </div>
+      <div class="name">
+        <h1 class="title">
+          <span class="firstname">Alexander</span><br /><span class="lastname"
+            >Sandholdt</span
+          >
+        </h1>
+      </div>
+    </a>
+  </div>
+
+  <Nav />
+</header>
+
+<style lang="scss">
+  @use '../styles/abstracts/' as *;
+
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .site-identity {
+      display: grid;
+      place-items: center;
+
+      .portrait {
+        margin-inline: auto;
+        display: relative;
+        background-color: white;
+        overflow: hidden;
+        max-width: 6rem;
+        max-height: 6rem;
+        border-radius: 50vh;
+        transform: translateY(0.05rem);
+
+        img {
+          margin-top: -0.75rem;
+          max-width: inherit;
+          height: auto;
+          transform: scale(80%);
+          filter: grayscale(100%);
+
+          transition:
+            filter 350ms linear,
+            transform 740ms cubic-bezier(0, 0.93, 0.46, 0.94);
+        }
+
+        transition: transform 740ms cubic-bezier(0, 0.93, 0.46, 0.94);
+      }
+
+      .name {
+        margin-inline: auto;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: font-size(400);
+        line-height: 0.85;
+        color: #17285e;
+
+        .firstname,
+        .lastname {
+          display: inline-block;
+        }
+
+        .firstname {
+          transform: translateX(-2.5%);
+          transition: transform 700ms cubic-bezier(0, 0.93, 0.46, 0.94);
+        }
+
+        .lastname {
+          transform: translateX(2.5%) translateY(-0.2rem);
+          transition: transform 700ms cubic-bezier(0, 0.93, 0.46, 0.94) 40ms;
+        }
+      }
+
+      &:hover,
+      :focus {
+        .portrait {
+          transform: translateY(0.25rem);
+          img {
+            transform: scale(77.5%);
+          }
+        }
+
+        .name {
+          .firstname {
+            transform: translateX(-4%);
+          }
+          .lastname {
+            transform: translateX(4%) translateY(-0.2rem);
+          }
+        }
+      }
+    }
+  }
+</style>

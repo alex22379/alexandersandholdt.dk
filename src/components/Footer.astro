@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets';
+import signatureImg from '@assets/signature.png';
+---
+
+<footer>
+  <div class="signature">
+    <Image src={signatureImg} alt="" />
+  </div>
+</footer>
+
+<style lang="scss">
+  footer {
+    .signature {
+      margin-top: auto;
+
+      img {
+        max-width: 10rem;
+        height: auto;
+      }
+    }
+  }
+</style>
