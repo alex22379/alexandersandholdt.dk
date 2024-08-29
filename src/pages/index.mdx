@@ -7,18 +7,19 @@ lastUpdateUnixTimestamp: 1724873669
 
 import DataFromUnixTimestamp from '@components/DateFromUnixTimestamp.astro';
 import WavingHandEmoji from '@components/WavingHandEmoji.astro';
+import Copy2ClipboardInlineText from '@components/Copy2ClipboardInlineText.astro';
 
-(Få billede ind, tag inspi fra gammel side, kan findes på https://tiny-moss.cloudvent.net/?profileTab=bio#profile. Få underskrift ind, etc.)
-
-placer underskrift midt på bagrunden (lidt ligesom i docs)
-
-Hej, jeg hedder Alexander <WavingHandEmoji />
+## Hej, jeg hedder Alexander <WavingHandEmoji />
 
 - Opvokset i Sønderjylland
 - Bachelorstuderende på DTU fra August 2025
 - Fremtidig Civilingeniør i Informationsteknologi
 - Indtil videre har jeg ikke meget at dele, men kig forbi senere – mon ikke der kommer noget mere snart.
 
-Noget på hjerte? Send en besked min vej på <span>mail@alexandersandholdt.dk</span> - eller fang mig på LinkedIn (<a href="https://www.linkedin.com/in/alexandersandholdt/" target="_blank">in/alexandersandholdt</a>) eller Instagram (<a href="https://www.instagram.com/alexandersandholdt/" target="_blank">@alexandersandholdt</a>).
+Noget på hjerte? Send en besked min vej på <Copy2ClipboardInlineText>`mail@alexandersandholdt.dk`</Copy2ClipboardInlineText> - eller fang mig på LinkedIn (<a href="https://www.linkedin.com/in/alexandersandholdt/" target="_blank">in/alexandersandholdt</a>) eller Instagram (<a href="https://www.instagram.com/alexandersandholdt/" target="_blank">@alexandersandholdt</a>).
 
-[Sidst opdateret: <DataFromUnixTimestamp unixTimestamp={frontmatter.lastUpdateUnixTimestamp}></DataFromUnixTimestamp>]
+<br />
+
+<span class="fs-200 ff-mono">
+  [Sidst opdateret:{' '}<DataFromUnixTimestamp unixTimestamp={frontmatter.lastUpdateUnixTimestamp}></DataFromUnixTimestamp>]
+</span>

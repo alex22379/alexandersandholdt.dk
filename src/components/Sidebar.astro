@@ -24,7 +24,7 @@ import signatureImg from '@assets/signature.png';
   </div>
   <nav>
     <ul>
-      <li><a href="/blog">Blog</a></li>
+      <li class="active"><a href="/blog">Blog</a></li>
       <li><a href="/projektor">Projekter</a></li>
     </ul>
   </nav>
@@ -75,7 +75,7 @@ import signatureImg from '@assets/signature.png';
         font-family: 'Times New Roman', Times, serif;
         font-size: clamp(0.43rem, 0.983vw + 0.184rem, 1rem);
         line-height: 0.85;
-        color: #100291;
+        color: #17285e;
 
         .firstname,
         .lastname {
@@ -93,7 +93,8 @@ import signatureImg from '@assets/signature.png';
         }
       }
 
-      &:hover {
+      &:hover,
+      :focus {
         .portrait {
           transform: translateY(0.25rem);
           img {
@@ -119,12 +120,26 @@ import signatureImg from '@assets/signature.png';
         margin: 0;
         padding: 0;
         list-style: none;
+        //font-family: font-family('mono');
 
         li {
           a {
             color: $body-text-color;
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 600;
+          }
+
+          &.active {
+            &::after {
+              content: '👈';
+              margin-left: 0.5ch;
+            }
+          }
+        }
+
+        &:has(li:hover) {
+          li:not(:hover) {
+            opacity: 0.6;
           }
         }
       }

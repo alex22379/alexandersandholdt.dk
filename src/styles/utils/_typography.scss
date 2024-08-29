@@ -1,0 +1,26 @@
+@use 'src/styles/abstracts' as *;
+
+//families
+
+@each $font, $value in $font-families {
+  .ff-#{$font} {
+    font-family: $value;
+  }
+}
+
+//weights
+
+@for $i from 1 through 9 {
+  $weight: $i * 100;
+  .fw-#{$weight} {
+    font-weight: $weight;
+  }
+}
+
+// sizes
+
+@each $size, $value in $font-sizes {
+  .fs-#{$size} {
+    font-size: $value;
+  }
+}

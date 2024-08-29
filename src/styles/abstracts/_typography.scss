@@ -1,0 +1,60 @@
+@use 'sass:map';
+
+// families
+$-ff-sans:
+  'Inter Variable',
+  ui-sans-serif,
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  'Helvetica Neue',
+  Arial,
+  'Noto Sans',
+  sans-serif,
+  'Apple Color Emoji',
+  'Segoe UI Emoji',
+  'Segoe UI Symbol',
+  'Noto Color Emoji';
+$-ff-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+$-ff-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+  'Liberation Mono', 'Courier New', monospace;
+
+$font-families: (
+  sans: $-ff-sans,
+  serif: $-ff-serif,
+  mono: $-ff-mono,
+);
+
+@function font-family($family) {
+  @return map-get($font-families, $family);
+}
+
+// sizes
+
+$-fs-100: clamp(0.51rem, -0.02vw + 0.52rem, 0.5rem);
+$-fs-200: clamp(0.64rem, 0.05vw + 0.63rem, 0.67rem);
+$-fs-300: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
+$-fs-400: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+$-fs-500: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
+$-fs-600: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
+$-fs-700: clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem);
+$-fs-800: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+$-fs-900: clamp(3.05rem, 3.54vw + 2.17rem, 5rem);
+
+$font-sizes: (
+  100: $-fs-100,
+  200: $-fs-200,
+  300: $-fs-300,
+  400: $-fs-400,
+  500: $-fs-500,
+  600: $-fs-600,
+  700: $-fs-700,
+  800: $-fs-800,
+  900: $-fs-900,
+);
+
+@function font-size($size) {
+  @return map-get($font-sizes, $size);
+}

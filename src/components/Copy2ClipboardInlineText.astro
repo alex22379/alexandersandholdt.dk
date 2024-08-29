@@ -1,0 +1,29 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<span class="copy2clipboard-container"
+  ><slot /><button><Icon name="mdi:content-copy" /></button></span
+>
+
+<style lang="scss">
+  .copy2clipboard-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25em;
+    background: #e2e2e2;
+    padding: 0.175em 0.275em;
+    border-radius: 0.25em;
+
+    button {
+      background: none;
+      border: none;
+      cursor: copy;
+
+      [data-icon] {
+        font-size: 0.9em;
+      }
+    }
+  }
+</style>
