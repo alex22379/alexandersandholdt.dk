@@ -8,6 +8,7 @@ body {
   font-family: $body-font-family;
   color: $body-text-color;
   background-color: $body-background-color;
+  line-height: $body-line-height;
 }
 
 ::selection {
