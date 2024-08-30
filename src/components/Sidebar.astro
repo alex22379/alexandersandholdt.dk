@@ -3,9 +3,11 @@ import Header from './Header.astro';
 import Footer from './Footer.astro';
 ---
 
-<aside id="sidebar">
-  <Header />
-  <Footer />
+<aside id="sidebar" data-grid-layout="content">
+  <div class="content-wrapper" data-grid-layout-width="breakout">
+    <Header />
+    <Footer />
+  </div>
 </aside>
 
 <style lang="scss">
@@ -13,11 +15,13 @@ import Footer from './Footer.astro';
 
   #sidebar {
     background-color: $sidebar-background-color;
+    color: $sidebar-text-color;
+    padding-block: $site-top-gap $site-bottom-gap;
 
-    padding: 1.25rem 1rem 0.675rem 1rem;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
   }
 </style>

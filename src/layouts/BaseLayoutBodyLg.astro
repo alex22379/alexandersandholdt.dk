@@ -1,0 +1,30 @@
+---
+import Sidebar from '@/components/Sidebar.astro';
+---
+
+<div class="body-dummy">
+  <Sidebar />
+
+  <main data-grid-layout="content">
+    <div class="slot-wrapper">
+      <slot />
+    </div>
+  </main>
+</div>
+
+<style lang="scss">
+  @use '../styles/abstracts/' as *;
+
+  .body-dummy {
+    display: flex;
+
+    main {
+      min-height: 100vh;
+      padding-block: $site-top-gap $site-bottom-gap;
+
+      .slot-wrapper {
+        max-width: 80ch;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,53 @@
+---
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+---
+
+<div class="body-dummy">
+  <div class="site-wrapper">
+    <div class="header-wrapper" data-grid-layout="content">
+      <div data-grid-layout-width="breakout">
+        <Header />
+      </div>
+    </div>
+
+    <main data-grid-layout="content">
+      <div class="slot-wrapper">
+        <slot />
+      </div>
+    </main>
+  </div>
+
+  <div class="footer-wrapper" data-grid-layout="content">
+    <div data-grid-layout-width="breakout">
+      <Footer />
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use '../styles/abstracts/' as *;
+  .body-dummy {
+    .site-wrapper {
+      min-height: 100vh;
+
+      .header-wrapper {
+        padding-block: $site-top-gap;
+        background-color: $sidebar-background-color;
+      }
+
+      main {
+        padding-block: $site-top-gap $site-bottom-gap;
+
+        .slot-wrapper {
+          max-width: 80ch;
+        }
+      }
+    }
+
+    .footer-wrapper {
+      padding-block: $site-bottom-gap;
+      background-color: $sidebar-background-color;
+    }
+  }
+</style>

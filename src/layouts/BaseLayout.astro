@@ -3,7 +3,8 @@ import '../styles/style.scss';
 
 import { ViewTransitions } from 'astro:transitions';
 
-import Sidebar from '@/components/Sidebar.astro';
+import BaseLayoutBodyLg from './BaseLayoutBodyLg.astro';
+import BaseLayoutBodySm from './BaseLayoutBodySm.astro';
 
 const { lang = 'da', title, frontmatter } = Astro.props;
 ---
@@ -51,24 +52,23 @@ const { lang = 'da', title, frontmatter } = Astro.props;
     <!-- <ViewTransitions /> -->
   </head>
   <body>
-    <Sidebar />
-
-    <main>
-      <div class="content-wrapper">
-        <slot />
-      </div>
-    </main>
+    <div class="body-lg"><BaseLayoutBodyLg><slot /></BaseLayoutBodyLg></div>
+    <div class="body-sm"><BaseLayoutBodySm><slot /></BaseLayoutBodySm></div>
 
     <style lang="scss">
       @use '../styles/abstracts/' as *;
 
-      body {
-        display: flex;
-        min-height: 100vh;
+      .body-sm {
+        display: none;
+      }
 
-        .content-wrapper {
-          margin: 1.25rem 1.5rem 0rem 1.5rem;
-          max-width: 80ch;
+      @media only screen and (max-width: calc(2*2.5rem + $content-max-width)) {
+        .body-lg {
+          display: none;
+        }
+
+        .body-sm {
+          display: initial;
         }
       }
     </style>

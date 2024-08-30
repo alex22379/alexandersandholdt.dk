@@ -1,0 +1,25 @@
+[data-grid-layout='content'] {
+  --gap: clamp(0.125rem, 3vw, 1.5rem);
+  --full: minmax(var(--gap), 1fr);
+  --content: min(100ch, 100% - var(--gap) * 2);
+  --breakout: minmax(0, 1rem);
+
+  display: grid;
+  grid-template-columns:
+    [full-start] var(--full)
+    [breakout-start] var(--breakout)
+    [content-start] var(--content) [content-end]
+    var(--breakout) [breakout-end]
+    var(--full) [full-end];
+
+  & > * {
+    grid-column: content;
+  }
+
+  $widths: 'full', 'breakout', 'content';
+  @each $width in $widths {
+    & > [data-grid-layout-width='#{$width}'] {
+      grid-column: #{$width};
+    }
+  }
+}
