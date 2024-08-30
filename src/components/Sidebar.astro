@@ -3,20 +3,32 @@ import Header from './Header.astro';
 import Footer from './Footer.astro';
 ---
 
-<aside id="sidebar" data-grid-layout="content">
-  <div class="content-wrapper" data-grid-layout-width="breakout">
-    <Header />
-    <Footer />
-  </div>
-</aside>
+<div class="sidebar-wrapper">
+  <aside id="sidebar" data-grid-layout="content">
+    <div class="content-wrapper" data-grid-layout-width="breakout">
+      <Header />
+      <Footer />
+    </div>
+  </aside>
+</div>
 
 <style lang="scss">
   @use '../styles/abstracts/' as *;
+
+  .sidebar-wrapper {
+    position: relative;
+    height: 100vh;
+    min-width: var(--sidebar-length);
+  }
 
   #sidebar {
     background-color: $sidebar-background-color;
     color: $sidebar-text-color;
     padding-block: $site-top-gap $site-bottom-gap;
+
+    height: 100%;
+    overflow: auto;
+    position: fixed;
 
     .content-wrapper {
       display: flex;
@@ -25,3 +37,14 @@ import Footer from './Footer.astro';
     }
   }
 </style>
+
+<script type="module">
+  // Select the element
+  const sidebar = document.getElementById('sidebar');
+
+  // Get the length (e.g., width or height)
+  const length = sidebar?.getBoundingClientRect().width; // or use height
+
+  // Set the CSS variable
+  document.documentElement.style.setProperty('--sidebar-length', `${length}px`);
+</script>

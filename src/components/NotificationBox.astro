@@ -1,0 +1,43 @@
+---
+
+---
+
+<div id="notification-box">
+  <span class="notification-msg">dette er en notifikation...</span>
+</div>
+
+<style lang="scss">
+  @use '../styles/abstracts/' as *;
+
+  #notification-box {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 2rem;
+    z-index: 1000;
+    transition: all 0.25s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+
+    .notification-msg {
+      color: red;
+      padding: 0.35rem 0.6rem;
+      border-radius: 0.25rem;
+
+      font-size: font-size(300);
+      line-height: normal;
+      font-family: font-family('mono');
+
+      /* From https://css.glass */
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(6.8px);
+      -webkit-backdrop-filter: blur(6.8px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    &.show {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+</style>

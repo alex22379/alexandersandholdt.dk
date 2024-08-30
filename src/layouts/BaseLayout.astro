@@ -6,6 +6,8 @@ import { ViewTransitions } from 'astro:transitions';
 import BaseLayoutBodyLg from './BaseLayoutBodyLg.astro';
 import BaseLayoutBodySm from './BaseLayoutBodySm.astro';
 
+import NotificationBox from '@/components/notificationBox.astro';
+
 const { lang = 'da', title, frontmatter } = Astro.props;
 ---
 
@@ -60,6 +62,8 @@ const { lang = 'da', title, frontmatter } = Astro.props;
   <body>
     <div class="body-lg"><BaseLayoutBodyLg><slot /></BaseLayoutBodyLg></div>
     <div class="body-sm"><BaseLayoutBodySm><slot /></BaseLayoutBodySm></div>
+
+    <NotificationBox />
 
     <style lang="scss">
       @use '../styles/abstracts/' as *;
