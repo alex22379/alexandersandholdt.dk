@@ -25,19 +25,3 @@ import Footer from './Footer.astro';
     }
   }
 </style>
-
-<script>
-  window.addEventListener('load', function () {
-    // Select the element
-    const sidebar = document.getElementById('sidebar');
-
-    // Get the length (e.g., width or height)
-    const length = sidebar?.getBoundingClientRect().width; // or use height
-
-    // Set the CSS variable
-    document.documentElement.style.setProperty(
-      '--sidebar-length',
-      `${length}px`
-    );
-  });
-</script>
