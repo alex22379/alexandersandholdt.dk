@@ -1,11 +1,30 @@
 import { defineConfig } from 'astro/config';
-import mdx from "@astrojs/mdx";
+import mdx from '@astrojs/mdx';
+import icon from 'astro-icon';
+import purgecss from 'astro-purgecss';
 
-import icon from "astro-icon";
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [mdx(), icon()],
+  integrations: [
+    mdx(),
+    icon(),
+    purgecss({
+      extractors: [
+        {
+          extractor: (content) => content.match(/[\w-/:.]+(?<!:)/g) || [],
+          extensions: ['astro', 'md', 'mdx', 'scss', 'html'],
+        },
+      ],
+    }),
+    sitemap({
+      filter: (page) => page !== 'https://alexandersandholdt.dk/lorem',
+    }),
+  ],
   site: 'https://alexandersandholdt.dk',
-	trailingSlash: "never"
+  trailingSlash: 'never',
+  build: {
+    inlineStylesheets: 'never',
+  },
 });

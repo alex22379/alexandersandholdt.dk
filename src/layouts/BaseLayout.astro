@@ -24,6 +24,10 @@ const { lang = 'da', title, frontmatter } = Astro.props;
             : '') + 'Alexander Sandholdt'
       }
     </title>
+    <meta
+      name="description"
+      content="Alexander Sandholdts personlige hjemmeside - læs kort om mig, udforsk mine projektor, besøg min blog og/eller forbind med mig på diverse medier."
+    />
 
     <!-- Favicon -->
     <link
@@ -49,6 +53,8 @@ const { lang = 'da', title, frontmatter } = Astro.props;
     <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
     <meta name="theme-color" content="#ffffff" />
 
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
     <!-- <ViewTransitions /> -->
   </head>
   <body>
@@ -62,7 +68,7 @@ const { lang = 'da', title, frontmatter } = Astro.props;
         display: none;
       }
 
-      @media only screen and (max-width: calc(2*2.5rem + $content-max-width)) {
+      @media only screen and (max-width: $content-max-width*1.5) {
         .body-lg {
           display: none;
         }
