@@ -1,12 +1,11 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import type { GetDataEntryInfoReturnType } from 'astro';
 import { Icon } from 'astro-icon/components';
 
 import { getCollection } from 'astro:content';
 const blogEntries = await getCollection('blog');
 
-const sortedEntries: Record<string, GetDataEntryInfoReturnType[]> = {};
+const sortedEntries: Record<string, any[]> = {};
 
 blogEntries.forEach((entry) => {
   const date = new Date(entry.data.date);
