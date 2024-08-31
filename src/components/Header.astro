@@ -15,11 +15,11 @@ import Nav from './Nav.astro';
         />
       </div>
       <div class="name">
-        <h1 class="title">
+        <p class="title">
           <span class="firstname">Alexander</span><br /><span class="lastname"
             >Sandholdt</span
           >
-        </h1>
+        </p>
       </div>
     </a>
   </div>
@@ -47,7 +47,7 @@ import Nav from './Nav.astro';
         max-width: 6rem;
         max-height: 6rem;
         border-radius: 50vh;
-        transform: translateY(0.05rem);
+        transform: translateY(0.2rem);
 
         img {
           margin-top: -0.75rem;
@@ -66,10 +66,14 @@ import Nav from './Nav.astro';
 
       .name {
         margin-inline: auto;
-        font-family: 'Times New Roman', Times, serif;
-        font-size: font-size(3000);
-        line-height: 0.85;
-        color: #17285e;
+
+        p {
+          font-family: 'Times New Roman', Times, serif;
+          font-size: 2rem;
+          font-weight: 900;
+          line-height: 0.9;
+          color: #17285e;
+        }
 
         .firstname,
         .lastname {
@@ -90,7 +94,7 @@ import Nav from './Nav.astro';
       &:hover,
       :focus {
         .portrait {
-          transform: translateY(0.185rem);
+          transform: translateY(0.3rem);
           img {
             transform: scale(77.5%);
           }

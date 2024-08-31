@@ -1,0 +1,84 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+import { Icon } from 'astro-icon/components';
+
+import { getCollection } from 'astro:content';
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+// 2. For your template, you can get the entry directly from the prop
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={entry.data.title + ' | Blog'}>
+  <div class="breadcrumb">
+    <a href="/blog" class="fs-200 ff-mono"
+      ><Icon name="mdi:arrow-left" />Tilbage til oversigten</a
+    >
+  </div>
+  <article class="entry">
+    <h1 class="entry-title">{entry.data.title}</h1>
+    <div class="entry-date | fs-300">
+      <Icon name="mdi:calendar" />
+      <span>
+        {
+          new Date(entry.data.date).toLocaleString('da-DK', {
+            dateStyle: 'long',
+            timeStyle: 'short',
+          })
+        }
+      </span>
+    </div>
+    <div class="entry-content">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style lang="scss">
+  @use '../../styles/abstracts/' as *;
+
+  .breadcrumb {
+    a {
+      display: flex;
+      align-items: center;
+
+      text-transform: uppercase;
+
+      [data-icon] {
+        display: inline;
+        margin-right: 0.2rem;
+      }
+    }
+  }
+
+  .entry {
+    margin-top: 0.35rem;
+
+    .entry-title {
+      color: #17285e;
+    }
+
+    .entry-date {
+      display: flex;
+      align-items: center;
+      color: #737373;
+
+      [data-icon] {
+        margin-right: 0.2rem;
+      }
+    }
+
+    .entry-content {
+      color: rgb(56, 56, 56);
+      margin-top: 0.35rem;
+    }
+  }
+</style>

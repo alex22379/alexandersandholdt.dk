@@ -1,5 +1,6 @@
 ---
 const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.split('/')[1];
 
 const navItems = [
   { name: 'Blog', href: '/blog' },
@@ -11,7 +12,7 @@ const navItems = [
   <ul>
     {
       navItems.map((item) => (
-        <li class:list={{ active: pathname == item.href }}>
+        <li class:list={{ active: currentPath == item.href.slice(1) }}>
           <a href={item.href}>{item.name}</a>
         </li>
       ))
@@ -29,13 +30,13 @@ const navItems = [
       margin: 0;
       padding: 0;
       list-style: none;
-      //font-family: font-family('mono');
+      font-size: initial;
 
       li {
         a {
           color: $body-text-color;
           text-transform: uppercase;
-          font-weight: 600;
+          font-weight: 700;
         }
 
         &.active {

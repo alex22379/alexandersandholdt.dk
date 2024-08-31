@@ -3,7 +3,9 @@
 $body-text-color: rgb(0, 0, 0);
 $body-background-color: hwb(0 98% 2%);
 $body-font-family: font-family('sans');
+$body-font-weight: 500;
 $body-line-height: 1.5;
+$body-font-size: font-size(400);
 
 $sidebar-text-color: $body-text-color;
 $sidebar-background-color: #f6f6f6;
@@ -16,5 +18,5 @@ $content-max-width: 80ch;
 $color-highlight__bg: #ff5500;
 $color-highlight__text: white;
 
-$link-color: #0000ee;
+$link-color: #3373dc;
 $link-color-hover: $link-color;
