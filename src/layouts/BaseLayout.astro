@@ -9,6 +9,13 @@ import BaseLayoutBodySm from './BaseLayoutBodySm.astro';
 import NotificationBox from '@/components/NotificationBox.astro';
 
 const { lang = 'da', title, frontmatter } = Astro.props;
+
+const pageTitle =
+  (title !== undefined
+    ? `${title} | `
+    : frontmatter.title !== undefined
+      ? `${frontmatter.title} | `
+      : '') + 'Alexander Sandholdt';
 ---
 
 <!-- Heavily inspired by https://kenneth.io/ -->
@@ -18,13 +25,7 @@ const { lang = 'da', title, frontmatter } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>
-      {
-        (title !== undefined
-          ? `${title} | `
-          : frontmatter.title !== undefined
-            ? `${frontmatter.title} | `
-            : '') + 'Alexander Sandholdt'
-      }
+      {pageTitle}
     </title>
     <meta
       name="description"

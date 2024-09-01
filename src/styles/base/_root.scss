@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
 :root {
-  --sidebar-length: 240px;
+  --sidebar-length: 251.9609375px;
 
   @each $size, $value in $font-sizes {
     --fs-#{$size}: #{$value};
