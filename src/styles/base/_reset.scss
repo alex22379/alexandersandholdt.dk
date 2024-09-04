@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
@@ -11,13 +13,15 @@
 *::after {
   box-sizing: border-box;
 }
+
 /*
   2. Remove default margin
 */
 *:not(ul, ol) {
   margin: 0;
-  padding: 0; // does it do a difference?
+  padding: 0;
 }
+
 /*
   Typographic tweaks!
   3. Add accessible line-height
@@ -26,6 +30,7 @@
 body {
   -webkit-font-smoothing: antialiased;
 }
+
 /*
   5. Improve media defaults
 */
@@ -49,4 +54,12 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+p,
+li,
+figcaption {
+  text-wrap: pretty;
+  max-width: $content-max-width;
 }
