@@ -19,6 +19,8 @@
 >
 
 <style lang="scss">
+  @use '../styles/abstracts/' as *;
+
   .github-corner {
     svg {
       transition: all 150ms ease;
@@ -53,12 +55,13 @@
       transform: rotate(10deg);
     }
   }
-  @media (max-width: 500px) {
+  @media (max-width: $content-max-width*1.5) {
     .github-corner:hover .octo-arm {
       animation: none;
     }
     .github-corner .octo-arm {
       animation: octocat-wave 840ms ease-in-out;
+      animation-delay: 1000ms;
     }
   }
 </style>
