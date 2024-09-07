@@ -6,7 +6,7 @@ import { ViewTransitions } from 'astro:transitions';
 import BaseLayoutBodyLg from './BaseLayoutBodyLg.astro';
 import BaseLayoutBodySm from './BaseLayoutBodySm.astro';
 
-import GithubOverlayLink from '@/components/GithubOverlayLink.astro';
+import GithubCorner from '@/components/GithubCorner.astro';
 import NotificationBox from '@/components/NotificationBox.astro';
 
 const { lang = 'da', title, frontmatter } = Astro.props;
@@ -64,7 +64,7 @@ const pageTitle =
     <div class="body-lg"><BaseLayoutBodyLg><slot /></BaseLayoutBodyLg></div>
     <div class="body-sm"><BaseLayoutBodySm><slot /></BaseLayoutBodySm></div>
 
-    <GithubOverlayLink />
+    <GithubCorner />
     <NotificationBox />
 
     <style lang="scss" is:global>
@@ -82,7 +82,7 @@ const pageTitle =
         display: none;
       }
 
-      @media only screen and (max-width: $content-max-width*1.5) {
+      @media only screen and (max-width: $breakpoint-sm) {
         .body-lg {
           display: none;
         }

@@ -14,6 +14,7 @@ $site-top-gap: 2rem;
 $site-bottom-gap: 0.675rem;
 
 $content-max-width: 70ch;
+$breakpoint-sm: calc($content-max-width + 252px + 8rem);
 
 $color-highlight__bg: #ff5500;
 $color-highlight__text: white;
