@@ -22,7 +22,8 @@ a {
   color: $link-color;
   text-decoration: none;
 
-  &:is(:hover, :focus) {
+  &:hover,
+  &:focus {
     color: $link-color-hover;
     text-decoration: underline;
   }
