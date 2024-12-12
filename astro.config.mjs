@@ -19,12 +19,12 @@ export default defineConfig({
       ],
     }),
     sitemap({
-      filter: (page) => page !== 'https://alexandersandholdt.dk/lorem',
+      filter: (page) => page !== 'https://alexandersandholdt.dk/lorem' && page !== 'https://alexandersandholdt.dk/ønskeliste',
     }),
   ],
   site: 'https://alexandersandholdt.dk',
   trailingSlash: 'never',
   build: {
-    inlineStylesheets: 'never',
+    format: 'preserve',
   },
 });
