@@ -1,24 +1,43 @@
 ---
 import { Image } from 'astro:assets';
 import signatureImg from '@assets/signature.png';
+
+import { Icon } from 'astro-icon/components';
 ---
 
 <footer>
-  <div class="signature">
-    <Image src={signatureImg} alt="" />
+  <div class="github">
+    <a
+      class="fs-200"
+      href="https://github.com/alex22379/alexandersandholdt.dk"
+      target="_blank"
+      ><Icon name="mdi:external-link" />Find på GitHub
+    </a>
+    <div class="signature">
+      <Image src={signatureImg} alt="" />
+    </div>
   </div>
-</footer>
 
-<style lang="scss">
-  footer {
-    display: grid;
-    place-items: center;
+  <style lang="scss">
+    footer {
+      display: grid;
+      place-items: center;
 
-    .signature {
-      img {
-        max-width: 10rem;
-        height: auto;
+      .github {
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.1rem;
+        }
+      }
+
+      .signature {
+        img {
+          max-width: 10rem;
+          height: auto;
+        }
       }
     }
-  }
-</style>
+  </style>
+</footer>
